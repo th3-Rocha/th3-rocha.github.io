@@ -1,0 +1,42 @@
+{
+  "links": {
+    "github":"https://github.com/th3-Rocha",
+    "mail":"mailto:murilorocha537@gmail.com",
+    "instagram": "https://www.instagram.com/rekhchand_design/"
+  },
+  "header": {
+    "title": "Murilo Rocha Portfolio",
+    "navigation": {
+      "home": "Rocha",
+      "about": "About me",
+      "contact": "Contact me",
+      "theme": "Theme"
+    }
+  },
+  "home": {
+    "name": "Murilo Rocha",
+    "nameDescription": "Frontend Developer & Backend Node.js Engineer specializing in ",
+    "nameDescriptionHighlight": "Games & Webapps",
+    "works": {
+      "title": "Galery of AI art",
+      "description": "An galery of AI art made by dallE"
+    }
+  },
+  "about": {
+    "intro": "Weaving Seamless Experiences Across Interfaces and Infrastructure"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Submit"
+    },
+    "address": "123 Main Street, City, Country"
+  },
+  "footer": {
+    "call": "Have a project in mind? Contact me",
+    "copyright": "© 2023 My Website. All rights reserved."
+  }
+}
