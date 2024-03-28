@@ -1,34 +1,44 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { useContext, useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
-  HashRouter,
 } from "react-router-dom";
 import "./index.css";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { LanguageProvider } from "./translations/LanguageContext";
-import { ThemeProvider } from "./theme/ThemeProvider";
-import minimalistic from "./theme/themes/minimalistic";
+import { ThemeProvider, ThemeContext } from "./theme/ThemeProvider";
 import { createRoot } from "react-dom/client";
+import { useParams } from "react-router-dom";
+
+
+
 
 function App() {
-  //HasRouter becaouse of github
+  const [isDark, setIsDark] = useState(true);
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    console.log(isDark);
+  };
+  
+
   return (
-      <Router>
-        <LanguageProvider>
-          <ThemeProvider initialTheme={minimalistic}>
+    <Router>
+      <LanguageProvider>
+        <ThemeProvider darkMode={isDark}>
+          <div>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home  toggleDarkTheme={toggleTheme}/>}  />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
-          </ThemeProvider>
-        </LanguageProvider>
-      </Router>
+          </div>
+        </ThemeProvider>
+      </LanguageProvider>
+    </Router>
   );
 }
 

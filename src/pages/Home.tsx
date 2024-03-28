@@ -7,7 +7,7 @@ import {
   GithubCircle,
   SunLight,
 } from "iconoir-react";
-import Header from "../components/minimalist/header";
+import Header from "../components/header";
 import React, { useContext, useEffect, useState } from "react";
 import { LanguageContext } from "../translations/LanguageContext";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
@@ -16,6 +16,9 @@ import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import "./locomotive-scroll.css";
 import { useRef } from "react";
 import gsap from "gsap";
+import IconButtonTheme from "../components/iconButtonTheme";
+import IconButtonLink from "../components/iconButtonLink";
+import { Theme } from "../theme/themes/theme";
 
 const HomeContainer = styled.div`
   display: flex;
@@ -24,6 +27,7 @@ const HomeContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.primary};
+  transition: 0.3s ease;
 `;
 
 const ExtContainer = styled.div`
@@ -39,7 +43,7 @@ const ExtContainer = styled.div`
 `;
 
 const LeftContainer = styled.div`
-  border-right: 1px solid #00000012;
+  border-right: 1px solid ${({ theme }) => theme.colors.secondary};
   min-width: 19rem;
   @media (max-width: 1100px) {
     min-width: 1rem;
@@ -48,7 +52,7 @@ const LeftContainer = styled.div`
 const RightContainer = styled.div``;
 
 const IntroContainer = styled.div`
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
   height: 494px;
   margin-right: 2rem;
   position: relative;
@@ -58,14 +62,16 @@ const IntroContainer = styled.div`
 const IntroTexts = styled.div`
   margin-left: 0.6rem;
   div {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 90%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
     h1 {
+      font-style: italic;
       margin: 0;
       position: relative;
       overflow: hidden;
-
+      width: 100;
       margin-top: 7.4rem;
-      font-family: "Dancing Script";
+      font-weight: 400;
+      font-family: "shzapfrenaisantlight-ita";
       font-size: 6rem;
       margin-bottom: 0px;
     }
@@ -96,30 +102,22 @@ const IntroIcons = styled.div`
   position: absolute;
   bottom: 0;
   margin-bottom: 1.5rem;
+  
 `;
 
-const Icon = styled.div`
-  padding: 0.8rem;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+interface HomeProps {
+  toggleDarkTheme: () => void;
+}
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  * {
-    height: 1.8rem;
-    width: 1.8rem;
-  }
-`;
-
-function Home() {
+function Home({ toggleDarkTheme }: HomeProps) {
   const { scroll } = useLocomotiveScroll();
   const containerRef = useRef(null);
+  const [isActive, setIsActive] = useState(toggleDarkTheme);
 
   const { language, translations } = useContext(LanguageContext);
 
   useEffect(() => {
-    gsap.from(".intro-texts > div > h1, h2", { 
+    gsap.from(".intro-texts > div > h1, h2", {
       duration: 1,
       yPercent: 600,
       ease: "power4",
@@ -128,7 +126,7 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    gsap.from(".intro-Icons > div", { 
+    gsap.from(".intro-Icons > div", {
       duration: 1,
       yPercent: 35,
       ease: "power4",
@@ -142,10 +140,10 @@ function Home() {
         <Header activePage="home" />
         <LocomotiveScrollProvider
           options={{
-            smooth: true, // Enable smooth scrolling
-            direction: "vertical", // Set scroll direction to vertical (default is 'vertical')
-            smartphone: { smooth: true }, // Enable smooth scrolling on smartphones
-            tablet: { smooth: true }, // Enable smooth scrolling on tablets
+            smooth: true,
+            direction: "vertical",
+            smartphone: { smooth: true },
+            tablet: { smooth: true },
           }}
           watch={[]}
           containerRef={containerRef}
@@ -155,7 +153,7 @@ function Home() {
               <LeftContainer></LeftContainer>
               <RightContainer>
                 <IntroContainer data-scroll>
-                  <IntroTexts  className="intro-texts">
+                  <IntroTexts className="intro-texts">
                     <div>
                       <h1>{translations.home.name}</h1>
                     </div>
@@ -168,19 +166,24 @@ function Home() {
                       </h2>
                     </div>
                   </IntroTexts>
-                  <IntroIcons  className="intro-Icons">
-                    <Icon>
-                      <GithubCircle />
-                    </Icon>
-                    <Icon>
-                      <Mail />
-                    </Icon>
-                    <Icon>
-                      <Instagram />
-                    </Icon>
-                    <Icon>
-                      <HalfMoon />
-                    </Icon>
+                  <IntroIcons className="intro-Icons">
+                    <IconButtonLink
+                      url="https://github.com/th3-Rocha"
+                      children={<GithubCircle />}
+                    />
+                    <IconButtonLink
+                      url="https://mailto:murilorocha537@gmail.com"
+                      children={<Mail />}
+                    />
+                    <IconButtonLink
+                      url="https://instagram.com.br"
+                      children={<Instagram />}
+                    />
+                    <IconButtonTheme
+                      children1={<HalfMoon />}
+                      children2={<SunLight />}
+                      onClick={toggleDarkTheme}
+                    />
                   </IntroIcons>
                 </IntroContainer>
               </RightContainer>

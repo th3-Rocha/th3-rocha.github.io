@@ -2,49 +2,35 @@ import React, { createContext, useState } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { Theme } from "./themes/theme";
 import minimalisticTheme from "./themes/minimalistic";
-import joyfulTheme from "./themes/joyfull";
-import hightecTheme from "./themes/highTech";
+import minimalisticDarkTheme from "./themes/minimalisticDark";
+import { useContext, useEffect } from "react";
 
 interface ThemeContextProps {
+  darkT: boolean;
   theme: Theme;
-  toggleTheme: () => void;
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({
-  theme: minimalisticTheme, // Replace with your default theme
-  toggleTheme: () => {},
+  darkT: false,
+  theme: minimalisticTheme,
 });
 
 interface ThemeProviderProps {
   children: React.ReactNode;
-  initialTheme: Theme; // Add initialTheme prop
+  darkMode: boolean; 
 }
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({
-  children,
-  initialTheme,
-}) => {
-  const [theme, setTheme] = useState<Theme>(initialTheme);
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, darkMode }) => {
+  const [darkT, setDarkT] = useState<boolean>(darkMode);
+  let theme = darkT ? minimalisticDarkTheme : minimalisticTheme;
 
-  const toggleTheme = () => {
-    // Implement theme switching logic here
-    switch (theme) {
-      case minimalisticTheme:
-        setTheme(joyfulTheme);
-        break;
-      case joyfulTheme:
-        setTheme(hightecTheme);
-        break;
-      case hightecTheme:
-        setTheme(minimalisticTheme);
-        break;
-      default:
-        setTheme(minimalisticTheme);
-    }
-  };
+  useEffect(() => {
+    theme = darkT ? minimalisticDarkTheme : minimalisticTheme;
+    setDarkT(darkMode);
+  }, [darkMode]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ darkT, theme }}>
       <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );

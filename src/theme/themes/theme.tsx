@@ -4,6 +4,7 @@ export interface Theme {
     secondary: string;
     background: string;
     text: string;
+    icon: string;
   };
   fonts: {
     primary: string;

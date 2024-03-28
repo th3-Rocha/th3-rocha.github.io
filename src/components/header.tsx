@@ -1,7 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+
 import styled from "styled-components";
-import { LanguageContext } from "../../translations/LanguageContext";
-import { ThemeContext } from "../../theme/ThemeProvider";
+import { LanguageContext } from "../translations/LanguageContext";
+import { ThemeContext } from "../theme/ThemeProvider";
+
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -19,9 +21,10 @@ const Navigation = styled.nav`
   display: flex;
   flex-direction: column;
   color: ${({ theme }) => theme.colors.text};
-  gap: 0.81rem;
-  font-weight: 00;
-  font-size: larger;
+  gap: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -1px;
+  font-size: 1rem;
 `;
 
 interface NavLinkProps {
@@ -40,6 +43,9 @@ const NavLink = styled.a<NavLinkProps>`
   svg {
     margin-right: 4px;
     opacity: ${(props) => (props.isActive ? "1" : "0.0")};
+    path{
+      stroke: ${({ theme }) => theme.colors.text};
+    }
   }
 
   transition: all 0.3s ease;
@@ -47,8 +53,11 @@ const NavLink = styled.a<NavLinkProps>`
 
 const Header = ({ activePage }: { activePage: string }) => {
   const { language, translations } = useContext(LanguageContext);
-  const { theme, toggleTheme } = useContext(ThemeContext);
   const [navActive, setNavActive] = useState([false, false, false, false]);
+
+
+
+
 
   const handleClick = (index: number) => {
     const updatedNavActive = Array(4).fill(false); // Reset all navActive elements
