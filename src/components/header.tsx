@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { LanguageContext } from "../translations/LanguageContext";
 import { ThemeContext } from "../theme/ThemeProvider";
-
+import CoverComponent from "./coverPage";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -13,7 +13,7 @@ const HeaderContainer = styled.header`
   position: fixed;
   top: 2.3rem;
   left: 0.5rem;
-  z-index: 99;
+  z-index: 9;
 `;
 
 const Navigation = styled.nav`
@@ -36,14 +36,13 @@ const NavLink = styled.a<NavLinkProps>`
   margin-left: 1rem;
   color: ${({ theme }) => theme.colors.text};
   pointer-events: ${(props) => (props.isActive ? "none" : "auto")};
-
   &:hover {
     opacity: ${(props) => (props.isActive ? "1" : "0.6")};
   }
   svg {
     margin-right: 4px;
     opacity: ${(props) => (props.isActive ? "1" : "0.0")};
-    path{
+    path {
       stroke: ${({ theme }) => theme.colors.text};
     }
   }
@@ -55,13 +54,10 @@ const Header = ({ activePage }: { activePage: string }) => {
   const { language, translations } = useContext(LanguageContext);
   const [navActive, setNavActive] = useState([false, false, false, false]);
 
-
-
-
-
   const handleClick = (index: number) => {
     const updatedNavActive = Array(4).fill(false); // Reset all navActive elements
     updatedNavActive[index] = true; // Set the clicked index to true
+
     setNavActive(updatedNavActive);
   };
 
@@ -140,6 +136,7 @@ const Header = ({ activePage }: { activePage: string }) => {
           </svg>
           {translations.header.navigation.contact}
         </NavLink>
+
         <NavLink
           isActive={activePage === "theme"}
           href="#"
