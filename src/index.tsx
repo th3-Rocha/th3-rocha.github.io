@@ -11,10 +11,6 @@ import Contact from "./pages/Contact";
 import { LanguageProvider } from "./translations/LanguageContext";
 import { ThemeProvider, ThemeContext } from "./theme/ThemeProvider";
 import { createRoot } from "react-dom/client";
-import { useParams } from "react-router-dom";
-
-import Header from "./components/header";
-
 
 
 function App() {

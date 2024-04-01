@@ -9,26 +9,18 @@ const Wrapper = styled.div`
   top: 0;
   left: 0;
   width: 101vw;
-  height: 100vh;
+  height: 103vh;
   z-index: 99;
-  gap: 1rem;
   pointer-events: none;
+  display: flex;
 `;
 
 const Rectangle = styled.div`
   width: 33%;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.primary};
-  border-right: 1px solid ${({ theme }) => theme.colors.background};
-`;
-
-const RectanglesContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
+  background-color: black;
+  border-right: 1px solid #F5F5F5;
+  border-top: 1px solid #F5F5F5;
 `;
 
 const CoverComponent = () => {
@@ -46,11 +38,9 @@ const CoverComponent = () => {
 
   return (
     <Wrapper>
-      <RectanglesContainer className="rectangles-container">
-        <Rectangle className="rectangle" color="#ff5733" />
-        <Rectangle className="rectangle" color="#33ff57" />
-        <Rectangle className="rectangle" color="#5733ff" />
-      </RectanglesContainer>
+        <Rectangle className="rectangle" />
+        <Rectangle className="rectangle" />
+        <Rectangle className="rectangle" />
     </Wrapper>
   );
 };
