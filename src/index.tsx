@@ -13,6 +13,7 @@ import { ThemeProvider, ThemeContext } from "./theme/ThemeProvider";
 import { createRoot } from "react-dom/client";
 import { useParams } from "react-router-dom";
 
+import Header from "./components/header";
 
 
 
@@ -30,9 +31,10 @@ function App() {
       <LanguageProvider>
         <ThemeProvider darkMode={isDark}>
           <div>
+    
             <Routes>
               <Route path="/" element={<Home  toggleDarkTheme={toggleTheme}/>}  />
-              <Route path="/about" element={<About />} />
+              <Route path="/about" element={<About toggleDarkTheme={toggleTheme}/>} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </div>

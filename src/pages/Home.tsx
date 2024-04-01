@@ -196,7 +196,6 @@ function Home({ toggleDarkTheme }: HomeProps) {
       <HomeContainer data-scroll-section>
 
 
-        <RevealComponent></RevealComponent>
 
         <Header activePage="home" />
         <LocomotiveScrollProvider

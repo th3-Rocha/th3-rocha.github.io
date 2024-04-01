@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-
 import styled from "styled-components";
 import { LanguageContext } from "../translations/LanguageContext";
 import { ThemeContext } from "../theme/ThemeProvider";
 import CoverComponent from "./coverPage";
+import RevealComponent from "./revealPage";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -36,9 +36,12 @@ const NavLink = styled.a<NavLinkProps>`
   margin-left: 1rem;
   color: ${({ theme }) => theme.colors.text};
   pointer-events: ${(props) => (props.isActive ? "none" : "auto")};
+  cursor: pointer;
+
   &:hover {
     opacity: ${(props) => (props.isActive ? "1" : "0.6")};
   }
+
   svg {
     margin-right: 4px;
     opacity: ${(props) => (props.isActive ? "1" : "0.0")};
@@ -53,26 +56,46 @@ const NavLink = styled.a<NavLinkProps>`
 const Header = ({ activePage }: { activePage: string }) => {
   const { language, translations } = useContext(LanguageContext);
   const [navActive, setNavActive] = useState([false, false, false, false]);
+  const [coverLoad, setCoverLoad] = useState(false);
+  const [persisted, setPersisted] = useState(true); // New state variable to control persistence
+
+  const routes = ["/", "/about", "/contact"];
 
   const handleClick = (index: number) => {
-    const updatedNavActive = Array(4).fill(false); // Reset all navActive elements
-    updatedNavActive[index] = true; // Set the clicked index to true
-
+    const updatedNavActive = Array(4).fill(false);
+    updatedNavActive[index] = true;
     setNavActive(updatedNavActive);
+    setCoverLoad(true);
+    setTimeout(() => {
+      window.location.href = routes[index];
+    }, 1700);
   };
+
+  useEffect(() => {
+    // You can perform any initialization or side effects here
+    // This effect will run only once when the component mounts
+    return () => {
+      // You can perform any cleanup here
+    };
+  }, []);
+
+  if (!persisted) {
+    return null; // If not persisted, return null to prevent rendering
+  }
 
   return (
     <HeaderContainer>
+      <RevealComponent />
+      {coverLoad && <CoverComponent />}
       <Navigation>
         <NavLink
           isActive={activePage === "home"}
-          href="/"
           onClick={() => handleClick(0)}
         >
           <svg
             width="17px"
             height="17px"
-            stroke-width="1.6"
+            strokeWidth="1.6"
             viewBox="0 -5 25 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -81,22 +104,20 @@ const Header = ({ activePage }: { activePage: string }) => {
             <path
               d="M1 12H17"
               stroke="#000000"
-              stroke-width="2"
-              stroke-linecap="square"
-              stroke-linejoin="square"
+              strokeWidth="2"
+              strokeLinecap="square"
             ></path>
           </svg>
           {translations.header.navigation.home}
         </NavLink>
         <NavLink
           isActive={activePage === "about"}
-          href="about"
           onClick={() => handleClick(1)}
         >
           <svg
             width="17px"
             height="17px"
-            stroke-width="1.6"
+            strokeWidth="1.6"
             viewBox="0 -5 25 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -105,22 +126,20 @@ const Header = ({ activePage }: { activePage: string }) => {
             <path
               d="M1 12H17"
               stroke="#000000"
-              stroke-width="2"
-              stroke-linecap="square"
-              stroke-linejoin="square"
+              strokeWidth="2"
+              strokeLinecap="square"
             ></path>
           </svg>
           {translations.header.navigation.about}
         </NavLink>
         <NavLink
           isActive={activePage === "contact"}
-          href="contact"
           onClick={() => handleClick(2)}
         >
           <svg
             width="17px"
             height="17px"
-            stroke-width="1.6"
+            strokeWidth="1.6"
             viewBox="0 -5 25 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -129,9 +148,8 @@ const Header = ({ activePage }: { activePage: string }) => {
             <path
               d="M1 12H17"
               stroke="#000000"
-              stroke-width="2"
-              stroke-linecap="square"
-              stroke-linejoin="square"
+              strokeWidth="2"
+              strokeLinecap="square"
             ></path>
           </svg>
           {translations.header.navigation.contact}
@@ -145,7 +163,7 @@ const Header = ({ activePage }: { activePage: string }) => {
           <svg
             width="17px"
             height="17px"
-            stroke-width="1.6"
+            strokeWidth="1.6"
             viewBox="0 -5 25 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -154,9 +172,8 @@ const Header = ({ activePage }: { activePage: string }) => {
             <path
               d="M1 12H17"
               stroke="#000000"
-              stroke-width="2"
-              stroke-linecap="square"
-              stroke-linejoin="square"
+              strokeWidth="2"
+              strokeLinecap="square"
             ></path>
           </svg>
           {translations.header.navigation.theme}
