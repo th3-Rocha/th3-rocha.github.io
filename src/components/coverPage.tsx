@@ -20,7 +20,7 @@ const Rectangle = styled.div`
   height: 100%;
   background-color: black;
   border-right: 1px solid #F5F5F5;
-  border-top: 1px solid #F5F5F5;
+  box-shadow: 0px -1px 1px #F5F5F5, 0px 1px 1px #F5F5F5;;
 `;
 
 const CoverComponent = () => {
