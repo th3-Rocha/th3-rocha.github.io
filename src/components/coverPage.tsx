@@ -40,7 +40,6 @@ const CoverComponent = () => {
       stagger: 0.1,
       ease: "power2.out",
       y: "100%", // Move from bottom to top
-
       delay: 0.1,
     });
   }, []);

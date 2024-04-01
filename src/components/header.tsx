@@ -57,7 +57,6 @@ const Header = ({ activePage }: { activePage: string }) => {
   const { language, translations } = useContext(LanguageContext);
   const [navActive, setNavActive] = useState([false, false, false, false]);
   const [coverLoad, setCoverLoad] = useState(false);
-  const [persisted, setPersisted] = useState(true); // New state variable to control persistence
 
   const routes = ["/", "/about", "/contact"];
 
@@ -67,21 +66,11 @@ const Header = ({ activePage }: { activePage: string }) => {
     setNavActive(updatedNavActive);
     setCoverLoad(true);
     setTimeout(() => {
+
       window.location.href = routes[index];
     }, 1700);
   };
 
-  useEffect(() => {
-    // You can perform any initialization or side effects here
-    // This effect will run only once when the component mounts
-    return () => {
-      // You can perform any cleanup here
-    };
-  }, []);
-
-  if (!persisted) {
-    return null; // If not persisted, return null to prevent rendering
-  }
 
   return (
     <HeaderContainer>
