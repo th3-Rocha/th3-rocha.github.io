@@ -33,6 +33,10 @@ const HomeContainer = styled.div`
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.primary};
   transition: 0.3s ease;
+
+  padding-right: 2rem;
+  @media (max-width: 1100px) {
+  }
 `;
 
 const ExtContainer = styled.div`
@@ -42,7 +46,6 @@ const ExtContainer = styled.div`
 
   height: 3000px;
   width: 100%;
-
   @media (max-width: 1100px) {
     grid-template-columns: 32px 14fr;
   }
@@ -108,7 +111,6 @@ const RightContainer = styled.div``;
 const IntroContainer = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
   height: 494px;
-  margin-right: 2rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -160,6 +162,45 @@ const IntroIcons = styled.div`
   margin-bottom: 1.5rem;
 `;
 
+//projects container
+
+const ProjectsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-top: 13rem;
+  width: 100%;
+  height: 100%;
+`;
+
+const SubProjContainer = styled.div`
+  display: flex;
+  width: 100%;
+  display: grid;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
+  grid-template-columns: 2.2fr 2.8fr;
+`;
+
+const ImgContainer = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+`;
+
+const TextContainer = styled.div`
+  padding: 1rem;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    font-weight: 400;
+    font-family: "shzapfrenaisantlight-ita";
+  }
+`;
+
 interface HomeProps {
   toggleDarkTheme: () => void;
 }
@@ -168,7 +209,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
   const { scroll } = useLocomotiveScroll();
   const containerRef = useRef(null);
   const [isActive, setIsActive] = useState(toggleDarkTheme);
-
+  const [coverLoad, setCoverLoad] = useState(Boolean);
   const { language, translations } = useContext(LanguageContext);
 
   useEffect(() => {
@@ -177,9 +218,21 @@ function Home({ toggleDarkTheme }: HomeProps) {
       yPercent: 600,
       ease: "power4",
       stagger: 0.2,
-      delay: 0.4,
+      delay: 0.5,
     });
   }, []);
+
+  useEffect(() => {
+    if (coverLoad) {
+      gsap.to(".intro-texts > div > h1, h2", {
+        duration: 1,
+        yPercent: -100,
+        ease: "power4",
+        stagger: 0.2,
+        delay: 0.6,
+      });
+    }
+  }, [coverLoad]);
 
   useEffect(() => {
     gsap.from(".intro-Icons > div", {
@@ -191,13 +244,26 @@ function Home({ toggleDarkTheme }: HomeProps) {
     });
   }, []);
 
+  useEffect(() => {
+    if (coverLoad) {
+      gsap.to(".intro-Icons > div", {
+        duration: 1,
+        yPercent: -45,
+        ease: "power4",
+        stagger: 0.06,
+        delay: 0.65,
+      });
+    }
+  }, [coverLoad]);
+
   return (
     <div>
       <HomeContainer data-scroll-section>
-
-
-
-        <Header activePage="home" />
+        <Header
+          activePage="home"
+          coverLoad={coverLoad}
+          setCoverLoad={setCoverLoad}
+        />
         <LocomotiveScrollProvider
           options={{
             smooth: true,
@@ -268,6 +334,45 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     />
                   </IntroIcons>
                 </IntroContainer>
+                <ProjectsContainer
+                  data-scroll
+                  data-scroll-direction="vertical"
+                  data-scroll-speed="2"
+                  data-scroll-class="appear"
+                >
+                  <SubProjContainer>
+                    <TextContainer>
+                      <div>
+                        <h3>Unbuild</h3>
+                        <span>Web design & development</span>
+                      </div>
+                    </TextContainer>
+
+                    <ImgContainer src="/test.webp"></ImgContainer>
+                  </SubProjContainer>
+
+                  <SubProjContainer>
+                    <TextContainer>
+                      <div>
+                        <h3>Unbuild</h3>
+                        <span>Web design & development</span>
+                      </div>
+                    </TextContainer>
+
+                    <ImgContainer src="/test.webp"></ImgContainer>
+                  </SubProjContainer>
+
+                  <SubProjContainer>
+                    <TextContainer>
+                      <div>
+                        <h3>Unbuild</h3>
+                        <span>Web design & development</span>
+                      </div>
+                    </TextContainer>
+
+                    <ImgContainer src="/test.webp"></ImgContainer>
+                  </SubProjContainer>
+                </ProjectsContainer>
               </RightContainer>
             </ExtContainer>
           </main>

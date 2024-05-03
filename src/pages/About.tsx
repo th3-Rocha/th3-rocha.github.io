@@ -168,7 +168,7 @@ function About({ toggleDarkTheme }: HomeProps) {
   const { scroll } = useLocomotiveScroll();
   const containerRef = useRef(null);
   const [isActive, setIsActive] = useState(toggleDarkTheme);
-
+  const [coverLoad, setCoverLoad] = useState(Boolean);
   const { language, translations } = useContext(LanguageContext);
 
   useEffect(() => {
@@ -177,9 +177,21 @@ function About({ toggleDarkTheme }: HomeProps) {
       yPercent: 600,
       ease: "power4",
       stagger: 0.2,
-      delay: 0.4,
+      delay: 0.5,
     });
   }, []);
+
+  useEffect(() => {
+    if (coverLoad) {
+      gsap.to(".intro-texts > div > h1, h2", {
+        duration: 1,
+        yPercent: -100,
+        ease: "power4",
+        stagger: 0.2,
+        delay: 0.6,
+      });
+    }
+  }, [coverLoad]);
 
   useEffect(() => {
     gsap.from(".intro-Icons > div", {
@@ -191,13 +203,27 @@ function About({ toggleDarkTheme }: HomeProps) {
     });
   }, []);
 
+  useEffect(() => {
+    if (coverLoad) {
+      gsap.to(".intro-Icons > div", {
+        duration: 1,
+        yPercent: -45,
+        ease: "power4",
+        stagger: 0.06,
+        delay: 0.65,
+      });
+    }
+  }, [coverLoad]);
+
+
   return (
     <div>
       <HomeContainer data-scroll-section>
-
-
-
-        <Header activePage="about" />
+        <Header
+          activePage="about"
+          coverLoad={coverLoad}
+          setCoverLoad={setCoverLoad}
+        />
         <LocomotiveScrollProvider
           options={{
             smooth: true,

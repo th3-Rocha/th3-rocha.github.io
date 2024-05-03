@@ -11,9 +11,9 @@ const HomeContainer = styled.div`
   font-family: ${({ theme }) => theme.fonts.primary};;
 `;
 function Contact() {
+  
   return (
     <HomeContainer>
-      <Header activePage="contact"  />
       <span> test Home </span>
     </HomeContainer>
   );

@@ -53,10 +53,9 @@ const NavLink = styled.a<NavLinkProps>`
   transition: all 0.3s ease;
 `;
 
-const Header = ({ activePage }: { activePage: string }) => {
+const Header = ({ activePage, coverLoad, setCoverLoad }: { activePage: string, coverLoad: boolean, setCoverLoad: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const { language, translations } = useContext(LanguageContext);
   const [navActive, setNavActive] = useState([false, false, false, false]);
-  const [coverLoad, setCoverLoad] = useState(false);
 
   const routes = ["/", "/about", "/contact"];
 
@@ -64,9 +63,10 @@ const Header = ({ activePage }: { activePage: string }) => {
     const updatedNavActive = Array(4).fill(false);
     updatedNavActive[index] = true;
     setNavActive(updatedNavActive);
-    setCoverLoad(true);
-    setTimeout(() => {
 
+    setCoverLoad(true); //sent this to parent component
+
+    setTimeout(() => {
       window.location.href = routes[index];
     }, 1700);
   };
