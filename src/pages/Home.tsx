@@ -8,13 +8,12 @@ import {
   SunLight,
 } from "iconoir-react";
 import Header from "../components/header";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { LanguageContext } from "../translations/LanguageContext";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 
 import "./locomotive-scroll.css";
-import { useRef } from "react";
 import gsap from "gsap";
 import IconButtonTheme from "../components/iconButtonTheme";
 import IconButtonLink from "../components/iconButtonLink";
@@ -167,7 +166,7 @@ const IntroIcons = styled.div`
 const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 13rem;
+  padding-top: 20rem;
   width: 100%;
   height: 100%;
 `;
@@ -176,6 +175,7 @@ const SubProjContainer = styled.div`
   display: flex;
   width: 100%;
   display: grid;
+  opacity: 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
   grid-template-columns: 2.2fr 2.8fr;
 `;
@@ -206,11 +206,11 @@ interface HomeProps {
 }
 
 function Home({ toggleDarkTheme }: HomeProps) {
-  const { scroll } = useLocomotiveScroll();
   const containerRef = useRef(null);
   const [isActive, setIsActive] = useState(toggleDarkTheme);
   const [coverLoad, setCoverLoad] = useState(Boolean);
   const { language, translations } = useContext(LanguageContext);
+  const { scroll } = useLocomotiveScroll();
 
   useEffect(() => {
     gsap.from(".intro-texts > div > h1, h2", {
@@ -255,6 +255,39 @@ function Home({ toggleDarkTheme }: HomeProps) {
       });
     }
   }, [coverLoad]);
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(".SubProjContainer");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            gsap.to(entry.target, {
+              duration: 3,
+              opacity: 1,
+              ease: "expo.out",
+              stagger: 0,
+              delay: 0,
+              yPercent:-20,
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 1,
+      }
+    );
+
+    elements.forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => {
+      // Cleanup observer on component unmount
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div>
@@ -334,16 +367,11 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     />
                   </IntroIcons>
                 </IntroContainer>
-                <ProjectsContainer
-                  data-scroll
-                  data-scroll-direction="vertical"
-                  data-scroll-speed="2"
-                  data-scroll-class="appear"
-                >
-                  <SubProjContainer>
+                <ProjectsContainer>
+                  <SubProjContainer className="SubProjContainer">
                     <TextContainer>
                       <div>
-                        <h3>Unbuild</h3>
+                        <h3>Thing to appear 1 with fade</h3>
                         <span>Web design & development</span>
                       </div>
                     </TextContainer>
@@ -351,10 +379,10 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     <ImgContainer src="/test.webp"></ImgContainer>
                   </SubProjContainer>
 
-                  <SubProjContainer>
+                  <SubProjContainer className="SubProjContainer">
                     <TextContainer>
                       <div>
-                        <h3>Unbuild</h3>
+                        <h3>Thing to appear 2 with fade</h3>
                         <span>Web design & development</span>
                       </div>
                     </TextContainer>
@@ -362,7 +390,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     <ImgContainer src="/test.webp"></ImgContainer>
                   </SubProjContainer>
 
-                  <SubProjContainer>
+                  <SubProjContainer className="SubProjContainer">
                     <TextContainer>
                       <div>
                         <h3>Unbuild</h3>
