@@ -12,6 +12,7 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import { LanguageContext } from "../translations/LanguageContext";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
+import TextPlugin from "gsap/TextPlugin";
 
 import "./locomotive-scroll.css";
 import gsap from "gsap";
@@ -22,18 +23,19 @@ import { Theme } from "../theme/themes/theme";
 import CoverComponent from "../components/coverPage";
 import RevealComponent from "../components/revealPage";
 
-import useRouterChange from "../components/useRouterChange";
+const FirstDiv = styled.div`
+  background-color: ${({ theme }) => theme.colors.background};
+`;
 
 const HomeContainer = styled.div`
+  //container de tudo
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.primary};
   transition: 0.3s ease;
-
-  padding-right: 2rem;
+  margin-right: 2.5rem;
   @media (max-width: 1100px) {
   }
 `;
@@ -42,21 +44,32 @@ const ExtContainer = styled.div`
   display: grid;
   grid-template-rows: 1;
   grid-template-columns: 1fr 3fr;
-
-  height: 3000px;
+  height: 4000px; // aumentar etc...
   width: 100%;
   @media (max-width: 1100px) {
     grid-template-columns: 32px 14fr;
   }
 `;
 
+const RightContainer = styled.div``;
+
+const IntroContainer = styled.div`
+  border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
+
+  height: 494px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+`;
 const LeftContainer = styled.div`
   border-right: 1px solid ${({ theme }) => theme.colors.secondary};
+
   min-width: 19rem;
   @media (max-width: 1100px) {
     min-width: 1rem;
   }
 `;
+
 const SecTitle = styled.section`
   align-items: flex-start;
   display: flex;
@@ -103,16 +116,6 @@ const ArrowCircle = styled.div`
       fill: ${({ theme }) => theme.colors.text};
     }
   }
-`;
-
-const RightContainer = styled.div``;
-
-const IntroContainer = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-  height: 494px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
 `;
 
 const IntroTexts = styled.div`
@@ -168,7 +171,7 @@ const ProjectsContainer = styled.div`
   flex-direction: column;
   padding-top: 20rem;
   width: 100%;
-  height: 100%;
+  height: 100px;
 `;
 
 const SubProjContainer = styled.div`
@@ -268,7 +271,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
               ease: "expo.out",
               stagger: 0,
               delay: 0,
-              yPercent:-20,
+              yPercent: -20,
             });
             observer.unobserve(entry.target);
           }
@@ -278,19 +281,16 @@ function Home({ toggleDarkTheme }: HomeProps) {
         threshold: 1,
       }
     );
-
     elements.forEach((el) => {
       observer.observe(el);
     });
-
     return () => {
-      // Cleanup observer on component unmount
       observer.disconnect();
     };
   }, []);
 
   return (
-    <div>
+    <FirstDiv>
       <HomeContainer data-scroll-section>
         <Header
           activePage="home"
@@ -400,13 +400,24 @@ function Home({ toggleDarkTheme }: HomeProps) {
 
                     <ImgContainer src="/test.webp"></ImgContainer>
                   </SubProjContainer>
+
+                  <IntroTexts className="intro-texts">
+                    <div>
+                      <h2>
+                        {translations.home.nameDescription}
+                        <span>
+                          {translations.home.nameDescriptionHighlight}
+                        </span>
+                      </h2>
+                    </div>
+                  </IntroTexts>
                 </ProjectsContainer>
               </RightContainer>
             </ExtContainer>
           </main>
         </LocomotiveScrollProvider>
       </HomeContainer>
-    </div>
+    </FirstDiv>
   );
 }
 
