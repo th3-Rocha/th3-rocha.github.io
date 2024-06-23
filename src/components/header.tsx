@@ -14,6 +14,7 @@ const HeaderContainer = styled.header`
   top: 2.3rem;
   left: 0.5rem;
   z-index: 9;
+
 `;
 
 const Navigation = styled.nav`
@@ -21,10 +22,14 @@ const Navigation = styled.nav`
   display: flex;
   flex-direction: column;
   color: ${({ theme }) => theme.colors.text};
+
+
+
   gap: 0.9rem;
   font-weight: 500;
   letter-spacing: -1px;
   font-size: 1rem;
+  
 `;
 
 interface NavLinkProps {
@@ -37,9 +42,10 @@ const NavLink = styled.a<NavLinkProps>`
   color: ${({ theme }) => theme.colors.text};
   pointer-events: ${(props) => (props.isActive ? "none" : "auto")};
   cursor: pointer;
-
+mix-blend-mode: difference;
   &:hover {
     opacity: ${(props) => (props.isActive ? "1" : "0.6")};
+    
   }
 
   svg {
@@ -51,6 +57,10 @@ const NavLink = styled.a<NavLinkProps>`
   }
 
   transition: all 0.3s ease;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 const Header = ({ activePage, coverLoad, setCoverLoad }: { activePage: string, coverLoad: boolean, setCoverLoad: React.Dispatch<React.SetStateAction<boolean>> }) => {

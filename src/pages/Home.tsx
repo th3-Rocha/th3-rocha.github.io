@@ -22,11 +22,62 @@ import { Theme } from "../theme/themes/theme";
 
 import CoverComponent from "../components/coverPage";
 import RevealComponent from "../components/revealPage";
-
+//components
+import H2TextSpan from "../components/h2Text";
+import SubProjComponent from "../components/subProj";
+import H1TextSpan from "../components/h1Text";
+import ArrowCirclePointer from "../components/arrowCircle";
+//components
 const FirstDiv = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
-`;
 
+  h1 {
+    font-size: 6rem;
+  }
+  h2 {
+    font-size: 3rem;
+    span {
+      font-size: 3.6rem;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    h1 {
+      font-size: 5.2rem;
+    }
+    h2 {
+      font-size: 2.6rem;
+      span {
+        font-size: 3.12rem;
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 3.52rem;
+    }
+    h2 {
+      font-size: 1.76rem;
+      span {
+        font-size: 2.112rem;
+      }
+    }
+  }
+`;
+const Line = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  @media (max-width: 1100px) {
+    margin-top: 9rem;
+  }
+  @media (max-width: 600px) {
+    position: absolute;
+    top: 21.7rem;
+    width: 70%;
+    z-index: -1;
+  }
+`;
 const HomeContainer = styled.div`
   //container de tudo
   display: flex;
@@ -35,7 +86,7 @@ const HomeContainer = styled.div`
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.primary};
   transition: 0.3s ease;
-  margin-right: 2.5rem;
+
   @media (max-width: 1100px) {
   }
 `;
@@ -46,20 +97,12 @@ const ExtContainer = styled.div`
   grid-template-columns: 1fr 3fr;
   height: 4000px; // aumentar etc...
   width: 100%;
+
   @media (max-width: 1100px) {
     grid-template-columns: 32px 14fr;
   }
-`;
-
-const RightContainer = styled.div``;
-
-const IntroContainer = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-
-  height: 494px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  @media (max-width: 600px) {
+  }
 `;
 const LeftContainer = styled.div`
   border-right: 1px solid ${({ theme }) => theme.colors.secondary};
@@ -68,6 +111,27 @@ const LeftContainer = styled.div`
   @media (max-width: 1100px) {
     min-width: 1rem;
   }
+  grid-template-columns: 32px 14fr;
+  @media (max-width: 600px) {
+    border-right: 0px;
+    margin-left: 0px;
+  }
+`;
+
+const RightContainer = styled.div`
+  max-width: calc(100% - 3vw - 1rem); //100% do tamanho menos o gap da esquerda
+  min-width: 0;
+
+  @media (max-width: 1100px) {
+    min-width: 0;
+  }
+`;
+
+const IntroContainer = styled.div`
+  height: 494px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 
 const SecTitle = styled.section`
@@ -97,60 +161,32 @@ const LeftSpansText = styled.span`
   font-weight: 400;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   font-family: "Inter", sans-serif;
-`;
-
-const ArrowCircle = styled.div`
-  position: relative;
-  width: 160px;
-  height: 160px;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 26rem;
-  margin-left: 3rem;
-  svg {
-    height: 60px;
-    path {
-      fill: ${({ theme }) => theme.colors.text};
-    }
+  @media (max-width: 600px) {
+    display: none;
   }
 `;
 
 const IntroTexts = styled.div`
-  margin-left: 0.6rem;
+  margin-left: 1.2rem;
+
   div {
-    clip-path: polygon(0% 0%, 110% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 115%, 0% 100%);
+  }
+  @media (max-width: 1100px) {
+    margin-left: 0rem;
     h1 {
-      margin: 0;
-      margin-left: 3px;
-      font-style: italic;
-      position: relative;
-      overflow: hidden;
-      width: 100;
-      margin-top: 7.4rem;
-      font-weight: 400;
-      font-family: "shzapfrenaisantlight-ita";
-      font-size: 6rem;
-      margin-bottom: 0px;
+      height: 7.5rem;
     }
     h2 {
-      width: 60rem;
-      font-family: "Inter", sans-serif;
-      font-optical-sizing: auto;
-      letter-spacing: -2px;
-      font-weight: 300;
-      font-style: normal;
-      font-variation-settings: "slnt" 0;
-      margin-top: 1rem;
-      font-size: 3rem;
-      span {
-        font-family: "Cormorant Garamond", serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: 3.6rem;
-      }
+      height: 8rem;
+    }
+  }
+  @media (max-width: 600px) {
+    h1 {
+      height: 4rem;
+    }
+    h2 {
+      height: 8rem;
     }
   }
 `;
@@ -158,13 +194,9 @@ const IntroIcons = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  margin-left: 0.6rem;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 1.5rem;
+  margin-left: 1.2rem;
+  margin-top: -1rem;
 `;
-
-//projects container
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -173,34 +205,41 @@ const ProjectsContainer = styled.div`
   width: 100%;
   height: 100px;
 `;
+const LeftArrow = styled.div`
+  margin-top: 26rem;
+  margin-left: 3rem;
 
-const SubProjContainer = styled.div`
-  display: flex;
-  width: 100%;
-  display: grid;
-  opacity: 0;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
-  grid-template-columns: 2.2fr 2.8fr;
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 
-const ImgContainer = styled.img`
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-`;
+const RightArrow = styled.div`
+  margin-left: auto;
+  margin-right: 0rem;
+  display: none;
+  margin-top: 0rem;
+  @media (max-width: 1100px) {
+    display: block;
+  }
+  @media (max-width: 600px) {
+    margin-top: 1.3rem;
+  }
 
-const TextContainer = styled.div`
-  padding: 1rem;
-  padding-top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-
-  h3 {
-    margin-bottom: 1rem;
-    font-size: 3rem;
-    font-weight: 400;
-    font-family: "shzapfrenaisantlight-ita";
+  @media (max-width: 470px) {
+    display: block;
+    margin-top: 2.5rem;
+    div {
+      border-width: 1px;
+      width: 119.1168px;
+      height: 119.1168px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    svg {
+      height: 44.6688px;
+    }
   }
 `;
 
@@ -260,11 +299,14 @@ function Home({ toggleDarkTheme }: HomeProps) {
   }, [coverLoad]);
 
   useEffect(() => {
-    const elements = document.querySelectorAll(".SubProjContainer");
+    const elements = document.querySelectorAll(".toAppear");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            gsap.from(entry.target, {
+              opacity: 0,
+            });
             gsap.to(entry.target, {
               duration: 3,
               opacity: 1,
@@ -278,7 +320,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
         });
       },
       {
-        threshold: 0.3,
+        threshold: 0.4,
       }
     );
     elements.forEach((el) => {
@@ -310,20 +352,9 @@ function Home({ toggleDarkTheme }: HomeProps) {
           <main data-scroll-container ref={containerRef}>
             <ExtContainer>
               <LeftContainer>
-                <ArrowCircle>
-                  <svg
-                    width="30"
-                    height="60"
-                    viewBox="0 0 30 60"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M16.0142 51.1472V0H13.879V51.1472L1.49466 40.2056L0 41.3992L14.9466 60L30 41.3992L28.6121 40.2056L16.0142 51.1472Z"
-                      fill="black"
-                    />
-                  </svg>
-                </ArrowCircle>
+                <LeftArrow>
+                  <ArrowCirclePointer shouldRotate={false} />
+                </LeftArrow>
                 <SecTitle>
                   <LeftSpansText>Selected work</LeftSpansText>
                 </SecTitle>
@@ -335,17 +366,14 @@ function Home({ toggleDarkTheme }: HomeProps) {
               <RightContainer>
                 <IntroContainer data-scroll>
                   <IntroTexts className="intro-texts">
-                    <div>
-                      <h1>{translations.home.name}</h1>
-                    </div>
-                    <div>
-                      <h2>
-                        {translations.home.nameDescription}
-                        <span>
-                          {translations.home.nameDescriptionHighlight}
-                        </span>
-                      </h2>
-                    </div>
+                    <H1TextSpan
+                      classNameTag="h1-text-span-tittle"
+                      translations={translations}
+                    />
+                    <H2TextSpan
+                      classNameTag="h2-text-span-tittle"
+                      translations={translations}
+                    />
                   </IntroTexts>
                   <IntroIcons className="intro-Icons">
                     <IconButtonLink
@@ -366,51 +394,42 @@ function Home({ toggleDarkTheme }: HomeProps) {
                       onClick={toggleDarkTheme}
                     />
                   </IntroIcons>
+                  <RightArrow>
+                    <ArrowCirclePointer shouldRotate={false} />
+                  </RightArrow>
                 </IntroContainer>
+
+                <Line />
+
                 <ProjectsContainer>
-                  <SubProjContainer className="SubProjContainer">
-                    <TextContainer>
-                      <div>
-                        <h3>Thing to appear 1 with fade</h3>
-                        <span>Web design & development</span>
-                      </div>
-                    </TextContainer>
-
-                    <ImgContainer src="/test.webp"></ImgContainer>
-                  </SubProjContainer>
-
-                  <SubProjContainer className="SubProjContainer">
-                    <TextContainer>
-                      <div>
-                        <h3>Thing to appear 2 with fade</h3>
-                        <span>Web design & development</span>
-                      </div>
-                    </TextContainer>
-
-                    <ImgContainer src="/test.webp"></ImgContainer>
-                  </SubProjContainer>
-
-                  <SubProjContainer className="SubProjContainer">
-                    <TextContainer>
-                      <div>
-                        <h3>Unbuild</h3>
-                        <span>Web design & development</span>
-                      </div>
-                    </TextContainer>
-
-                    <ImgContainer src="/test.webp"></ImgContainer>
-                  </SubProjContainer>
-
-                  <IntroTexts className="intro-texts">
-                    <div>
-                      <h2>
-                        {translations.home.nameDescription}
-                        <span>
-                          {translations.home.nameDescriptionHighlight}
-                        </span>
-                      </h2>
-                    </div>
-                  </IntroTexts>
+                  <SubProjComponent
+                    className="toAppear"
+                    title={"first"}
+                    description={"lorem impsum asdfasdf"}
+                    imgSrc={"/test.webp"}
+                  />
+                  <SubProjComponent
+                    className="toAppear"
+                    title={"second"}
+                    description={"lorem impsum asdfasdf"}
+                    imgSrc={"/test.webp"}
+                  />
+                  <SubProjComponent
+                    className="toAppear"
+                    title={"third"}
+                    description={"lorem impsum asdfasdf"}
+                    imgSrc={"/test.webp"}
+                  />
+                  <SubProjComponent
+                    className="toAppear"
+                    title={"quarter"}
+                    description={"lorem impsum asdfasdf"}
+                    imgSrc={"/test.webp"}
+                  />
+                  <H2TextSpan
+                    classNameTag="toAppear"
+                    translations={translations}
+                  />
                 </ProjectsContainer>
               </RightContainer>
             </ExtContainer>
