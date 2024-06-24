@@ -22,11 +22,13 @@ import { Theme } from "../theme/themes/theme";
 
 import CoverComponent from "../components/coverPage";
 import RevealComponent from "../components/revealPage";
+import HeaderCoverComponent from "../components/headerCoverMenu";
 //components
 import H2TextSpan from "../components/h2Text";
 import SubProjComponent from "../components/subProj";
 import H1TextSpan from "../components/h1Text";
 import ArrowCirclePointer from "../components/arrowCircle";
+import LeftSpanText from "../components/leftSpanText";
 //components
 const FirstDiv = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
@@ -140,6 +142,9 @@ const SecTitle = styled.section`
   justify-content: flex-end;
   margin-right: -5rem;
   margin-top: 7rem;
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 const SecTitle2 = styled.section`
@@ -147,22 +152,20 @@ const SecTitle2 = styled.section`
   display: flex;
   justify-content: flex-end;
   margin-right: -3rem;
-  margin-top: 90rem;
+  margin-top: 190vh;
+  @media (max-width: 1100px) { //fazer isso ficar perto do h2 do projects
+    display: none;
+  }
 `;
 
-const LeftSpansText = styled.span`
-  display: inline-block;
-  transform: rotate(-90deg) translate(-100%, -100%);
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  white-space: nowrap;
-
-  font-size: 15px;
-  font-weight: 400;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  font-family: "Inter", sans-serif;
-  @media (max-width: 600px) {
-    display: none;
+const SecTitle3 = styled.section`
+  align-items: flex-start;
+  margin-left: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  display: none;
+  @media (max-width: 1100px) {
+    display: inline-block;
   }
 `;
 
@@ -176,10 +179,10 @@ const IntroTexts = styled.div`
     height: 8rem;
   }
   div {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 118%, 0% 118%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
   @media (max-width: 1100px) {
-    margin-left: 0rem;
+    margin-left: 0.5rem;
     h1 {
       height: 7.5rem;
     }
@@ -207,8 +210,11 @@ const IntroIcons = styled.div`
   gap: 1rem;
   margin-left: 1.2rem;
   margin-top: -1rem;
+  @media (max-width: 1100px) {
+    margin-left: 0.5rem;
+  }
   @media (max-width: 600px) {
-    margin-left: 0rem;
+    margin-left: 0.5rem;
     margin-top: 2rem;
     * {
       height: 1.3rem;
@@ -270,6 +276,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
   const containerRef = useRef(null);
   const [isActive, setIsActive] = useState(toggleDarkTheme);
   const [coverLoad, setCoverLoad] = useState(Boolean);
+  const [coverMenu, setCoverMenu] = useState(Boolean);
   const { language, translations } = useContext(LanguageContext);
   const { scroll } = useLocomotiveScroll();
 
@@ -357,13 +364,21 @@ function Home({ toggleDarkTheme }: HomeProps) {
           activePage="home"
           coverLoad={coverLoad}
           setCoverLoad={setCoverLoad}
+          coverMenu={coverMenu}
+          setCoverMenu={setCoverMenu}
         />
+
         <LocomotiveScrollProvider
           options={{
             smooth: true,
+            getDirection: true,
+            getSpeed: true,
+            multiplyer: 1,
+            inertia: 0.5,
+            smoothMobile: true,
             direction: "vertical",
-            smartphone: { smooth: true },
-            tablet: { smooth: true },
+            smartphone: { smooth: true, multiplyer: 2, inertia: 1.1 },
+            tablet: { smooth: true, multiplyer: 2, inertia: 1.1 },
           }}
           watch={[]}
           containerRef={containerRef}
@@ -375,11 +390,17 @@ function Home({ toggleDarkTheme }: HomeProps) {
                   <ArrowCirclePointer shouldRotate={false} />
                 </LeftArrow>
                 <SecTitle>
-                  <LeftSpansText>Selected work</LeftSpansText>
+                  <LeftSpanText
+                    Text={translations.home.detailTitle[0].title}
+                    shouldRotate={true}
+                  />
                 </SecTitle>
 
                 <SecTitle2>
-                  <LeftSpansText>What I do</LeftSpansText>
+                  <LeftSpanText
+                    Text={translations.home.detailTitle[1].title}
+                    shouldRotate={true}
+                  />
                 </SecTitle2>
               </LeftContainer>
               <RightContainer>
@@ -387,11 +408,12 @@ function Home({ toggleDarkTheme }: HomeProps) {
                   <IntroTexts className="intro-texts">
                     <H1TextSpan
                       classNameTag="h1-text-span-tittle"
-                      translations={translations}
+                      Text={translations.home.name}
                     />
                     <H2TextSpan
                       classNameTag="h2-text-span-tittle"
-                      translations={translations}
+                      Text={translations.home.nameDescription}
+                      TextHighlight={translations.home.nameDescriptionHighlight}
                     />
                   </IntroTexts>
                   <IntroIcons className="intro-Icons">
@@ -423,31 +445,39 @@ function Home({ toggleDarkTheme }: HomeProps) {
                 <ProjectsContainer>
                   <SubProjComponent
                     className="toAppear"
-                    title={"Portfolio"}
-                    description={"Web desing & development"}
+                    title={translations.home.works[0].title}
+                    description={translations.home.works[0].description}
                     imgSrc={"/test.webp"}
                   />
                   <SubProjComponent
                     className="toAppear"
-                    title={"Bloch Sphere"}
-                    description={"Web development"}
+                    title={translations.home.works[1].title}
+                    description={translations.home.works[1].description}
                     imgSrc={"/test.webp"}
                   />
                   <SubProjComponent
                     className="toAppear"
-                    title={"Bookio"}
-                    description={"3D Web development"}
+                    title={translations.home.works[2].title}
+                    description={translations.home.works[2].description}
                     imgSrc={"/test.webp"}
                   />
                   <SubProjComponent
                     className="toAppear"
-                    title={"Galery of Ai"}
-                    description={"Web development"}
+                    title={translations.home.works[3].title}
+                    description={translations.home.works[3].description}
                     imgSrc={"/test.webp"}
                   />
+                  <SecTitle3>
+                    <LeftSpanText
+                      classNameTag="toAppear"
+                      Text={translations.home.detailTitle[1].title}
+                      shouldRotate={false}
+                    />
+                  </SecTitle3>
                   <H2TextSpan
                     classNameTag="toAppear"
-                    translations={translations}
+                    Text={"Jogaram uma bomba"}
+                    TextHighlight={" No Cabare"}
                   />
                 </ProjectsContainer>
               </RightContainer>

@@ -170,6 +170,7 @@ function About({ toggleDarkTheme }: HomeProps) {
   const [isActive, setIsActive] = useState(toggleDarkTheme);
   const [coverLoad, setCoverLoad] = useState(Boolean);
   const { language, translations } = useContext(LanguageContext);
+  const [coverMenu, setCoverMenu] = useState(Boolean);
 
   useEffect(() => {
     gsap.from(".intro-texts > div > h1, h2", {
@@ -215,7 +216,6 @@ function About({ toggleDarkTheme }: HomeProps) {
     }
   }, [coverLoad]);
 
-
   return (
     <div>
       <HomeContainer data-scroll-section>
@@ -223,6 +223,8 @@ function About({ toggleDarkTheme }: HomeProps) {
           activePage="about"
           coverLoad={coverLoad}
           setCoverLoad={setCoverLoad}
+          coverMenu={coverMenu}
+          setCoverMenu={setCoverMenu}
         />
         <LocomotiveScrollProvider
           options={{

@@ -12,7 +12,7 @@ const H1Text = styled.div`
     margin-top: 7.4rem;
     font-weight: 400;
     font-family: "shzapfrenaisantlight-ita";
-    overflow:hidden;
+    overflow: hidden;
     margin-bottom: 0px;
   }
 `;
@@ -26,15 +26,15 @@ interface Translations {
 }
 
 const H1TextSpan = ({
-  translations,
+  Text,
   classNameTag,
 }: {
-  translations: Translations;
+  Text: string;
   classNameTag: string;
 }) => {
   return (
     <H1Text className={classNameTag}>
-      <h1>{translations.home.name}</h1>
+      <h1>{Text}</h1>
     </H1Text>
   );
 };

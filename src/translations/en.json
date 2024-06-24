@@ -17,10 +17,32 @@
     "name": "Murilo Rocha",
     "nameDescription": "Frontend & Backend Developer Specializing in ",
     "nameDescriptionHighlight": "Games & Webapps",
-    "works": {
-      "title": "Galery of AI art",
-      "description": "An galery of AI art made by dallE"
-    }
+    "works": [
+      {
+        "title": "Portfolio",
+        "description": "Web development"
+      },
+      {
+        "title": "Bloch Sphere",
+        "description": "Web development & math as a tool"
+      },
+      {
+        "title": "Galery of AI",
+        "description": "Web development & AI"
+      },
+      {
+        "title": "Bookio",
+        "description": "Web development & 3D modeling"
+      }
+    ],
+    "detailTitle": [
+      {
+        "title": "Selected work"
+      },
+      {
+        "title": "What I do"
+      }
+    ]
   },
   "about": {
     "intro": "Weaving Seamless Experiences Across Interfaces and Infrastructure"

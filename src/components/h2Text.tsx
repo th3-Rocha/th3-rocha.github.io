@@ -20,26 +20,21 @@ const H2Text = styled.div`
   }
 `;
 
-interface Translations {
-  home: {
-    name: string;
-    nameDescription: string;
-    nameDescriptionHighlight: string;
-  };
-}
 
 const H2TextSpan = ({
-  translations,
+  Text,
+  TextHighlight,
   classNameTag,
 }: {
-  translations: Translations;
+  Text: string;
+  TextHighlight: string;
   classNameTag: string;
 }) => {
   return (
     <H2Text className={classNameTag}>
       <h2>
-        {translations.home.nameDescription}
-        <span>{translations.home.nameDescriptionHighlight}</span>
+        {Text}
+        <span>{TextHighlight}</span>
       </h2>
     </H2Text>
   );

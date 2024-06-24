@@ -42,6 +42,7 @@ const TextContainer = styled.div`
     font-weight: 400;
     line-height: 0.9;
     margin-top: 1rem;
+    font-family: "Inter", sans-serif;
   }
   @media (max-width: 630px) {
     order: 1;
