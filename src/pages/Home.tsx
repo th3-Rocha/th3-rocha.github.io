@@ -339,7 +339,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
         });
       },
       {
-        threshold: 0.4,
+        threshold: 0.5,
       }
     );
     elements.forEach((el) => {
