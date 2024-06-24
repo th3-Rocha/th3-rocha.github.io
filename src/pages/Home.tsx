@@ -73,7 +73,7 @@ const Line = styled.div`
   }
   @media (max-width: 600px) {
     position: absolute;
-    top: 21.7rem;
+    top: 20.1rem;
     width: 70%;
     z-index: -1;
   }
@@ -168,9 +168,15 @@ const LeftSpansText = styled.span`
 
 const IntroTexts = styled.div`
   margin-left: 1.2rem;
-
+  h1 {
+    height: 8rem;
+    margin-bottom: -2rem;
+  }
+  h2 {
+    height: 8rem;
+  }
   div {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 115%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 118%, 0% 118%);
   }
   @media (max-width: 1100px) {
     margin-left: 0rem;
@@ -182,10 +188,15 @@ const IntroTexts = styled.div`
     }
   }
   @media (max-width: 600px) {
+    div {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 85%);
+    }
     h1 {
       height: 4rem;
+      margin-bottom: -1rem;
     }
     h2 {
+      margin-bottom: -1rem;
       height: 8rem;
     }
   }
@@ -196,6 +207,14 @@ const IntroIcons = styled.div`
   gap: 1rem;
   margin-left: 1.2rem;
   margin-top: -1rem;
+  @media (max-width: 600px) {
+    margin-left: 0rem;
+    margin-top: -1rem;
+    * {
+      height: 1.3rem;
+      width: 1.3rem;
+    }
+  }
 `;
 
 const ProjectsContainer = styled.div`
@@ -223,12 +242,12 @@ const RightArrow = styled.div`
     display: block;
   }
   @media (max-width: 600px) {
-    margin-top: 1.3rem;
+    margin-top: 4rem;
   }
 
   @media (max-width: 470px) {
     display: block;
-    margin-top: 2.5rem;
+    margin-top: 5rem;
     div {
       border-width: 1px;
       width: 119.1168px;
