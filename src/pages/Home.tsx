@@ -477,7 +477,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
                   <H2TextSpan
                     classNameTag="toAppear"
                     Text={"Jogaram uma bomba"}
-                    TextHighlight={" No Cabare"}
+                    TextHighlight={" Xx xxxxxx"}
                   />
                 </ProjectsContainer>
               </RightContainer>
