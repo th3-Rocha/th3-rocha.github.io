@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const SubProjContainer = styled.div`
   display: flex;
@@ -9,28 +9,59 @@ const SubProjContainer = styled.div`
   grid-template-columns: 2.2fr 2.8fr;
   animation: fadeIn 1s forwards;
 
-  
+  @media (max-width: 630px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr auto;
+    border-bottom: 0px solid ${({ theme }) => theme.colors.secondary};
+  }
 `;
 
 const ImgContainer = styled.img`
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  
 `;
 
 const TextContainer = styled.div`
   padding: 1rem;
   padding-top: 0;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   justify-content: end;
-
+  margin-bottom: 0.5rem;
   h3 {
-    margin-bottom: 1rem;
-    font-size: 3rem;
+    margin-top: 1rem;
+    font-size: 4rem;
     font-weight: 400;
-    font-family: 'shzapfrenaisantlight-ita';
+    margin-block-end: 1rem;
+    font-family: "shzapfrenaisantlight-ita";
+  }
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 0.9;
+    margin-top: 1rem;
+  }
+  @media (max-width: 630px) {
+    order: 1;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 1rem;
+    padding-top: 0;
+    margin-top: 0;
+    height: 100%;
+    h3 {
+      font-size: 2.4rem;
+      margin-top: 1rem;
+      margin-bottom: 0.8rem;
+    }
+    span {
+      font-weight: 400;
+      line-height: 0.9;
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -41,7 +72,12 @@ interface SubProjComponentProps {
   className: string;
 }
 
-const SubProjComponent: React.FC<SubProjComponentProps> = ({ title, description, imgSrc, className }) => {
+const SubProjComponent: React.FC<SubProjComponentProps> = ({
+  title,
+  description,
+  imgSrc,
+  className,
+}) => {
   return (
     <SubProjContainer className={className}>
       <TextContainer>

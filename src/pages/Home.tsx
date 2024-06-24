@@ -209,7 +209,7 @@ const IntroIcons = styled.div`
   margin-top: -1rem;
   @media (max-width: 600px) {
     margin-left: 0rem;
-    margin-top: -1rem;
+    margin-top: 2rem;
     * {
       height: 1.3rem;
       width: 1.3rem;
@@ -220,7 +220,7 @@ const IntroIcons = styled.div`
 const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 20rem;
+  padding-top: 18rem;
   width: 100%;
   height: 100px;
 `;
@@ -242,12 +242,12 @@ const RightArrow = styled.div`
     display: block;
   }
   @media (max-width: 600px) {
-    margin-top: 4rem;
+    margin-top: 0.6rem;
   }
 
   @media (max-width: 470px) {
     display: block;
-    margin-top: 5rem;
+    margin-top: 2rem;
     div {
       border-width: 1px;
       width: 119.1168px;
@@ -423,26 +423,26 @@ function Home({ toggleDarkTheme }: HomeProps) {
                 <ProjectsContainer>
                   <SubProjComponent
                     className="toAppear"
-                    title={"first"}
-                    description={"lorem impsum asdfasdf"}
+                    title={"Portfolio"}
+                    description={"Web desing & development"}
                     imgSrc={"/test.webp"}
                   />
                   <SubProjComponent
                     className="toAppear"
-                    title={"second"}
-                    description={"lorem impsum asdfasdf"}
+                    title={"Bloch Sphere"}
+                    description={"Web development"}
                     imgSrc={"/test.webp"}
                   />
                   <SubProjComponent
                     className="toAppear"
-                    title={"third"}
-                    description={"lorem impsum asdfasdf"}
+                    title={"Bookio"}
+                    description={"3D Web development"}
                     imgSrc={"/test.webp"}
                   />
                   <SubProjComponent
                     className="toAppear"
-                    title={"quarter"}
-                    description={"lorem impsum asdfasdf"}
+                    title={"Galery of Ai"}
+                    description={"Web development"}
                     imgSrc={"/test.webp"}
                   />
                   <H2TextSpan
