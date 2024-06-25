@@ -22,7 +22,6 @@ import { Theme } from "../theme/themes/theme";
 
 import CoverComponent from "../components/coverPage";
 import RevealComponent from "../components/revealPage";
-import HeaderCoverComponent from "../components/headerCoverMenu";
 //components
 import H2TextSpan from "../components/h2Text";
 import SubProjComponent from "../components/subProj";
@@ -211,6 +210,7 @@ const IntroIcons = styled.div`
   gap: 1rem;
   margin-left: 1.2rem;
   margin-top: -1rem;
+  
   @media (max-width: 1100px) {
     margin-left: 0.5rem;
   }

@@ -7,6 +7,14 @@ import RevealComponent from "./revealPage";
 import H1TextSpan from "./h1Text";
 import MinusSvgIcon from "./minusIcon";
 import PlusSvgIcon from "./plusIcon";
+import {
+  Mail,
+  Instagram,
+  HalfMoon,
+  GithubCircle,
+  SunLight,
+} from "iconoir-react";
+import IconButtonLink from "../components/iconButtonLink";
 import gsap from "gsap";
 
 const HeaderContainer = styled.header`
@@ -38,7 +46,7 @@ const Navigation = styled.nav`
   color: ${({ theme }) => theme.colors.text};
 
   gap: 0.9rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -1px;
   font-size: 1rem;
 `;
@@ -167,6 +175,28 @@ const RightGridDiv = styled.div`
 `;
 const RightSectionDiv = styled.div`
   border-top: 1px solid #ffffff33;
+  display: flex;
+  flex-direction: column;
+  gap: 20%;
+  justify-content: center;
+  align-items: center;
+  div {
+    clip-path: polygon(0% -10%, 100% -10%, 100% 110%, 0% 110%);
+    div {
+      height: 110%;
+      width: 110%;
+      div {
+        border: 1px solid #ffffff7a;
+        height: 1.8rem;
+        width: 1.8rem;
+        * {
+          height: 1.8rem;
+          width: 1.8rem;
+          color: #ffffff;
+        }
+      }
+    }
+  }
 `;
 
 const CloseDiv = styled.div`
@@ -322,7 +352,32 @@ const Header = ({
                 <CloseDiv onClick={handleClose}>
                   <span onClick={handleClose}>Close</span>
                 </CloseDiv>
-                <RightSectionDiv></RightSectionDiv>
+                <RightSectionDiv>
+                  <div>
+                    <div className="toAppear2">
+                      <IconButtonLink
+                        url="https://github.com/th3-Rocha"
+                        children={<GithubCircle />}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="toAppear2">
+                      <IconButtonLink
+                        url="https://mailto:murilorocha537@gmail.com"
+                        children={<Mail />}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="toAppear2">
+                      <IconButtonLink
+                        url="https://instagram.com.br"
+                        children={<Instagram />}
+                      />
+                    </div>
+                  </div>
+                </RightSectionDiv>
               </RightGridDiv>
             </GridDiv>
           </Wrapper>
@@ -362,7 +417,6 @@ const Header = ({
             <MinusSvgIcon />
             {translations.header.navigation.contact}
           </NavLink>
-
         </Navigation>
       </HeaderContainer>
     );

@@ -2,7 +2,7 @@
   "links": {
     "github":"https://github.com/th3-Rocha",
     "mail":"mailto:murilorocha537@gmail.com",
-    "instagram": "https://www.instagram.com/rekhchand_design/"
+    "instagram": "https://www.instagram.com/rocha_lee/"
   },
   "header": {
     "title": "Murilo Rocha Portfolio",
@@ -16,7 +16,7 @@
   "home": {
     "name": "Murilo Rocha",
     "nameDescription": "Frontend & Backend Developer Specializing in ",
-    "nameDescriptionHighlight": "Games & Webapps",
+    "nameDescriptionHighlight": "React & Next JS",
     "works": [
       {
         "title": "Portfolio",
