@@ -65,7 +65,7 @@ const CloseDiv = styled.div`
 const HeaderCoverComponent = () => {
   useEffect(() => {
     const tl = gsap.timeline();
-    tl.from(".rectangle", {
+    tl.from(".rectangleMenu", {
       scaleY: 0,
       duration: 1,
       stagger: 0.1,
@@ -77,7 +77,7 @@ const HeaderCoverComponent = () => {
 
   const handleClose = () => {
     const tl = gsap.timeline();
-    tl.to(".rectangle", {
+    tl.to(".rectangleMenu", {
       scaleY: 0,
       duration: 1,
       stagger: 0.1,
@@ -89,7 +89,7 @@ const HeaderCoverComponent = () => {
 
   return (
     <Wrapper>
-      <Rectangle className="rectangle" />
+      <Rectangle className="rectangleMenu" />
       <GridDiv>
         <LeftDiv></LeftDiv>
         <MidGridDiv>

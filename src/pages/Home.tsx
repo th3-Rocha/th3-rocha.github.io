@@ -153,7 +153,8 @@ const SecTitle2 = styled.section`
   justify-content: flex-end;
   margin-right: -3rem;
   margin-top: 190vh;
-  @media (max-width: 1100px) { //fazer isso ficar perto do h2 do projects
+  @media (max-width: 1100px) {
+    //fazer isso ficar perto do h2 do projects
     display: none;
   }
 `;
@@ -445,27 +446,28 @@ function Home({ toggleDarkTheme }: HomeProps) {
                 <ProjectsContainer>
                   <SubProjComponent
                     className="toAppear"
-                    title={translations.home.works[0].title}
-                    description={translations.home.works[0].description}
-                    imgSrc={"/test.webp"}
+                    title={translations.home.works[1].title}
+                    description={translations.home.works[1].description}
+                    imgSrc={"/blockSphere.png"}
                   />
                   <SubProjComponent
                     className="toAppear"
-                    title={translations.home.works[1].title}
-                    description={translations.home.works[1].description}
-                    imgSrc={"/test.webp"}
+                    title={translations.home.works[0].title}
+                    description={translations.home.works[0].description}
+                    imgSrc={"/PortFolioMobile.png"}
                   />
+
                   <SubProjComponent
                     className="toAppear"
                     title={translations.home.works[2].title}
                     description={translations.home.works[2].description}
-                    imgSrc={"/test.webp"}
+                    imgSrc={"/galeryIA.png"}
                   />
                   <SubProjComponent
                     className="toAppear"
                     title={translations.home.works[3].title}
                     description={translations.home.works[3].description}
-                    imgSrc={"/test.webp"}
+                    imgSrc={"/pokedex.png"}
                   />
                   <SecTitle3>
                     <LeftSpanText
@@ -477,7 +479,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
                   <H2TextSpan
                     classNameTag="toAppear"
                     Text={"Jogaram uma bomba"}
-                    TextHighlight={" Xx xxxxxx"}
+                    TextHighlight={" Xx Xxxxxx"}
                   />
                 </ProjectsContainer>
               </RightContainer>
