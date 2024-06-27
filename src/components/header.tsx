@@ -106,8 +106,8 @@ const Wrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 101vw;
-  height: 103vh;
+  width: 100%;
+  height: 100%;
   z-index: 99;
   pointer-events: none;
   display: flex;

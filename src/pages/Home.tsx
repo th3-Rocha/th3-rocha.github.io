@@ -147,16 +147,6 @@ const SecTitle = styled.section`
   }
 `;
 
-const SecTitle2 = styled.section`
-  align-items: flex-start;
-  display: flex;
-  justify-content: flex-end;
-  margin-right: -3rem;
-  margin-top: 190vh;
-  @media (max-width: 1100px) {
-    display: none;
-  }
-`;
 
 const SecTitle3 = styled.section`
   align-items: flex-start;
@@ -308,6 +298,18 @@ const PivotLeftSpan2 = styled.div`
   transform-origin: 0 0;
   @media (max-width: 1100px) {
     display: none;
+  }
+`;
+
+const RightTextBellowProjects = styled.div`
+  margin-left: auto;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  max-width: 29rem;
+  h2 {
+    font-size: 1.1rem;
+    letter-spacing: -0.01rem;
+    font-weight: 300;
   }
 `;
 
@@ -562,10 +564,27 @@ function Home({ toggleDarkTheme }: HomeProps) {
                         />
                       </OuterH2Clippath>
 
-
-                      <OpenBoxH2 />
+                      <OpenBoxH2
+                        mainWords={[
+                          translations.home.Habilities[0].MainWord,
+                          translations.home.Habilities[1].MainWord,
+                          translations.home.Habilities[2].MainWord,
+                        ]}
+                        mainTexts={[
+                          translations.home.Habilities[0].MainText,
+                          translations.home.Habilities[1].MainText,
+                          translations.home.Habilities[2].MainText,
+                        ]}
+                      />
                     </H2Projects>
                   </AfterProjectsDiv>
+                  <RightTextBellowProjects>
+                    <H2TextSpan
+                      Text="I enjoy designing meaningful experiences for
+                      brands & businesses to help them serve their
+                      target users."
+                    />
+                  </RightTextBellowProjects>
                 </ProjectsContainer>
               </RightContainer>
             </ExtContainer>

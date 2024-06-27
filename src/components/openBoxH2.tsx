@@ -57,6 +57,11 @@ const UpContainer = styled.div`
   width: 100%;
   margin-left: 0rem;
   opacity: 0;
+  div {
+    svg {
+      transform: translatex(-1rem);
+    }
+  }
 `;
 const UnitContainer = styled.div`
   display: flex;
@@ -90,7 +95,13 @@ const IntraBorder = styled.div`
   transform-origin: left; /* Ensure growth from left to right */
   transition: width 1s;
 `;
-const OpenBoxH2 = () => {
+
+interface OpenBoxH2Props {
+  mainWords: string[];
+  mainTexts: string[];
+}
+
+const OpenBoxH2: React.FC<OpenBoxH2Props> = ({ mainWords, mainTexts }) => {
   const [isOpen, setIsOpen] = useState([false, false, false]);
   const borderRefs = useRef<(HTMLDivElement | null)[]>([]);
   const upContainerRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -169,72 +180,31 @@ const OpenBoxH2 = () => {
 
   return (
     <ExtContainer>
-      <UnitContainer onClick={() => toggleOpen(0)}>
-        <ClipPathing>
-          <UpContainer ref={(el) => (upContainerRefs.current[0] = el)}>
-            <div>
-              <H2TextSpan TextHighlight="01" Text2="/" fontStyle="italic" />
-              <small>
-                <H2TextSpan Text="Desing" />
-              </small>
-            </div>
-            <div>{isOpen[0] ? <MinusSvgIcon /> : <PlusIcon />}</div>
-          </UpContainer>
-        </ClipPathing>
-        <DownContainer isOpen={isOpen[0]}>
-          <span>
-            A strong foundation is essential for any project. I deliver
-            beautiful and intuitive designs that align with your brand's
-            essence. I believe usability and aesthetics go hand-in-hand to make
-            better products.
-          </span>
-        </DownContainer>
-      </UnitContainer>
-      <IntraBorder ref={(el) => (borderRefs.current[0] = el)} />
-      <UnitContainer onClick={() => toggleOpen(1)}>
-        <ClipPathing>
-          <UpContainer ref={(el) => (upContainerRefs.current[1] = el)}>
-            <div>
-            <H2TextSpan TextHighlight="02" Text2="/" fontStyle="italic" />
-            <small>
-              <H2TextSpan
-                Text="Development"
-              />
-            </small>
-          </div>
-            <div>{isOpen[1] ? <MinusSvgIcon /> : <PlusIcon />}</div>
-          </UpContainer>
-        </ClipPathing>
-        <DownContainer isOpen={isOpen[1]}>
-          <span>
-            Using the latest web dev techs, I build pixel-perfect, fast and
-            accessible websites. I specialise in creative interactions and
-            transitions.
-          </span>
-        </DownContainer>
-      </UnitContainer>
-      <IntraBorder ref={(el) => (borderRefs.current[1] = el)} />
-      <UnitContainer onClick={() => toggleOpen(2)}>
-        <ClipPathing>
-          <UpContainer ref={(el) => (upContainerRefs.current[2] = el)}>
-      
-          <div>
-            <H2TextSpan TextHighlight="03" Text2="/" fontStyle="italic" />
-            <small>
-              <H2TextSpan Text="Design & dev " />
-            </small>
-          </div>
-            <div>{isOpen[2] ? <MinusSvgIcon /> : <PlusIcon />}</div>
-          </UpContainer>
-        </ClipPathing>
-        <DownContainer isOpen={isOpen[2]}>
-          <span>
-            This is my most preferred service as it allows the entire website
-            creation from concept to final site to be seamless and ultra fast.
-          </span>
-        </DownContainer>
-      </UnitContainer>
-      <IntraBorder ref={(el) => (borderRefs.current[2] = el)} />
+      {mainWords.map((word, index) => (
+        <React.Fragment key={index}>
+          <UnitContainer onClick={() => toggleOpen(index)}>
+            <ClipPathing>
+              <UpContainer ref={(el) => (upContainerRefs.current[index] = el)}>
+                <div>
+                  <H2TextSpan
+                    TextHighlight={`0${index + 1}`}
+                    Text2="/"
+                    fontStyle="italic"
+                  />
+                  <small>
+                    <H2TextSpan Text={word} />
+                  </small>
+                </div>
+                <div>{isOpen[index] ? <MinusSvgIcon /> : <PlusIcon />}</div>
+              </UpContainer>
+            </ClipPathing>
+            <DownContainer isOpen={isOpen[index]}>
+              <span>{mainTexts[index]}</span>
+            </DownContainer>
+          </UnitContainer>
+          <IntraBorder ref={(el) => (borderRefs.current[index] = el)} />
+        </React.Fragment>
+      ))}
     </ExtContainer>
   );
 };

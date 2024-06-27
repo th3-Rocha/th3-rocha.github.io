@@ -42,6 +42,20 @@
       {
         "title": "What I do"
       }
+    ],
+    "Habilities": [
+      {
+        "MainWord": "Design",
+        "MainText": "A strong foundation is essential for any project. I deliver beautiful and intuitive designs that align with your brand's essence. I believe usability and aesthetics go hand-in-hand to make better products."
+      },
+      {
+        "MainWord": "Development",
+        "MainText": "Using the latest web dev techs, I build pixel-perfect, fast and accessible websites. I specialise in creative interactions and transitions."
+      },
+      {
+        "MainWord": "Design & dev",
+        "MainText": "This is my most preferred service as it allows the entire website creation—from concept to final site—to be seamless and ultra-fast."
+      }
     ]
   },
   "about": {
