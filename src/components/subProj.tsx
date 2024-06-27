@@ -70,17 +70,17 @@ interface SubProjComponentProps {
   title: string;
   description: string;
   imgSrc: string;
-  className: string;
+  classNameTag?: string;
 }
 
 const SubProjComponent: React.FC<SubProjComponentProps> = ({
   title,
   description,
   imgSrc,
-  className,
+  classNameTag,
 }) => {
   return (
-    <SubProjContainer className={className}>
+    <SubProjContainer className={classNameTag}>
       <TextContainer>
         <div>
           <h3>{title}</h3>

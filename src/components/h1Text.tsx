@@ -30,7 +30,7 @@ const H1TextSpan = ({
   classNameTag,
 }: {
   Text: string;
-  classNameTag: string;
+  classNameTag?: string;
 }) => {
   return (
     <H1Text className={classNameTag}>

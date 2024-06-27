@@ -23,18 +23,26 @@ const H2Text = styled.div`
 
 const H2TextSpan = ({
   Text,
+  Text2,
   TextHighlight,
+  TextHighlight2,
   classNameTag,
+  fontStyle,
 }: {
-  Text: string;
-  TextHighlight: string;
-  classNameTag: string;
+  Text?: string;
+  Text2?: string;
+  TextHighlight?: string;
+  TextHighlight2?: string;
+  classNameTag?: string;
+  fontStyle?: string;
 }) => {
   return (
     <H2Text className={classNameTag}>
       <h2>
         {Text}
-        <span>{TextHighlight}</span>
+        <span style={{ fontStyle: fontStyle }}>{TextHighlight}</span>
+        {Text2}
+        <span style={{ fontStyle: fontStyle }}>{TextHighlight2}</span>
       </h2>
     </H2Text>
   );

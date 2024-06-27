@@ -28,6 +28,7 @@ import SubProjComponent from "../components/subProj";
 import H1TextSpan from "../components/h1Text";
 import ArrowCirclePointer from "../components/arrowCircle";
 import LeftSpanText from "../components/leftSpanText";
+import OpenBoxH2 from "../components/openBoxH2";
 //components
 const FirstDiv = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
@@ -153,7 +154,6 @@ const SecTitle2 = styled.section`
   margin-right: -3rem;
   margin-top: 190vh;
   @media (max-width: 1100px) {
-    //fazer isso ficar perto do h2 do projects
     display: none;
   }
 `;
@@ -162,7 +162,7 @@ const SecTitle3 = styled.section`
   align-items: flex-start;
   margin-left: 1rem;
   margin-top: 5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   display: none;
   @media (max-width: 1100px) {
     display: inline-block;
@@ -210,7 +210,7 @@ const IntroIcons = styled.div`
   gap: 1rem;
   margin-left: 1.2rem;
   margin-top: -1rem;
-  
+
   @media (max-width: 1100px) {
     margin-left: 0.5rem;
   }
@@ -269,6 +269,48 @@ const RightArrow = styled.div`
   }
 `;
 
+const AfterProjectsDiv = styled.div``;
+
+const H2Projects = styled.div`
+  margin-left: 1rem;
+  margin-top: 1rem;
+`;
+const OuterH2Clippath = styled.div`
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 110%);
+  width: 50vw;
+  -ms-grid-columns: min-content;
+  overflow-wrap: break-word;
+  div {
+    opacity: 0;
+  }
+  @media (max-width: 900px) {
+    width: 70vw;
+  }
+`;
+
+const LeftSpanText2 = styled.span`
+  display: inline-block;
+  text-align: center;
+  width: 10rem;
+  height: 1rem;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 400;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  font-family: "Inter", sans-serif;
+`;
+
+const PivotLeftSpan2 = styled.div`
+  display: inline-block;
+  transform: rotate(-90deg)
+    translate(calc(-100% - 0.5rem), calc(-100% - 2.8rem));
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  @media (max-width: 1100px) {
+    display: none;
+  }
+`;
+
 interface HomeProps {
   toggleDarkTheme: () => void;
 }
@@ -319,7 +361,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
         duration: 1,
         yPercent: -45,
         ease: "power4",
-        stagger: 0.06,
+        sta2gger: 0.06,
         delay: 0.65,
       });
     }
@@ -355,6 +397,39 @@ function Home({ toggleDarkTheme }: HomeProps) {
     });
     return () => {
       observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    const elements2 = document.querySelectorAll(".toAppearH2");
+    const observer2 = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            gsap.from(entry.target, {
+              duration: 1,
+              yPercent: 600,
+              ease: "power4",
+              opacity: 0,
+            });
+            gsap.to(entry.target, {
+              duration: 1,
+              opacity: 1,
+              yPercent: 0,
+            });
+            observer2.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.8,
+      }
+    );
+    elements2.forEach((el) => {
+      observer2.observe(el);
+    });
+    return () => {
+      observer2.disconnect();
     };
   }, []);
 
@@ -396,13 +471,6 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     shouldRotate={true}
                   />
                 </SecTitle>
-
-                <SecTitle2>
-                  <LeftSpanText
-                    Text={translations.home.detailTitle[1].title}
-                    shouldRotate={true}
-                  />
-                </SecTitle2>
               </LeftContainer>
               <RightContainer>
                 <IntroContainer data-scroll>
@@ -445,42 +513,59 @@ function Home({ toggleDarkTheme }: HomeProps) {
 
                 <ProjectsContainer>
                   <SubProjComponent
-                    className="toAppear"
+                    classNameTag="toAppear"
                     title={translations.home.works[1].title}
                     description={translations.home.works[1].description}
                     imgSrc={"/blockSphere.png"}
                   />
                   <SubProjComponent
-                    className="toAppear"
+                    classNameTag="toAppear"
                     title={translations.home.works[0].title}
                     description={translations.home.works[0].description}
                     imgSrc={"/PortFolioMobile.png"}
                   />
 
                   <SubProjComponent
-                    className="toAppear"
+                    classNameTag="toAppear"
                     title={translations.home.works[2].title}
                     description={translations.home.works[2].description}
                     imgSrc={"/galeryIA.png"}
                   />
                   <SubProjComponent
-                    className="toAppear"
+                    classNameTag="toAppear"
                     title={translations.home.works[3].title}
                     description={translations.home.works[3].description}
                     imgSrc={"/pokedex.png"}
                   />
-                  <SecTitle3>
-                    <LeftSpanText
-                      classNameTag="toAppear"
-                      Text={translations.home.detailTitle[1].title}
-                      shouldRotate={false}
-                    />
-                  </SecTitle3>
-                  <H2TextSpan
-                    classNameTag="toAppear"
-                    Text={"Jogaram uma bomba"}
-                    TextHighlight={" Xx Xxxxxx"}
-                  />
+                  {/* -------end of projects ---------- */}
+
+                  <AfterProjectsDiv>
+                    <SecTitle3>
+                      <LeftSpanText
+                        Text={translations.home.detailTitle[1].title}
+                        shouldRotate={false}
+                      />
+                    </SecTitle3>
+                    <H2Projects>
+                      <PivotLeftSpan2>
+                        <LeftSpanText2>
+                          {translations.home.detailTitle[1].title}
+                        </LeftSpanText2>
+                      </PivotLeftSpan2>
+                      <OuterH2Clippath>
+                        <H2TextSpan
+                          classNameTag="toAppearH2"
+                          Text={"Delivering "}
+                          TextHighlight={"modern, cohesive & intuitive"}
+                          Text2={" web solutions."}
+                          fontStyle="italic"
+                        />
+                      </OuterH2Clippath>
+
+
+                      <OpenBoxH2 />
+                    </H2Projects>
+                  </AfterProjectsDiv>
                 </ProjectsContainer>
               </RightContainer>
             </ExtContainer>
