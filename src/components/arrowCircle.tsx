@@ -15,45 +15,70 @@ const ArrowCircle = styled.div`
   transition: none;
   svg {
     height: 60px;
-    transition: transform 0.1s;    
+    transition: transform 0.1s;
     path {
       fill: ${({ theme }) => theme.colors.text};
     }
   }
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-const ArrowCirclePointer = ({shouldRotate}: {shouldRotate: boolean}) => {
+const ArrowCirclePointer = ({ shouldAbout }: { shouldAbout: boolean }) => {
   const arrowRef = useRef<SVGSVGElement | null>(null);
-  
-    useEffect(() => {
-    if (!shouldRotate) return;
-    const handleMouseMove = (event: MouseEvent) => {
-      const arrow = arrowRef.current as unknown as SVGElement;
-      if (arrow) {
-        const rect = arrow.getBoundingClientRect();
-        const arrowX = rect.left + rect.width / 2;
-        const arrowY = rect.top + rect.height / 2;
-        const angle = Math.atan2(event.clientY - arrowY, event.clientX - arrowX) * (180 / Math.PI) - 90;
-        
-        // Smooth transition for rotation
-        gsap.to(arrow, {
-          rotation: angle,
-          transformOrigin: "center",
-          overwrite: "auto",
-          duration: 0.1,
-          ease: "power4.out"
-        });
-      }
-    };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [shouldRotate]);
+  useEffect(() => {
+    if (!shouldAbout) return;
+    const arrow = arrowRef.current as unknown as SVGElement;
+    if (arrow) {
+      // Smooth transition for rotation
+      gsap.to(arrow, {
+        rotation: -120,
+        transformOrigin: "center",
+        overwrite: "auto",
+        duration: 0.1,
+        ease: "power4.out",
+      });
+    }
+  }, [shouldAbout]);
 
+  const handleMouseEnter = () => {
+    const arrow = arrowRef.current as unknown as SVGElement;
+    if (arrow) {
+      gsap.to(arrow, {
+        transformOrigin: "center",
+        overwrite: "auto",
+        duration: 0.2,
+        ease: "bounce.inOut",
+        yoyo: true,
+        repeat: 5000,
+        rotation: "+=20",
+      });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    const arrow = arrowRef.current as unknown as SVGElement;
+    if (arrow) {
+      gsap.to(arrow, {
+        rotation: -120,
+        transformOrigin: "center",
+        overwrite: "auto",
+        duration: 0.2,
+        ease: "bounce.inOut",
+      });
+    }
+  };
+  const handleClick = () => {
+    console.log("clicked");
+  };
   return (
-    <ArrowCircle>
+    <ArrowCircle
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {shouldAbout}
       <div>
         <svg
           ref={arrowRef}

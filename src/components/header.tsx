@@ -249,6 +249,11 @@ const Header = ({
       window.location.href = routes[index];
     }, 1700);
   };
+
+  useEffect(() => {
+
+  }, []);
+
   ///////////////////////COVERMENU//////////////////
   const [trigger, setTrigger] = useState(false);
   const handleClose = () => {

@@ -29,6 +29,7 @@ import H1TextSpan from "../components/h1Text";
 import ArrowCirclePointer from "../components/arrowCircle";
 import LeftSpanText from "../components/leftSpanText";
 import OpenBoxH2 from "../components/openBoxH2";
+import ImageCarousel from "../components/carouselComp";
 //components
 const FirstDiv = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
@@ -97,7 +98,6 @@ const ExtContainer = styled.div`
   display: grid;
   grid-template-rows: 1;
   grid-template-columns: 1fr 3fr;
-  height: 4000px; // aumentar etc...
   width: 100%;
 
   @media (max-width: 1100px) {
@@ -108,7 +108,7 @@ const ExtContainer = styled.div`
 `;
 const LeftContainer = styled.div`
   border-right: 1px solid ${({ theme }) => theme.colors.secondary};
-
+  height: 100%;
   min-width: 19rem;
   @media (max-width: 1100px) {
     min-width: 1rem;
@@ -123,7 +123,6 @@ const LeftContainer = styled.div`
 const RightContainer = styled.div`
   max-width: calc(100% - 3vw - 1rem); //100% do tamanho menos o gap da esquerda
   min-width: 0;
-
   @media (max-width: 1100px) {
     min-width: 0;
   }
@@ -147,7 +146,6 @@ const SecTitle = styled.section`
   }
 `;
 
-
 const SecTitle3 = styled.section`
   align-items: flex-start;
   margin-left: 1rem;
@@ -158,7 +156,20 @@ const SecTitle3 = styled.section`
     display: inline-block;
   }
 `;
-
+const images = [
+  "https://placehold.co/800",
+  "https://placehold.co/800",
+  "https://placehold.co/800",
+  "https://placehold.co/800",
+  "https://placehold.co/800",
+  "https://placehold.co/800",
+  "https://placehold.co/800",
+  "https://placehold.co/800",
+  "https://placehold.co/800",
+  "https://placehold.co/800",
+  "https://placehold.co/800",
+  "https://placehold.co/800",
+];
 const IntroTexts = styled.div`
   margin-left: 1.2rem;
   h1 {
@@ -220,6 +231,7 @@ const ProjectsContainer = styled.div`
   padding-top: 18rem;
   width: 100%;
   height: 100px;
+  height: max-content;
 `;
 const LeftArrow = styled.div`
   margin-top: 26rem;
@@ -278,6 +290,16 @@ const OuterH2Clippath = styled.div`
   }
 `;
 
+const AboutHomeClipPath = styled.div`
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  h2 {
+    font-size: 1.3rem;
+    letter-spacing: -0.05rem;
+    font-weight: 400;
+    line-height: 1.3rem;
+  }
+  margin-bottom: 3rem;
+`;
 const LeftSpanText2 = styled.span`
   display: inline-block;
   text-align: center;
@@ -302,17 +324,38 @@ const PivotLeftSpan2 = styled.div`
 `;
 
 const RightTextBellowProjects = styled.div`
+  margin-right: 0;
   margin-left: auto;
-  margin-right: 1rem;
-  margin-top: 1rem;
-  max-width: 29rem;
-  h2 {
-    font-size: 1.1rem;
-    letter-spacing: -0.01rem;
-    font-weight: 300;
-  }
+  margin-top: 5rem;
+  width: 80%;
+  max-width: 27rem;
+  margin-bottom: 10rem;
 `;
 
+const BottomLine = styled.div`
+  height: 1px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  margin-left: 3rem;
+  margin-right: 3rem;
+  width: calc(100% - 6rem);
+`;
+const BottomContainer = styled.div`
+  width: 100%;
+  height: 50rem;
+`;
+const CourosselContainer = styled.div`
+  width: 400%;
+  div {
+    
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  } //?????????????????
+`;
+const FooterContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.primary};
+  width: 100%;
+  height: 10rem;
+`;
 interface HomeProps {
   toggleDarkTheme: () => void;
 }
@@ -324,6 +367,18 @@ function Home({ toggleDarkTheme }: HomeProps) {
   const [coverMenu, setCoverMenu] = useState(Boolean);
   const { language, translations } = useContext(LanguageContext);
   const { scroll } = useLocomotiveScroll();
+
+  const routes = ["/", "/about", "/contact"];
+  const handleClickHomeItens = (index: number) => {
+    const updatedNavActive = Array(4).fill(false);
+    updatedNavActive[index] = true;
+
+    setCoverLoad(true);
+
+    setTimeout(() => {
+      window.location.href = routes[index];
+    }, 1700);
+  };
 
   useEffect(() => {
     gsap.from(".intro-texts > div > h1, h2", {
@@ -465,7 +520,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
             <ExtContainer>
               <LeftContainer>
                 <LeftArrow>
-                  <ArrowCirclePointer shouldRotate={false} />
+                  <ArrowCirclePointer shouldAbout={false} />
                 </LeftArrow>
                 <SecTitle>
                   <LeftSpanText
@@ -507,7 +562,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     />
                   </IntroIcons>
                   <RightArrow>
-                    <ArrowCirclePointer shouldRotate={false} />
+                    <ArrowCirclePointer shouldAbout={false} />
                   </RightArrow>
                 </IntroContainer>
 
@@ -579,15 +634,28 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     </H2Projects>
                   </AfterProjectsDiv>
                   <RightTextBellowProjects>
-                    <H2TextSpan
-                      Text="I enjoy designing meaningful experiences for
+                    <AboutHomeClipPath>
+                      <H2TextSpan
+                        Text="I enjoy designing meaningful experiences for
                       brands & businesses to help them serve their
                       target users."
-                    />
+                      />
+                    </AboutHomeClipPath>
+                    <div onClick={() => handleClickHomeItens(1)}>
+                      <ArrowCirclePointer shouldAbout={true} />
+                    </div>
                   </RightTextBellowProjects>
                 </ProjectsContainer>
               </RightContainer>
             </ExtContainer>
+            <BottomLine></BottomLine>
+
+            <BottomContainer>
+              <CourosselContainer>
+                <ImageCarousel images={images} />
+              </CourosselContainer>
+              <FooterContainer></FooterContainer>
+            </BottomContainer>
           </main>
         </LocomotiveScrollProvider>
       </HomeContainer>
