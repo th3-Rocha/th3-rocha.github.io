@@ -13,6 +13,11 @@ const Wrapper = styled.div`
   overflow: hidden;
 `;
 
+const TEST = styled.div`
+  height: 800px;
+  width: 800px;
+`;
+
 interface BoxProps {
   totalBoxes: number;
 }
@@ -51,7 +56,8 @@ const CarouselComp: React.FC<ImageCarouselProps> = ({ images }) => {
 
       // Add tilt animation with unique random delay and direction for each box
       Array.from(boxes).forEach((box) => {
-        const randomRotation = Math.random() * 10 * (Math.random() < 0.5 ? -1 : 1);
+        const randomRotation =
+          Math.random() * 10 * (Math.random() < 0.5 ? -1 : 1);
         gsap.fromTo(
           box,
           { rotation: randomRotation },
@@ -66,7 +72,7 @@ const CarouselComp: React.FC<ImageCarouselProps> = ({ images }) => {
         );
       });
     }
-  }, [images]); 
+  }, [images]);
 
   return (
     <Wrapper ref={wrapperRef}>

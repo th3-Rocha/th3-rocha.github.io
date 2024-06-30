@@ -99,7 +99,6 @@ const ExtContainer = styled.div`
   grid-template-rows: 1;
   grid-template-columns: 1fr 3fr;
   width: 100%;
-
   @media (max-width: 1100px) {
     grid-template-columns: 32px 14fr;
   }
@@ -346,7 +345,6 @@ const BottomContainer = styled.div`
 const CourosselContainer = styled.div`
   width: 400%;
   div {
-    
     margin-top: 8rem;
     margin-bottom: 8rem;
   } //?????????????????
@@ -369,6 +367,17 @@ function Home({ toggleDarkTheme }: HomeProps) {
   const { scroll } = useLocomotiveScroll();
 
   const routes = ["/", "/about", "/contact"];
+
+  const [showCarousel, setShowCarousel] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowCarousel(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleClickHomeItens = (index: number) => {
     const updatedNavActive = Array(4).fill(false);
     updatedNavActive[index] = true;
@@ -651,9 +660,12 @@ function Home({ toggleDarkTheme }: HomeProps) {
             <BottomLine></BottomLine>
 
             <BottomContainer>
-              <CourosselContainer>
-                <ImageCarousel images={images} />
-              </CourosselContainer>
+              <BottomContainer>
+                <CourosselContainer>
+                  {showCarousel && <ImageCarousel images={images} />}
+                </CourosselContainer>
+                <FooterContainer></FooterContainer>
+              </BottomContainer>
               <FooterContainer></FooterContainer>
             </BottomContainer>
           </main>
