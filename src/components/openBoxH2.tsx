@@ -58,7 +58,9 @@ const UpContainer = styled.div`
   margin-left: 0rem;
   opacity: 0;
   div {
+    
     svg {
+      margin-top: -0.5rem;
       transform: translatex(-1rem);
     }
   }
@@ -76,13 +78,22 @@ const DownContainer = styled.div<DownContainerProps>`
   margin-left: 4.5rem;
   max-width: 29rem;
   align-self: flex-start;
-  font-size: 0.9rem;
+  
+  font-family: "Inter", sans-serif;
+
   overflow: hidden;
   max-height: ${({ isOpen }) => (isOpen ? "5rem" : "0")};
   transition: max-height 0.3s;
   span {
     text-align: justify;
     text-justify: inter-word;
+  }
+  @media (max-width: 600px) {
+  font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 0.9;
+
+
   }
 `;
 

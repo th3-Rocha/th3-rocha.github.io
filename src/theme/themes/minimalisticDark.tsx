@@ -7,6 +7,8 @@ const minimalisticDark: Theme = {
     background: '#000000',
     text: '#ffffff',
     icon: '#ffffff7a',
+    footerLine: '#e8e8e833',
+    footerLineHard: '#c2c2c2',
   },
   fonts: {
     primary: 'Montserrat, sans-serif',

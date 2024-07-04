@@ -23,6 +23,7 @@ import { Theme } from "../theme/themes/theme";
 import CoverComponent from "../components/coverPage";
 import RevealComponent from "../components/revealPage";
 //components
+import PreFooter from "../components/PreFooter";
 import H2TextSpan from "../components/h2Text";
 import SubProjComponent from "../components/subProj";
 import H1TextSpan from "../components/h1Text";
@@ -30,6 +31,7 @@ import ArrowCirclePointer from "../components/arrowCircle";
 import LeftSpanText from "../components/leftSpanText";
 import OpenBoxH2 from "../components/openBoxH2";
 import ImageCarousel from "../components/carouselComp";
+import Footer from "../components/Footer";
 //components
 const FirstDiv = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
@@ -340,20 +342,20 @@ const BottomLine = styled.div`
 `;
 const BottomContainer = styled.div`
   width: 100%;
-  height: 50rem;
+  height: auto;
 `;
 const CourosselContainer = styled.div`
   width: 400%;
   div {
     margin-top: 8rem;
     margin-bottom: 8rem;
-  } //?????????????????
+  }
 `;
-const FooterContainer = styled.div`
+
+const Footers = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
-  width: 100%;
-  height: 10rem;
 `;
+
 interface HomeProps {
   toggleDarkTheme: () => void;
 }
@@ -660,13 +662,19 @@ function Home({ toggleDarkTheme }: HomeProps) {
             <BottomLine></BottomLine>
 
             <BottomContainer>
-              <BottomContainer>
-                <CourosselContainer>
-                  {showCarousel && <ImageCarousel images={images} />}
-                </CourosselContainer>
-                <FooterContainer></FooterContainer>
-              </BottomContainer>
-              <FooterContainer></FooterContainer>
+              <CourosselContainer>
+                {showCarousel && <ImageCarousel images={images} />}
+              </CourosselContainer>
+              <Footers>
+
+                <PreFooter />
+                <Footer
+                  mailUrl="mailto:murilorocha537@gmail.com"
+                  instagramUrl="https://instagram.com.br"
+                  githubUrl="https://github.com/th3-Rocha"
+                />
+
+              </Footers>
             </BottomContainer>
           </main>
         </LocomotiveScrollProvider>
