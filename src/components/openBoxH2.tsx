@@ -72,6 +72,7 @@ const UnitContainer = styled.div`
   width: 100%;
   cursor: pointer;
   margin-bottom: 1.5rem;
+  
 `;
 
 const DownContainer = styled.div<DownContainerProps>`
@@ -103,7 +104,7 @@ const IntraBorder = styled.div`
   width: 0;
   margin-left: 0;
   transform: translatex(-1rem);
-  transform-origin: left; /* Ensure growth from left to right */
+  transform-origin: left; 
   transition: width 1s;
 `;
 

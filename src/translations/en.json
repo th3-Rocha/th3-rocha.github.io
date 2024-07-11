@@ -1,7 +1,7 @@
 {
   "links": {
-    "github":"https://github.com/th3-Rocha",
-    "mail":"mailto:murilorocha537@gmail.com",
+    "github": "https://github.com/th3-Rocha",
+    "mail": "mailto:murilorocha537@gmail.com",
     "instagram": "https://www.instagram.com/rocha_lee/"
   },
   "header": {
@@ -56,7 +56,11 @@
         "MainWord": "Design & dev",
         "MainText": "This is my most preferred service as it allows the entire website creation—from concept to final site—to be seamless and ultra-fast."
       }
-    ]
+    ],
+    "SparkMensage": "I enjoy designing meaningful experiences for brands & businesses to help them serve their target users.",
+    "WhatIdoPart1": "Delivering ",
+    "WhatIdoPart2": "modern, cohesive & intuitive",
+    "WhatIdoPart3": " web solutions."
   },
   "about": {
     "intro": "Weaving Seamless Experiences Across Interfaces and Infrastructure"
@@ -68,11 +72,15 @@
       "email": "Email",
       "message": "Message",
       "submit": "Submit"
-    },
-    "address": "123 Main Street, City, Country"
+    }
   },
   "footer": {
-    "call": "Have a project in mind? Contact me",
-    "copyright": "© 2023 My Website. All rights reserved."
+    "WantText": "Want to hire me?",
+    "ContactText": "Contact Me",
+    "Disclaim": "Disclaim",
+    "ReachText": "Reach out for collaboration or say hi at",
+    "email": "murilorocha537@gmail.com",
+    "instagram": "https://instagram.com.br",
+    "github": "https://github.com/th3-Rocha"
   }
 }

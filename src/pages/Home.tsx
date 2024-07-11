@@ -339,6 +339,10 @@ const BottomLine = styled.div`
   margin-left: 3rem;
   margin-right: 3rem;
   width: calc(100% - 6rem);
+  @media (max-width: 1100px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
 const BottomContainer = styled.div`
   width: 100%;
@@ -584,26 +588,26 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     classNameTag="toAppear"
                     title={translations.home.works[1].title}
                     description={translations.home.works[1].description}
-                    imgSrc={"/blockSphere.png"}
+                    imgSrc={"/blockSphere.webp"}
                   />
                   <SubProjComponent
                     classNameTag="toAppear"
                     title={translations.home.works[0].title}
                     description={translations.home.works[0].description}
-                    imgSrc={"/PortFolioMobile.png"}
+                    imgSrc={"/PortFolioMobile.webp"}
                   />
 
                   <SubProjComponent
                     classNameTag="toAppear"
                     title={translations.home.works[2].title}
                     description={translations.home.works[2].description}
-                    imgSrc={"/galeryIA.png"}
+                    imgSrc={"/galeryIA.webp"}
                   />
                   <SubProjComponent
                     classNameTag="toAppear"
                     title={translations.home.works[3].title}
                     description={translations.home.works[3].description}
-                    imgSrc={"/pokedex.png"}
+                    imgSrc={"/pokedex.webp"}
                   />
                   {/* -------end of projects ---------- */}
 
@@ -623,9 +627,9 @@ function Home({ toggleDarkTheme }: HomeProps) {
                       <OuterH2Clippath>
                         <H2TextSpan
                           classNameTag="toAppearH2"
-                          Text={"Delivering "}
-                          TextHighlight={"modern, cohesive & intuitive"}
-                          Text2={" web solutions."}
+                          Text={translations.home.WhatIdoPart1}
+                          TextHighlight={translations.home.WhatIdoPart2}
+                          Text2={translations.home.WhatIdoPart3}
                           fontStyle="italic"
                         />
                       </OuterH2Clippath>
@@ -647,9 +651,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
                   <RightTextBellowProjects>
                     <AboutHomeClipPath>
                       <H2TextSpan
-                        Text="I enjoy designing meaningful experiences for
-                      brands & businesses to help them serve their
-                      target users."
+                        Text={translations.home.SparkMensage}
                       />
                     </AboutHomeClipPath>
                     <div onClick={() => handleClickHomeItens(1)}>
@@ -666,14 +668,18 @@ function Home({ toggleDarkTheme }: HomeProps) {
                 {showCarousel && <ImageCarousel images={images} />}
               </CourosselContainer>
               <Footers>
+                <div onClick={() => handleClickHomeItens(2)}>
+                  <PreFooter ContactText={translations.footer.ContactText}
+                    WantText={translations.footer.WantText} />
+                </div>
 
-                <PreFooter />
                 <Footer
-                  mailUrl="mailto:murilorocha537@gmail.com"
-                  instagramUrl="https://instagram.com.br"
-                  githubUrl="https://github.com/th3-Rocha"
+                  Disclaim={translations.footer.Disclaim}
+                  ReachText={translations.footer.ReachText}
+                  mailUrl={translations.footer.email}
+                  instagramUrl={translations.footer.instagram}
+                  githubUrl={translations.footer.github}
                 />
-
               </Footers>
             </BottomContainer>
           </main>

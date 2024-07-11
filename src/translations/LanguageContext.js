@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-import enTranslations from './en.json';
-import esTranslations from './en.json';
+import itTranslations from './en.json';
+import enTranslations from './it.json';
 
 export const LanguageContext = createContext();
 
@@ -14,7 +14,7 @@ export const LanguageProvider = ({ children }) => {
     setLanguage(userLanguage);
     switch (userLanguage) {
       case 'es':
-        setTranslations(esTranslations);
+        setTranslations(itTranslations);
         break;
       case 'en':
       default:

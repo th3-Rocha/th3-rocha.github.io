@@ -16,11 +16,12 @@ const ExtContainer = styled.div`
   grid-template-columns: 1fr 3fr;
   color: ${({ theme }) => theme.colors.background};
   font-family: ${({ theme }) => theme.fonts.main};
- 
+  pointer-events: none;
 `;
 
 const ExtContainer2 = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
+  pointer-events: none;
 `;
 
 const BottomLine = styled.div`
@@ -29,6 +30,7 @@ const BottomLine = styled.div`
   margin-left: 3rem;
   margin-right: 3rem;
   width: calc(100% - 6rem);
+  pointer-events: none;
 `;
 
 const FooterRight = styled.div`
@@ -36,7 +38,9 @@ const FooterRight = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
- 
+  width: calc(100% - 6rem);
+  pointer-events: auto;
+
   div{
     margin-left: 1rem;
     max-width: 23rem;
@@ -45,10 +49,14 @@ const FooterRight = styled.div`
       text-decoration: underline;
     }
   }
+
+
 `;
 const FooterLeft = styled.div`
+  pointer-events: none;
 `;
 const TextRight = styled.div`
+  pointer-events: none;
   display: flex;
   flex-direction: column;
   margin-left: 1rem;
@@ -59,15 +67,18 @@ const TextRight = styled.div`
   }
 `;
 
-
-const PreFooter = () => {
+interface FooterProps {
+  WantText: string;
+  ContactText: string;
+}
+const PreFooter: React.FC<FooterProps> = ({ WantText, ContactText}) => {
   return (
     <ExtContainer2>
       <ExtContainer>
         <FooterLeft>
         </FooterLeft>
         <FooterRight>
-          <H2TextSpan Text="Want to hire me? " TextHighlight="Contact Me" />
+          <H2TextSpan Text={WantText} TextHighlight={ContactText} />
         </FooterRight>
       </ExtContainer>
       <BottomLine />

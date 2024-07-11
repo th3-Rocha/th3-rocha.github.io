@@ -18,13 +18,7 @@ const ExtContainer = styled.div`
   color: ${({ theme }) => theme.colors.background};
   font-family: ${({ theme }) => theme.fonts.main};
   font-family: "Inter", sans-serif;
-  @media (max-width: 600px) {
-  font-size: 0.8rem;
-    font-weight: 300;
-    line-height: 0.9;
 
-
-  }
 `;
 
 
@@ -37,6 +31,12 @@ const FooterLeft = styled.div`
   
   span {
     text-decoration: underline;
+  }
+  @media  (max-width: 600px) {
+    
+    span{
+      display:none;
+    }
   }
 `;
 
@@ -96,20 +96,22 @@ interface FooterProps {
   mailUrl: string;
   instagramUrl: string;
   githubUrl: string;
+  Disclaim: string;
+  ReachText: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ mailUrl, instagramUrl, githubUrl }) => {
+const Footer: React.FC<FooterProps> = ({ mailUrl, instagramUrl, githubUrl, Disclaim, ReachText }) => {
   return (
     <ExtContainer>
       <FooterLeft>
-        <span>Disclaim</span>
+        <span>{Disclaim}</span>
       </FooterLeft>
       <FooterRight>
         <TextRight>
-          <span>Reach out for collaboration or say hi at</span>
+          <span>{ReachText}</span>
 
-          <a href={mailUrl} target="_blank" rel="noopener noreferrer">
-            <TextRightSpanEmail > asdasdasdasdas@gmail.com</TextRightSpanEmail>
+          <a href={"mailto:"+mailUrl} target="_blank" rel="noopener noreferrer">
+            <TextRightSpanEmail > {mailUrl}</TextRightSpanEmail>
           </a>
         </TextRight>
 
