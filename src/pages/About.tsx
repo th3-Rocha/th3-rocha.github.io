@@ -17,7 +17,7 @@ import TextPlugin from "gsap/TextPlugin";
 
 import "./locomotive-scroll.css";
 import gsap from "gsap";
-import IconButtonTheme from "../components/IconButtonTheme";
+import IconButtonTheme from "../components/iconButtonTheme";
 import IconButtonLink from "../components/IconButtonLink";
 import { Theme } from "../theme/themes/theme";
 

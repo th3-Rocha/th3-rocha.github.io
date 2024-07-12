@@ -8,7 +8,7 @@ import {
   SunLight,
 } from "iconoir-react";
 
-import IconButtonTheme from "../components/IconButtonTheme";
+import IconButtonTheme from "../components/iconButtonTheme.tsx";
 import Header from "../components/header.tsx";
 
 import React, { useContext, useEffect, useState, useRef } from "react";
