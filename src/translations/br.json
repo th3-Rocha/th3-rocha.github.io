@@ -1,0 +1,86 @@
+{
+  "links": {
+    "github": "https://github.com/th3-Rocha",
+    "mail": "mailto:murilorocha537@gmail.com",
+    "instagram": "https://www.instagram.com/rocha_lee/"
+  },
+  "header": {
+    "title": "Portfólio Murilo Rocha",
+    "navigation": {
+      "home": "Rocha",
+      "about": "Sobre mim",
+      "contact": "Contato",
+      "theme": "Tema"
+    }
+  },
+  "home": {
+    "name": "Murilo Rocha",
+    "nameDescription": "Desenvolvedor Frontend & Backend Especializado em ",
+    "nameDescriptionHighlight": "React & Next JS",
+    "works": [
+      {
+        "title": "Portfólio",
+        "description": "Desenvolvimento web"
+      },
+      {
+        "title": "Esfera de Bloch",
+        "description": "Desenvolvimento web & matemática como ferramenta"
+      },
+      {
+        "title": "Galeria de IA",
+        "description": "Desenvolvimento web & IA"
+      },
+      {
+        "title": "PokeDex",
+        "description": "Desenvolvimento web & consumo de API"
+      }
+    ],
+    "detailTitle": [
+      {
+        "title": "Trabalhos selecionados"
+      },
+      {
+        "title": "O que eu faço"
+      }
+    ],
+    "Habilities": [
+      {
+        "MainWord": "Design",
+        "MainText": "Uma base sólida é essencial para qualquer projeto. Eu entrego designs bonitos e intuitivos que se alinham com a essência da sua marca. Acredito que usabilidade e estética andam de mãos dadas para criar melhores produtos."
+      },
+      {
+        "MainWord": "Desenvolvimento",
+        "MainText": "Usando as mais recentes tecnologias de desenvolvimento web, eu construo sites perfeitos em pixels, rápidos e acessíveis. Especializo-me em interações e transições criativas."
+      },
+      {
+        "MainWord": "Design & desenvolvimento",
+        "MainText": "Este é meu serviço mais preferido, pois permite que toda a criação do site - do conceito ao site final - seja perfeita e ultra-rápida."
+      }
+    ],
+    "SparkMensage": "Eu gosto de projetar experiências significativas para marcas e negócios para ajudá-los a servir seus usuários-alvo.",
+    "WhatIdoPart1": "Entregando ",
+    "WhatIdoPart2": "soluções web modernas, coesas & intuitivas",
+    "WhatIdoPart3": "."
+  },
+  "about": {
+    "intro": "Tecendo Experiências Sem Fronteiras Entre Interfaces e Infraestrutura"
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Mensagem",
+      "submit": "Enviar"
+    }
+  },
+  "footer": {
+    "WantText": "Quer me contratar?",
+    "ContactText": "Entre em Contato",
+    "Disclaim": "Aviso Legal",
+    "ReachText": "Entre em contato para colaboração ou diga olá em",
+    "email": "murilorocha537@gmail.com",
+    "instagram": "https://instagram.com.br",
+    "github": "https://github.com/th3-Rocha"
+  }
+}

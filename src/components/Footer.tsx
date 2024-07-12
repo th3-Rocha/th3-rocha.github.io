@@ -28,7 +28,11 @@ const FooterLeft = styled.div`
   flex-direction: column;
   margin-left: 3rem;
   margin-top: 2rem;
-  
+  a{
+    &:visited {
+      color: inherit;
+    }
+  }
   span {
     text-decoration: underline;
   }
@@ -104,19 +108,21 @@ const Footer: React.FC<FooterProps> = ({ mailUrl, instagramUrl, githubUrl, Discl
   return (
     <ExtContainer>
       <FooterLeft>
-        <span>{Disclaim}</span>
+        <a href="https://github.com/th3-Rocha/th3-rocha.github.io" target="_blank" rel="noopener noreferrer">
+          <span>{Disclaim}</span>
+        </a>
       </FooterLeft>
       <FooterRight>
         <TextRight>
           <span>{ReachText}</span>
 
-          <a href={"mailto:"+mailUrl} target="_blank" rel="noopener noreferrer">
+          <a href={"mailto:" + mailUrl} target="_blank" rel="noopener noreferrer">
             <TextRightSpanEmail > {mailUrl}</TextRightSpanEmail>
           </a>
         </TextRight>
 
         <Icons>
-          <a href={mailUrl} target="_blank" rel="noopener noreferrer">
+          <a href="https://mail.google.com/mail/?view=cm&to=murilorocha537@gmail.com" target="_blank" rel="noopener noreferrer">
             <Mail />
           </a>
           <a href={instagramUrl} target="_blank" rel="noopener noreferrer">

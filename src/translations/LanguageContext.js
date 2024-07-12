@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-import itTranslations from './en.json';
-import enTranslations from './it.json';
-
+import enTranslations from './en.json';
+import itTranslations from './it.json';
+import brTranslations from './br.json';
 export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
@@ -11,9 +11,13 @@ export const LanguageProvider = ({ children }) => {
 
   useEffect(() => {
     const userLanguage = navigator.language.split('-')[0];
+    console.log(userLanguage);
     setLanguage(userLanguage);
     switch (userLanguage) {
-      case 'es':
+      case 'br':
+        setTranslations(brTranslations);
+        break;
+      case 'it':
         setTranslations(itTranslations);
         break;
       case 'en':
