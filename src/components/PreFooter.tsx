@@ -9,7 +9,7 @@ import {
   GithubCircle,
   SunLight,
 } from "iconoir-react";
-import H2TextSpan from "./h2Text";
+import H2TextSpan from "./H2Text";
 const ExtContainer = styled.div`
   height: 25rem;
   display: grid;

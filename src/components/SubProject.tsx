@@ -71,6 +71,7 @@ interface SubProjComponentProps {
   description: string;
   imgSrc: string;
   classNameTag?: string;
+  urlTo?:string;
 }
 
 const SubProjComponent: React.FC<SubProjComponentProps> = ({
@@ -78,17 +79,20 @@ const SubProjComponent: React.FC<SubProjComponentProps> = ({
   description,
   imgSrc,
   classNameTag,
+  urlTo,
 }) => {
   return (
-    <SubProjContainer className={classNameTag}>
-      <TextContainer>
-        <div>
-          <h3>{title}</h3>
-          <span>{description}</span>
-        </div>
-      </TextContainer>
-      <ImgContainer src={imgSrc} alt={title} />
-    </SubProjContainer>
+    <a href={urlTo} target="_blank" rel="noreferrer" style={{textDecoration: 'none', color: 'inherit'}}>
+      <SubProjContainer className={classNameTag}>
+        <TextContainer>
+          <div>
+            <h3>{title}</h3>
+            <span>{description}</span>
+          </div>
+        </TextContainer>
+        <ImgContainer src={imgSrc} alt={title} />
+      </SubProjContainer>
+    </a>
   );
 };
 

@@ -7,7 +7,8 @@ import {
   GithubCircle,
   SunLight,
 } from "iconoir-react";
-import Header from "../components/header";
+import Header from "../components/Header";
+
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { LanguageContext } from "../translations/LanguageContext";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
@@ -16,26 +17,26 @@ import TextPlugin from "gsap/TextPlugin";
 
 import "./locomotive-scroll.css";
 import gsap from "gsap";
-import IconButtonTheme from "../components/iconButtonTheme";
-import IconButtonLink from "../components/iconButtonLink";
+import IconButtonTheme from "../components/IconButtonTheme";
+import IconButtonLink from "../components/IconButtonLink";
 import { Theme } from "../theme/themes/theme";
 
-import CoverComponent from "../components/coverPage";
-import RevealComponent from "../components/revealPage";
+import CoverComponent from "../components/CoverPage";
+import RevealComponent from "../components/RevealPage";
 //components
 import PreFooter from "../components/PreFooter";
-import H2TextSpan from "../components/h2Text";
-import SubProjComponent from "../components/subProj";
-import H1TextSpan from "../components/h1Text";
-import ArrowCirclePointer from "../components/arrowCircle";
-import LeftSpanText from "../components/leftSpanText";
-import OpenBoxH2 from "../components/openBoxH2";
-import ImageCarousel from "../components/carouselComp";
+import H2TextSpan from "../components/H2Text";
+import SubProjComponent from "../components/SubProject";
+import H1TextSpan from "../components/H1Text";
+import ArrowCirclePointer from "../components/ArrowCirclePointer";
+import LeftSpanText from "../components/LeftSpanText";
+import OpenBoxH2 from "../components/OpenBoxH2";
+import ImageCarousel from "../components/Carousel";
 import Footer from "../components/Footer";
 //components
-const FirstDiv = styled.div`
+const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
-
+ 
   h1 {
     font-size: 6rem;
   }
@@ -69,7 +70,7 @@ const FirstDiv = styled.div`
     }
   }
 `;
-const Line = styled.div`
+const Divider = styled.div`
   width: 100%;
   height: 1px;
   background-color: ${({ theme }) => theme.colors.primary};
@@ -83,7 +84,7 @@ const Line = styled.div`
     z-index: -1;
   }
 `;
-const HomeContainer = styled.div`
+const MainContainer = styled.div`
   //container de tudo
   display: flex;
   flex-direction: column;
@@ -96,7 +97,7 @@ const HomeContainer = styled.div`
   }
 `;
 
-const ExtContainer = styled.div`
+const LayoutContainer = styled.div`
   display: grid;
   grid-template-rows: 1;
   grid-template-columns: 1fr 3fr;
@@ -107,7 +108,7 @@ const ExtContainer = styled.div`
   @media (max-width: 600px) {
   }
 `;
-const LeftContainer = styled.div`
+const Sidebar = styled.div`
   border-right: 1px solid ${({ theme }) => theme.colors.secondary};
   height: 100%;
   min-width: 19rem;
@@ -121,7 +122,7 @@ const LeftContainer = styled.div`
   }
 `;
 
-const RightContainer = styled.div`
+const ContentArea = styled.div`
   max-width: calc(100% - 3vw - 1rem); //100% do tamanho menos o gap da esquerda
   min-width: 0;
   @media (max-width: 1100px) {
@@ -129,14 +130,14 @@ const RightContainer = styled.div`
   }
 `;
 
-const IntroContainer = styled.div`
+const IntroSection = styled.div`
   height: 494px;
   position: relative;
   display: flex;
   flex-direction: column;
 `;
 
-const SecTitle = styled.section`
+const TitleSection = styled.section`
   align-items: flex-start;
   display: flex;
   justify-content: flex-end;
@@ -147,7 +148,7 @@ const SecTitle = styled.section`
   }
 `;
 
-const SecTitle3 = styled.section`
+const SecondTitleSection = styled.section`
   align-items: flex-start;
   margin-left: 1rem;
   margin-top: 5rem;
@@ -158,20 +159,20 @@ const SecTitle3 = styled.section`
   }
 `;
 const images = [
-  "https://placehold.co/800",
-  "https://placehold.co/800",
-  "https://placehold.co/800",
-  "https://placehold.co/800",
-  "https://placehold.co/800",
-  "https://placehold.co/800",
-  "https://placehold.co/800",
-  "https://placehold.co/800",
-  "https://placehold.co/800",
-  "https://placehold.co/800",
-  "https://placehold.co/800",
-  "https://placehold.co/800",
+  "/pokedexMini.webp",
+  "/portMini.webp",
+  "/pyphoneMine.webp",
+  "/quamtumspheremini.webp",
+  "/bookioMini.webp",
+  "/artMini.webp",
+  "/pokedexMini.webp",
+  "/portMini.webp",
+  "/pyphoneMine.webp",
+  "/quamtumspheremini.webp",
+  "/bookioMini.webp",
+  "/artMini.webp",
 ];
-const IntroTexts = styled.div`
+const IntroTextWrapper = styled.div`
   margin-left: 1.2rem;
   h1 {
     height: 8rem;
@@ -206,7 +207,7 @@ const IntroTexts = styled.div`
     }
   }
 `;
-const IntroIcons = styled.div`
+const IntroIconsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -226,7 +227,7 @@ const IntroIcons = styled.div`
   }
 `;
 
-const ProjectsContainer = styled.div`
+const ProjectsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 18rem;
@@ -243,7 +244,7 @@ const LeftArrow = styled.div`
   }
 `;
 
-const RightArrow = styled.div`
+const ArrowRight = styled.div`
   margin-left: auto;
   margin-right: 0rem;
   display: none;
@@ -272,13 +273,13 @@ const RightArrow = styled.div`
   }
 `;
 
-const AfterProjectsDiv = styled.div``;
+const AfterProjects  = styled.div``;
 
-const H2Projects = styled.div`
+const ProjectHeader = styled.div`
   margin-left: 1rem;
   margin-top: 1rem;
 `;
-const OuterH2Clippath = styled.div`
+const OuterClipPath = styled.div`
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 110%);
   width: 50vw;
   -ms-grid-columns: min-content;
@@ -291,7 +292,7 @@ const OuterH2Clippath = styled.div`
   }
 `;
 
-const AboutHomeClipPath = styled.div`
+const AboutSectionClipPath = styled.div`
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   h2 {
     font-size: 1.3rem;
@@ -301,7 +302,7 @@ const AboutHomeClipPath = styled.div`
   }
   margin-bottom: 3rem;
 `;
-const LeftSpanText2 = styled.span`
+const AbRotatedSpan  = styled.span`
   display: inline-block;
   text-align: center;
   width: 10rem;
@@ -313,7 +314,7 @@ const LeftSpanText2 = styled.span`
   font-family: "Inter", sans-serif;
 `;
 
-const PivotLeftSpan2 = styled.div`
+const PivotSpanWrapper  = styled.div`
   display: inline-block;
   transform: rotate(-90deg)
     translate(calc(-100% - 0.5rem), calc(-100% - 2.8rem));
@@ -506,8 +507,8 @@ function Home({ toggleDarkTheme }: HomeProps) {
   }, []);
 
   return (
-    <FirstDiv>
-      <HomeContainer data-scroll-section>
+    <Wrapper >
+      <MainContainer data-scroll-section>
         <Header
           activePage="home"
           coverLoad={coverLoad}
@@ -522,31 +523,31 @@ function Home({ toggleDarkTheme }: HomeProps) {
             getDirection: true,
             getSpeed: true,
             multiplyer: 1,
-            inertia: 0.5,
+            inertia: 0.8,
             smoothMobile: true,
             direction: "vertical",
             smartphone: { smooth: true, multiplyer: 2, inertia: 1.1 },
             tablet: { smooth: true, multiplyer: 2, inertia: 1.1 },
+            smoothTouch: true,
           }}
           watch={[]}
           containerRef={containerRef}
         >
           <main data-scroll-container ref={containerRef}>
-            <ExtContainer>
-              <LeftContainer>
-                <LeftArrow>
-                  <ArrowCirclePointer shouldAbout={false} />
+            <LayoutContainer >
+              <Sidebar>
+                <LeftArrow>    <ArrowCirclePointer shouldAbout={false} />
                 </LeftArrow>
-                <SecTitle>
+                <TitleSection>
                   <LeftSpanText
                     Text={translations.home.detailTitle[0].title}
                     shouldRotate={true}
                   />
-                </SecTitle>
-              </LeftContainer>
-              <RightContainer>
-                <IntroContainer data-scroll>
-                  <IntroTexts className="intro-texts">
+                </TitleSection>
+              </Sidebar>
+              <ContentArea >
+                <IntroSection data-scroll>
+                  <IntroTextWrapper className="intro-texts">
                     <H1TextSpan
                       classNameTag="h1-text-span-tittle"
                       Text={translations.home.name}
@@ -556,8 +557,8 @@ function Home({ toggleDarkTheme }: HomeProps) {
                       Text={translations.home.nameDescription}
                       TextHighlight={translations.home.nameDescriptionHighlight}
                     />
-                  </IntroTexts>
-                  <IntroIcons className="intro-Icons">
+                  </IntroTextWrapper >
+                  <IntroIconsWrapper className="intro-Icons">
                     <IconButtonLink
                       url="https://github.com/th3-Rocha"
                       children={<GithubCircle />}
@@ -575,20 +576,21 @@ function Home({ toggleDarkTheme }: HomeProps) {
                       children2={<SunLight />}
                       onClick={toggleDarkTheme}
                     />
-                  </IntroIcons>
-                  <RightArrow>
+                  </IntroIconsWrapper >
+                  <ArrowRight >
                     <ArrowCirclePointer shouldAbout={false} />
-                  </RightArrow>
-                </IntroContainer>
+                  </ArrowRight >
+                </IntroSection >
 
-                <Line />
+                <Divider />
 
-                <ProjectsContainer>
+                <ProjectsWrapper >
                   <SubProjComponent
                     classNameTag="toAppear"
                     title={translations.home.works[1].title}
                     description={translations.home.works[1].description}
                     imgSrc={"/blockSphere.webp"}
+                    urlTo="https://github.com/th3-Rocha/Bloch-sphere-with-React-Three-Fiber"
                   />
                   <SubProjComponent
                     classNameTag="toAppear"
@@ -602,29 +604,31 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     title={translations.home.works[2].title}
                     description={translations.home.works[2].description}
                     imgSrc={"/galeryIA.webp"}
+                    urlTo="https://th3-rocha.github.io/GaleryOfArtAI-Page/"
                   />
                   <SubProjComponent
                     classNameTag="toAppear"
                     title={translations.home.works[3].title}
                     description={translations.home.works[3].description}
                     imgSrc={"/pokedex.webp"}
+                    urlTo="https://th3-rocha.github.io/PokedexSimulator-Page/"
                   />
                   {/* -------end of projects ---------- */}
 
-                  <AfterProjectsDiv>
-                    <SecTitle3>
+                  <AfterProjects >
+                    <SecondTitleSection >
                       <LeftSpanText
                         Text={translations.home.detailTitle[1].title}
                         shouldRotate={false}
                       />
-                    </SecTitle3>
-                    <H2Projects>
-                      <PivotLeftSpan2>
-                        <LeftSpanText2>
+                    </SecondTitleSection >
+                    <ProjectHeader>
+                      <PivotSpanWrapper >
+                        <AbRotatedSpan >
                           {translations.home.detailTitle[1].title}
-                        </LeftSpanText2>
-                      </PivotLeftSpan2>
-                      <OuterH2Clippath>
+                        </AbRotatedSpan >
+                      </PivotSpanWrapper >
+                      <OuterClipPath>
                         <H2TextSpan
                           classNameTag="toAppearH2"
                           Text={translations.home.WhatIdoPart1}
@@ -632,7 +636,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
                           Text2={translations.home.WhatIdoPart3}
                           fontStyle="italic"
                         />
-                      </OuterH2Clippath>
+                      </OuterClipPath>
 
                       <OpenBoxH2
                         mainWords={[
@@ -646,21 +650,21 @@ function Home({ toggleDarkTheme }: HomeProps) {
                           translations.home.Habilities[2].MainText,
                         ]}
                       />
-                    </H2Projects>
-                  </AfterProjectsDiv>
+                    </ProjectHeader>
+                  </AfterProjects >
                   <RightTextBellowProjects>
-                    <AboutHomeClipPath>
+                    <AboutSectionClipPath>
                       <H2TextSpan
                         Text={translations.home.SparkMensage}
                       />
-                    </AboutHomeClipPath>
+                    </AboutSectionClipPath>
                     <div onClick={() => handleClickHomeItens(1)}>
                       <ArrowCirclePointer shouldAbout={true} />
                     </div>
                   </RightTextBellowProjects>
-                </ProjectsContainer>
-              </RightContainer>
-            </ExtContainer>
+                </ProjectsWrapper >
+              </ContentArea >
+            </LayoutContainer >
             <BottomLine></BottomLine>
 
             <BottomContainer>
@@ -684,8 +688,8 @@ function Home({ toggleDarkTheme }: HomeProps) {
             </BottomContainer>
           </main>
         </LocomotiveScrollProvider>
-      </HomeContainer>
-    </FirstDiv>
+      </MainContainer >
+    </Wrapper >
   );
 }
 

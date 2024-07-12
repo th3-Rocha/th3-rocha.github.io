@@ -7,7 +7,7 @@ import {
   GithubCircle,
   SunLight,
 } from "iconoir-react";
-import Header from "../components/header";
+import Header from "../components/Header";
 import React, { useContext, useEffect, useState } from "react";
 import { LanguageContext } from "../translations/LanguageContext";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
@@ -16,12 +16,12 @@ import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import "./locomotive-scroll.css";
 import { useRef } from "react";
 import gsap from "gsap";
-import IconButtonTheme from "../components/iconButtonTheme";
-import IconButtonLink from "../components/iconButtonLink";
+import IconButtonTheme from "../components/IconButtonTheme";
+import IconButtonLink from "../components/IconButtonLink";
 import { Theme } from "../theme/themes/theme";
 
-import CoverComponent from "../components/coverPage";
-import RevealComponent from "../components/revealPage";
+import CoverComponent from "../components/CoverPage";
+import RevealComponent from "../components/RevealPage";
 
 import useRouterChange from "../components/useRouterChange";
 
