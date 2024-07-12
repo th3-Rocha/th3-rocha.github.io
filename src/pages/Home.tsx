@@ -141,7 +141,7 @@ const TitleSection = styled.section`
   align-items: flex-start;
   display: flex;
   justify-content: flex-end;
-  margin-right: -5rem;
+  margin-right: -6.5rem;
   margin-top: 7rem;
   @media (max-width: 1100px) {
     display: none;
@@ -288,7 +288,7 @@ const ArrowRight = styled.div`
   }
 `;
 
-const AfterProjects  = styled.div``;
+const AfterProjects = styled.div``;
 
 const ProjectHeader = styled.div`
   margin-left: 1rem;
@@ -317,7 +317,7 @@ const AboutSectionClipPath = styled.div`
   }
   margin-bottom: 3rem;
 `;
-const AbRotatedSpan  = styled.span`
+const AbRotatedSpan = styled.span`
   display: inline-block;
   text-align: center;
   width: 10rem;
@@ -329,7 +329,7 @@ const AbRotatedSpan  = styled.span`
   font-family: "Inter", sans-serif;
 `;
 
-const PivotSpanWrapper  = styled.div`
+const PivotSpanWrapper = styled.div`
   display: inline-block;
   transform: rotate(-90deg)
     translate(calc(-100% - 0.5rem), calc(-100% - 2.8rem));

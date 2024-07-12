@@ -6,7 +6,6 @@ const TextStyle = styled.span<{ shouldRotate: boolean }>`
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
   white-space: nowrap;
-
   font-size: 1rem;
   font-weight: 400;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
