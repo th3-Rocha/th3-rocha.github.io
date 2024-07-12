@@ -24,7 +24,7 @@ import { Theme } from "../theme/themes/theme";
 import CoverComponent from "../components/coverPage";
 import RevealComponent from "../components/revealPage";
 //components
-import PreFooter from "../components/preFooter";
+import PreFooter from "../components/PreFooter";
 import H2TextSpan from "../components/h2Text";
 import SubProjComponent from "../components/subProject";
 import H1TextSpan from "../components/h1Text";
