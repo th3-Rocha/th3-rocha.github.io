@@ -32,7 +32,7 @@ import ArrowCirclePointer from "../components/ArrowCirclePointer";
 import LeftSpanText from "../components/leftSpanText";
 import OpenBoxH2 from "../components/openBoxH2";
 import ImageCarousel from "../components/Carousel";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 //components
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
