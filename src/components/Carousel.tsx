@@ -20,6 +20,7 @@ const TEST = styled.div`
 
 interface BoxProps {
   totalBoxes: number;
+  url: string;
 }
 
 const Box = styled.div<BoxProps>`
@@ -29,14 +30,16 @@ const Box = styled.div<BoxProps>`
   img {
     max-width: calc(20rem + 20vw);
     object-fit: fill;
+    cursor: pointer;
   }
 `;
 
 interface ImageCarouselProps {
   images: string[];
+  urls: string[];
 }
 
-const CarouselComp: React.FC<ImageCarouselProps> = ({ images }) => {
+const CarouselComp: React.FC<ImageCarouselProps> = ({ images, urls }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -77,13 +80,10 @@ const CarouselComp: React.FC<ImageCarouselProps> = ({ images }) => {
   return (
     <Wrapper ref={wrapperRef}>
       {images.map((image, index) => (
-        <Box key={index} totalBoxes={images.length}>
-          <img src={image} alt="" />
-        </Box>
-      ))}
-      {images.map((image, index) => (
-        <Box key={index} totalBoxes={images.length}>
-          <img src={image} alt="" />
+        <Box key={index} totalBoxes={images.length} url={urls[index]}>
+          <a href={urls[index]} target="_blank" rel="noopener noreferrer">
+            <img src={image} alt="" />
+          </a>
         </Box>
       ))}
     </Wrapper>

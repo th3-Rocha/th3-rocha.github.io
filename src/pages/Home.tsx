@@ -172,6 +172,21 @@ const images = [
   "/bookioMini.webp",
   "/artMini.webp",
 ];
+
+const urls = [
+  "https://th3-rocha.github.io/PokedexSimulator-Page/",
+  "https://murilorocha.netlify.app/",
+  "https://th3-rocha.github.io/Landing-Page/",
+  "https://th3-rocha.github.io/Bloch-sphere-with-React-Three-Fiber/",
+  "https://th3-rocha.github.io/Bookio-Page/",
+  "https://th3-rocha.github.io/GaleryOfArtAI-Page/",
+  "https://th3-rocha.github.io/PokedexSimulator-Page/",
+  "https://murilorocha.netlify.app/",
+  "https://th3-rocha.github.io/Landing-Page/",
+  "https://th3-rocha.github.io/Bloch-sphere-with-React-Three-Fiber/",
+  "https://th3-rocha.github.io/Bookio-Page/",
+  "https://th3-rocha.github.io/GaleryOfArtAI-Page/",
+];
 const IntroTextWrapper = styled.div`
   margin-left: 1.2rem;
   h1 {
@@ -669,7 +684,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
 
             <BottomContainer>
               <CourosselContainer>
-                {showCarousel && <ImageCarousel images={images} />}
+                {showCarousel && <ImageCarousel urls={urls} images={images} />}
               </CourosselContainer>
               <Footers>
                 <div onClick={() => handleClickHomeItens(2)}>
