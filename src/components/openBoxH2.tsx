@@ -159,7 +159,7 @@ const OpenBoxH2: React.FC<OpenBoxH2Props> = ({ mainWords, mainTexts }) => {
           }
         });
       },
-      { threshold: 0.8 }
+      { threshold: 0.2 }
     );
 
     borderRefs.current.forEach((border) => {

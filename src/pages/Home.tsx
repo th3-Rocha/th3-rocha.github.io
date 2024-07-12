@@ -461,7 +461,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
         });
       },
       {
-        threshold: 0.8,
+        threshold: 0.85,
       }
     );
     elements.forEach((el) => {
