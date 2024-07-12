@@ -7,7 +7,8 @@ import {
   GithubCircle,
   SunLight,
 } from "iconoir-react";
-import Header from "../components/Header";
+
+import Header from "../components/Header.tsx";
 
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { LanguageContext } from "../translations/LanguageContext";
