@@ -9,7 +9,7 @@ import {
 } from "iconoir-react";
 
 import IconButtonTheme from "../components/IconButtonTheme";
-import Header from "../components/Header.tsx";
+import Header from "../components/header.tsx";
 
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { LanguageContext } from "../translations/LanguageContext";
