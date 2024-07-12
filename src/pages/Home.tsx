@@ -8,8 +8,8 @@ import {
   SunLight,
 } from "iconoir-react";
 
-import IconButtonTheme from "../components/iconButtonTheme.tsx";
-import Header from "../components/header.tsx";
+import IconButtonTheme from "../components/iconButtonTheme";
+import Header from "../components/header";
 
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { LanguageContext } from "../translations/LanguageContext";
@@ -19,21 +19,21 @@ import TextPlugin from "gsap/TextPlugin";
 
 import "./locomotive-scroll.css";
 import gsap from "gsap";
-import IconButtonLink from "../components/iconButtonLink.tsx";
+import IconButtonLink from "../components/iconButtonLink";
 import { Theme } from "../theme/themes/theme";
 
-import CoverComponent from "../components/coverPage.tsx";
-import RevealComponent from "../components/revealPage.tsx";
+import CoverComponent from "../components/coverPage";
+import RevealComponent from "../components/revealPage";
 //components
-import PreFooter from "../components/preFooter.tsx";
-import H2TextSpan from "../components/h2Text.tsx";
-import SubProjComponent from "../components/subProject.tsx";
-import H1TextSpan from "../components/h1Text.tsx";
-import ArrowCirclePointer from "../components/arrowCirclePointer.tsx";
-import LeftSpanText from "../components/leftSpanText.tsx";
-import OpenBoxH2 from "../components/openBoxH2.tsx";
-import ImageCarousel from "../components/carousel.tsx";
-import Footer from "../components/footer.tsx";
+import PreFooter from "../components/preFooter";
+import H2TextSpan from "../components/h2Text";
+import SubProjComponent from "../components/subProject";
+import H1TextSpan from "../components/h1Text";
+import ArrowCirclePointer from "../components/arrowCirclePointer";
+import LeftSpanText from "../components/leftSpanText";
+import OpenBoxH2 from "../components/openBoxH2";
+import ImageCarousel from "../components/carousel";
+import Footer from "../components/footer";
 //components
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
