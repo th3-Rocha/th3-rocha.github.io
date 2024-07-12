@@ -12,6 +12,7 @@
     "@types/node": "^16.18.34",
     "@types/react": "^18.2.9",
     "@types/react-dom": "^18.2.4",
+    "git": "^0.1.5",
     "gsap": "^3.12.5",
     "iconoir-react": "^7.5.0",
     "locomotive-scroll": "^4.1.4",
