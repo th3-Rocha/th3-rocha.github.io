@@ -8,6 +8,7 @@ import {
   SunLight,
 } from "iconoir-react";
 
+import IconButtonTheme from "../components/IconButtonTheme";
 import Header from "../components/Header.tsx";
 
 import React, { useContext, useEffect, useState, useRef } from "react";
@@ -18,7 +19,6 @@ import TextPlugin from "gsap/TextPlugin";
 
 import "./locomotive-scroll.css";
 import gsap from "gsap";
-import IconButtonTheme from "../components/IconButtonTheme";
 import IconButtonLink from "../components/IconButtonLink";
 import { Theme } from "../theme/themes/theme";
 
