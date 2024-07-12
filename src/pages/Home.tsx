@@ -29,7 +29,7 @@ import PreFooter from "../components/PreFooter";
 import H2TextSpan from "../components/h2Text";
 import SubProjComponent from "../components/SubProject";
 import H1TextSpan from "../components/h1Text";
-import ArrowCirclePointer from "../components/arrowCirclePointer";
+import ArrowCirclePointer from "../components/ArrowCirclePointer";
 import LeftSpanText from "../components/leftSpanText";
 import OpenBoxH2 from "../components/openBoxH2";
 import ImageCarousel from "../components/carousel";
