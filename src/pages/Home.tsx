@@ -19,21 +19,21 @@ import TextPlugin from "gsap/TextPlugin";
 
 import "./locomotive-scroll.css";
 import gsap from "gsap";
-import IconButtonLink from "../components/IconButtonLink";
+import IconButtonLink from "../components/iconButtonLink.tsx";
 import { Theme } from "../theme/themes/theme";
 
-import CoverComponent from "../components/CoverPage";
-import RevealComponent from "../components/RevealPage";
+import CoverComponent from "../components/coverPage.tsx";
+import RevealComponent from "../components/revealPage.tsx";
 //components
-import PreFooter from "../components/PreFooter";
-import H2TextSpan from "../components/H2Text";
-import SubProjComponent from "../components/SubProject";
-import H1TextSpan from "../components/H1Text";
-import ArrowCirclePointer from "../components/ArrowCirclePointer";
-import LeftSpanText from "../components/LeftSpanText";
-import OpenBoxH2 from "../components/OpenBoxH2";
-import ImageCarousel from "../components/Carousel";
-import Footer from "../components/Footer";
+import PreFooter from "../components/preFooter.tsx";
+import H2TextSpan from "../components/h2Text.tsx";
+import SubProjComponent from "../components/subProject.tsx";
+import H1TextSpan from "../components/h1Text.tsx";
+import ArrowCirclePointer from "../components/arrowCirclePointer.tsx";
+import LeftSpanText from "../components/leftSpanText.tsx";
+import OpenBoxH2 from "../components/openBoxH2.tsx";
+import ImageCarousel from "../components/carousel.tsx";
+import Footer from "../components/footer.tsx";
 //components
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};

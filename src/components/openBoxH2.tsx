@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { gsap } from "gsap";
 import PlusIcon from "./plusIcon";
 import { ThemeContext } from "../theme/ThemeProvider";
-import H1TextSpan from "./H1Text";
-import H2TextSpan from "./H2Text";
+import H1TextSpan from "./h1Text";
+import H2TextSpan from "./h2Text";
 import MinusSvgIcon from "./minusIcon";
 
 const ExtContainer = styled.div`

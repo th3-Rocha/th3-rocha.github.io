@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { LanguageContext } from "../translations/LanguageContext";
 import { ThemeContext } from "../theme/ThemeProvider";
-import CoverComponent from "./CoverPage";
-import RevealComponent from "./RevealPage";
-import H1TextSpan from "./H1Text";
+import CoverComponent from "./coverPage";
+import RevealComponent from "./revealPage";
+import H1TextSpan from "./h1Text";
 import MinusSvgIcon from "./minusIcon";
 import PlusSvgIcon from "./plusIcon";
 import {
@@ -14,7 +14,7 @@ import {
   GithubCircle,
   SunLight,
 } from "iconoir-react";
-import IconButtonLink from "./IconButtonLink";
+import IconButtonLink from "./iconButtonLink";
 import gsap from "gsap";
 
 const HeaderContainer = styled.header`
