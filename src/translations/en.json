@@ -10,7 +10,10 @@
       "home": "Rocha",
       "about": "About me",
       "contact": "Contact me",
-      "theme": "Theme"
+      "theme": "Theme",
+      "youAre": "you are here",
+      "homeName": "home",
+      "close": "close"
     }
   },
   "home": {
@@ -63,7 +66,11 @@
     "WhatIdoPart3": " web solutions."
   },
   "about": {
-    "intro": "Weaving Seamless Experiences Across Interfaces and Infrastructure"
+    "intro": "Weaving Seamless Experiences Across",
+    "introHighlight": " Interfaces and Infrastructure",
+    "aboutMe": "I’m a Brazilian front-end developer with a passion for solving problems and building innovative digital experiences. With expertise in Node.js, Next.js, and game development, I bring ideas to life through efficient and interactive web solutions.",
+    "history": "I like to make games in Unity and now I am learning Godot",
+    "history2": "Now I am learning React and Next Js."
   },
   "contact": {
     "title": "Contact Us",

@@ -526,6 +526,11 @@ function Home({ toggleDarkTheme }: HomeProps) {
     <Wrapper >
       <MainContainer data-scroll-section>
         <Header
+          homeText={translations.header.navigation.homeName}
+          youAre={translations.header.navigation.youAre}
+          aboutText={translations.header.navigation.about}
+          contactText={translations.header.navigation.contact}
+          closeText={translations.header.navigation.close}
           activePage="home"
           coverLoad={coverLoad}
           setCoverLoad={setCoverLoad}

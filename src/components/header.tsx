@@ -218,7 +218,17 @@ const Header = ({
   setCoverLoad,
   coverMenu,
   setCoverMenu,
+  homeText,
+  aboutText,
+  contactText,
+  youAre,
+  closeText,
 }: {
+  closeText: string;
+  homeText: string;
+  aboutText: string;
+  contactText: string;
+  youAre: string;
   activePage: string;
   coverLoad: boolean;
   setCoverLoad: React.Dispatch<React.SetStateAction<boolean>>;
@@ -319,10 +329,10 @@ const Header = ({
                 <MidSectionDiv onClick={() => handleClick(0)}>
                   <div>
                     <div>
-                      <H1TextSpan Text="Home" classNameTag="toAppear2" />
+                      <H1TextSpan Text={homeText} classNameTag="toAppear2" />
                       {activePage === "home" && (
                         <div>
-                          <span className="toAppear2">You are here</span>
+                          <span className="toAppear2">{youAre}</span>
                         </div>
                       )}
                     </div>
@@ -331,10 +341,10 @@ const Header = ({
                 <MidSectionDiv onClick={() => handleClick(1)}>
                   <div>
                     <div>
-                      <H1TextSpan Text="About" classNameTag="toAppear2" />
+                      <H1TextSpan Text={aboutText} classNameTag="toAppear2" />
                       {activePage === "about" && (
                         <div>
-                          <span className="toAppear2">You are here</span>
+                          <span className="toAppear2">{youAre}</span>
                         </div>
                       )}
                     </div>
@@ -343,10 +353,10 @@ const Header = ({
                 <MidSectionDiv onClick={() => handleClick(2)}>
                   <div>
                     <div>
-                      <H1TextSpan Text="Contact" classNameTag="toAppear2" />
+                      <H1TextSpan Text={contactText} classNameTag="toAppear2" />
                       {activePage === "contact" && (
                         <div>
-                          <span className="toAppear2">You are here</span>
+                          <span className="toAppear2">{youAre}</span>
                         </div>
                       )}
                     </div>
@@ -355,7 +365,7 @@ const Header = ({
               </MidGridDiv>
               <RightGridDiv>
                 <CloseDiv onClick={handleClose}>
-                  <span onClick={handleClose}>Close</span>
+                  <span onClick={handleClose}>{closeText}</span>
                 </CloseDiv>
                 <RightSectionDiv>
                   <div>

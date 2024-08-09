@@ -7,6 +7,8 @@ import {
   GithubCircle,
   SunLight,
 } from "iconoir-react";
+
+import IconButtonTheme from "../components/iconButtonTheme";
 import Header from "../components/header";
 
 import React, { useContext, useEffect, useState, useRef } from "react";
@@ -17,7 +19,6 @@ import TextPlugin from "gsap/TextPlugin";
 
 import "./locomotive-scroll.css";
 import gsap from "gsap";
-import IconButtonTheme from "../components/iconButtonTheme";
 import IconButtonLink from "../components/iconButtonLink";
 import { Theme } from "../theme/themes/theme";
 
@@ -36,7 +37,7 @@ import Footer from "../components/Footer";
 //components
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
- 
+
   h1 {
     font-size: 6rem;
   }
@@ -189,15 +190,23 @@ const urls = [
 ];
 const IntroTextWrapper = styled.div`
   margin-left: 1.2rem;
+  margin-top: 9rem;
   h1 {
     height: 8rem;
     margin-bottom: -2rem;
+    font-size: 5rem;
   }
   h2 {
+    font-size: 5rem;
     height: 8rem;
+
+    span {
+      font-size: 5rem;
+    }
   }
+
   div {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 180%, 0% 180%);
   }
   @media (max-width: 1100px) {
     margin-left: 0.5rem;
@@ -219,25 +228,6 @@ const IntroTextWrapper = styled.div`
     h2 {
       margin-bottom: -1rem;
       height: 8rem;
-    }
-  }
-`;
-const IntroIconsWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  margin-left: 1.2rem;
-  margin-top: -1rem;
-
-  @media (max-width: 1100px) {
-    margin-left: 0.5rem;
-  }
-  @media (max-width: 600px) {
-    margin-left: 0.5rem;
-    margin-top: 2rem;
-    * {
-      height: 1.3rem;
-      width: 1.3rem;
     }
   }
 `;
@@ -376,11 +366,11 @@ const Footers = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
 `;
 
-interface HomeProps {
+interface AboutProps {
   toggleDarkTheme: () => void;
 }
 
-function About({ toggleDarkTheme }: HomeProps) {
+function About({ toggleDarkTheme }: AboutProps) {
   const containerRef = useRef(null);
   const [isActive, setIsActive] = useState(toggleDarkTheme);
   const [coverLoad, setCoverLoad] = useState(Boolean);
@@ -522,10 +512,15 @@ function About({ toggleDarkTheme }: HomeProps) {
   }, []);
 
   return (
-    <Wrapper >
+    <Wrapper>
       <MainContainer data-scroll-section>
         <Header
-          activePage="home"
+          homeText={translations.header.navigation.homeName}
+          youAre={translations.header.navigation.youAre}
+          aboutText={translations.header.navigation.about}
+          contactText={translations.header.navigation.contact}
+          closeText={translations.header.navigation.close}
+          activePage="about"
           coverLoad={coverLoad}
           setCoverLoad={setCoverLoad}
           coverMenu={coverMenu}
@@ -549,147 +544,44 @@ function About({ toggleDarkTheme }: HomeProps) {
           containerRef={containerRef}
         >
           <main data-scroll-container ref={containerRef}>
-            <LayoutContainer >
+            <LayoutContainer>
               <Sidebar>
-                <LeftArrow>    <ArrowCirclePointer shouldAbout={false} />
+                <LeftArrow>
+                  {" "}
+                  <ArrowCirclePointer shouldAbout={false} />
                 </LeftArrow>
                 <TitleSection>
                   <LeftSpanText
-                    Text={"abouttttttt"}
+                    Text={translations.home.detailTitle[0].title}
                     shouldRotate={true}
                   />
                 </TitleSection>
               </Sidebar>
-              <ContentArea >
+              <ContentArea>
                 <IntroSection data-scroll>
                   <IntroTextWrapper className="intro-texts">
-                    <H1TextSpan
-                      classNameTag="h1-text-span-tittle"
-                      Text={translations.home.name}
-                    />
                     <H2TextSpan
                       classNameTag="h2-text-span-tittle"
-                      Text={translations.home.nameDescription}
-                      TextHighlight={translations.home.nameDescriptionHighlight}
+                      Text={translations.about.intro}
+                      TextHighlight={translations.about.introHighlight}
                     />
-                  </IntroTextWrapper >
-                  <IntroIconsWrapper className="intro-Icons">
-                    <IconButtonLink
-                      url="https://github.com/th3-Rocha"
-                      children={<GithubCircle />}
-                    />
-                    <IconButtonLink
-                      url="https://mailto:murilorocha537@gmail.com"
-                      children={<Mail />}
-                    />
-                    <IconButtonLink
-                      url="https://instagram.com.br"
-                      children={<Instagram />}
-                    />
-                    <IconButtonTheme
-                      children1={<HalfMoon />}
-                      children2={<SunLight />}
-                      onClick={toggleDarkTheme}
-                    />
-                  </IntroIconsWrapper >
-                  <ArrowRight >
+                  </IntroTextWrapper>
+                  <ArrowRight>
                     <ArrowCirclePointer shouldAbout={false} />
-                  </ArrowRight >
-                </IntroSection >
+                  </ArrowRight>
+                </IntroSection>
 
-                <Divider />
-
-                <ProjectsWrapper >
-                  <SubProjComponent
-                    classNameTag="toAppear"
-                    title={translations.home.works[1].title}
-                    description={translations.home.works[1].description}
-                    imgSrc={"/blockSphere.webp"}
-                    urlTo="https://github.com/th3-Rocha/Bloch-sphere-with-React-Three-Fiber"
-                  />
-                  <SubProjComponent
-                    classNameTag="toAppear"
-                    title={translations.home.works[0].title}
-                    description={translations.home.works[0].description}
-                    imgSrc={"/PortFolioMobile.webp"}
-                  />
-
-                  <SubProjComponent
-                    classNameTag="toAppear"
-                    title={translations.home.works[2].title}
-                    description={translations.home.works[2].description}
-                    imgSrc={"/galeryIA.webp"}
-                    urlTo="https://th3-rocha.github.io/GaleryOfArtAI-Page/"
-                  />
-                  <SubProjComponent
-                    classNameTag="toAppear"
-                    title={translations.home.works[3].title}
-                    description={translations.home.works[3].description}
-                    imgSrc={"/pokedex.webp"}
-                    urlTo="https://th3-rocha.github.io/PokedexSimulator-Page/"
-                  />
-                  {/* -------end of projects ---------- */}
-
-                  <AfterProjects >
-                    <SecondTitleSection >
-                      <LeftSpanText
-                        Text={translations.home.detailTitle[1].title}
-                        shouldRotate={false}
-                      />
-                    </SecondTitleSection >
-                    <ProjectHeader>
-                      <PivotSpanWrapper >
-                        <AbRotatedSpan >
-                          {translations.home.detailTitle[1].title}
-                        </AbRotatedSpan >
-                      </PivotSpanWrapper >
-                      <OuterClipPath>
-                        <H2TextSpan
-                          classNameTag="toAppearH2"
-                          Text={translations.home.WhatIdoPart1}
-                          TextHighlight={translations.home.WhatIdoPart2}
-                          Text2={translations.home.WhatIdoPart3}
-                          fontStyle="italic"
-                        />
-                      </OuterClipPath>
-
-                      <OpenBoxH2
-                        mainWords={[
-                          translations.home.Habilities[0].MainWord,
-                          translations.home.Habilities[1].MainWord,
-                          translations.home.Habilities[2].MainWord,
-                        ]}
-                        mainTexts={[
-                          translations.home.Habilities[0].MainText,
-                          translations.home.Habilities[1].MainText,
-                          translations.home.Habilities[2].MainText,
-                        ]}
-                      />
-                    </ProjectHeader>
-                  </AfterProjects >
-                  <RightTextBellowProjects>
-                    <AboutSectionClipPath>
-                      <H2TextSpan
-                        Text={translations.home.SparkMensage}
-                      />
-                    </AboutSectionClipPath>
-                    <div onClick={() => handleClickHomeItens(1)}>
-                      <ArrowCirclePointer shouldAbout={true} />
-                    </div>
-                  </RightTextBellowProjects>
-                </ProjectsWrapper >
-              </ContentArea >
-            </LayoutContainer >
+              </ContentArea>
+            </LayoutContainer>
             <BottomLine></BottomLine>
 
             <BottomContainer>
-              <CourosselContainer>
-                {showCarousel && <ImageCarousel urls={urls} images={images} />}
-              </CourosselContainer>
               <Footers>
-                <div onClick={() => handleClickHomeItens(2)}>
-                  <PreFooter ContactText={translations.footer.ContactText}
-                    WantText={translations.footer.WantText} />
+                <div onClick={() => handleClickHomeItens(3)}>
+                  <PreFooter
+                    ContactText={translations.footer.ContactText}
+                    WantText={translations.footer.WantText}
+                  />
                 </div>
 
                 <Footer
@@ -703,8 +595,8 @@ function About({ toggleDarkTheme }: HomeProps) {
             </BottomContainer>
           </main>
         </LocomotiveScrollProvider>
-      </MainContainer >
-    </Wrapper >
+      </MainContainer>
+    </Wrapper>
   );
 }
 

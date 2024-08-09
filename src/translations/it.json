@@ -1,87 +1,89 @@
 {
-    "links": {
-      "github": "https://github.com/th3-Rocha",
-      "mail": "mailto:murilorocha537@gmail.com",
-      "instagram": "https://www.instagram.com/rocha_lee/"
-    },
-    "header": {
-      "title": "Portfolio di Murilo Rocha",
-      "navigation": {
-        "home": "Rocha",
-        "about": "Su di me",
-        "contact": "Contattami",
-        "theme": "Tema"
-      }
-    },
-    "home": {
-      "name": "Murilo Rocha",
-      "nameDescription": "Sviluppatore Frontend & Backend Specializzato in ",
-      "nameDescriptionHighlight": "React & Next JS",
-      "works": [
-        {
-          "title": "Portfolio",
-          "description": "Sviluppo web"
-        },
-        {
-          "title": "Sfera di Bloch",
-          "description": "Sviluppo web & matematica come strumento"
-        },
-        {
-          "title": "Galleria di AI",
-          "description": "Sviluppo web & AI"
-        },
-        {
-          "title": "PokeDex",
-          "description": "Sviluppo web & consumo di API"
-        }
-      ],
-      "detailTitle": [
-        {
-          "title": "Lavori selezionati"
-        },
-        {
-          "title": "Cosa faccio"
-        }
-      ],
-      "Habilities": [
-        {
-          "MainWord": "Design",
-          "MainText": "Una base solida è essenziale per qualsiasi progetto. Offro design belli e intuitivi che si allineano con l'essenza del tuo brand. Credo che l'usabilità e l'estetica vadano di pari passo per creare prodotti migliori."
-        },
-        {
-          "MainWord": "Sviluppo",
-          "MainText": "Utilizzando le più recenti tecnologie di sviluppo web, realizzo siti web pixel-perfect, veloci e accessibili. Sono specializzato in interazioni creative e transizioni."
-        },
-        {
-          "MainWord": "Design & sviluppo",
-          "MainText": "Questo è il mio servizio preferito in quanto permette la creazione completa del sito web, dal concetto al sito finale, in modo rapido e senza interruzioni."
-        }
-      ],
-      "SparkMensage": "Mi piace progettare esperienze significative per brand e aziende per aiutarli a servire i loro utenti target.",
-      "WhatIdoPart1": "Fornire Soluzioni Web",
-      "WhatIdoPart2": " moderne, coerenti & intuitive",
-      "WhatIdoPart3": "."
-    },
-    "about": {
-      "intro": "Intrecciando Esperienze Senza Soluzione di Continuità tra Interfacce e Infrastruttura"
-    },
-    "contact": {
-      "title": "Contattaci",
-      "form": {
-        "name": "Nome",
-        "email": "Email",
-        "message": "Messaggio",
-        "submit": "Invia"
-      }
-    },
-    "footer": {
-      "WantText": "Vuoi assumermi?",
-      "ContactText": "Contattami",
-      "Disclaim": "Disclaimer",
-      "ReachText": "Contattami per collaborazioni o semplicemente per un saluto a",
-      "email": "murilorocha537@gmail.com",
-      "instagram": "https://instagram.com.br",
-      "github": "https://github.com/th3-Rocha"
+  "links": {
+    "github": "https://github.com/th3-Rocha",
+    "mail": "mailto:murilorocha537@gmail.com",
+    "instagram": "https://www.instagram.com/rocha_lee/"
+  },
+  "header": {
+    "title": "Portfolio di Murilo Rocha",
+    "navigation": {
+      "home": "Rocha",
+      "about": "Su di me",
+      "contact": "Contattami",
+      "theme": "Tema",
+      "youAre": "sta qui",
+      "homeName": "Principale",
+      "close": "Esci"
     }
+  },
+  "home": {
+    "name": "Murilo Rocha",
+    "nameDescription": "Sviluppatore Frontend & Backend Specializzato in ",
+    "nameDescriptionHighlight": "React & Next JS",
+    "works": [
+      {
+        "title": "Portfolio",
+        "description": "Sviluppo web"
+      },
+      {
+        "title": "Sfera di Bloch",
+        "description": "Sviluppo web & matematica come strumento"
+      },
+      {
+        "title": "Galleria di AI",
+        "description": "Sviluppo web & AI"
+      },
+      {
+        "title": "PokeDex",
+        "description": "Sviluppo web & consumo di API"
+      }
+    ],
+    "detailTitle": [
+      {
+        "title": "Lavori selezionati"
+      },
+      {
+        "title": "Cosa faccio"
+      }
+    ],
+    "Habilities": [
+      {
+        "MainWord": "Design",
+        "MainText": "Una base solida è essenziale per qualsiasi progetto. Offro design belli e intuitivi che si allineano con l'essenza del tuo brand. Credo che l'usabilità e l'estetica vadano di pari passo per creare prodotti migliori."
+      },
+      {
+        "MainWord": "Sviluppo",
+        "MainText": "Utilizzando le più recenti tecnologie di sviluppo web, realizzo siti web pixel-perfect, veloci e accessibili. Sono specializzato in interazioni creative e transizioni."
+      },
+      {
+        "MainWord": "Design & sviluppo",
+        "MainText": "Questo è il mio servizio preferito in quanto permette la creazione completa del sito web, dal concetto al sito finale, in modo rapido e senza interruzioni."
+      }
+    ],
+    "SparkMensage": "Mi piace progettare esperienze significative per brand e aziende per aiutarli a servire i loro utenti target.",
+    "WhatIdoPart1": "Fornire Soluzioni Web",
+    "WhatIdoPart2": " moderne, coerenti & intuitive",
+    "WhatIdoPart3": "."
+  },
+  "about": {
+    "intro": "Intrecciando Esperienze Senza Soluzione di Continuità tra Interfacce e Infrastruttura"
+  },
+  "contact": {
+    "title": "Contattaci",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Messaggio",
+      "submit": "Invia"
+    }
+  },
+  "footer": {
+    "WantText": "Vuoi assumermi?",
+    "ContactText": "Contattami",
+    "Disclaim": "Disclaimer",
+    "ReachText": "Contattami per collaborazioni o semplicemente per un saluto a",
+    "email": "murilorocha537@gmail.com",
+    "instagram": "https://instagram.com.br",
+    "github": "https://github.com/th3-Rocha"
   }
-  
+}

@@ -15,10 +15,10 @@ export const LanguageProvider = ({ children }) => {
     setLanguage(userLanguage);
     switch (userLanguage) {
       case 'br':
-        setTranslations(brTranslations);
+        setTranslations(enTranslations);
         break;
       case 'it':
-        setTranslations(itTranslations);
+        setTranslations(enTranslations);
         break;
       case 'en':
       default:

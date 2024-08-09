@@ -10,7 +10,10 @@
       "home": "Rocha",
       "about": "Sobre mim",
       "contact": "Contato",
-      "theme": "Tema"
+      "theme": "Tema",
+      "youAre": "você esta aqui",
+      "homeName": "Home",
+      "close": "fechar"
     }
   },
   "home": {
