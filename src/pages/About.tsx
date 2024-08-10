@@ -65,7 +65,7 @@ const Wrapper = styled.div`
     }
     h2 {
       font-size: 1.76rem;
-      span {
+'      span {d
         font-size: 2.112rem;
       }
     }
@@ -372,7 +372,7 @@ interface AboutProps {
 
 function About({ toggleDarkTheme }: AboutProps) {
   const containerRef = useRef(null);
-  const [isActive, setIsActive] = useState(toggleDarkTheme);
+  //const [isActive, setIsActive] = useState(toggleDarkTheme);
   const [coverLoad, setCoverLoad] = useState(Boolean);
   const [coverMenu, setCoverMenu] = useState(Boolean);
   const { language, translations } = useContext(LanguageContext);

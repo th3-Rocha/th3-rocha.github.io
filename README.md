@@ -27,25 +27,6 @@ Make sure you have the following software installed:
 - Node.js
 - npm or yarn
 
-### Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/website-recreation.git
-   ```
-2. **Navigate to the project directory:**
-   ```bash
-   cd website-recreation
-   ```
-3. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-   or
-   ```bash
-   yarn install
-   ```
-
 ### Running the Project
 
 To start the development server, run:
@@ -60,10 +41,6 @@ yarn start
 
 Open your browser and navigate to `http://localhost:3000` to see the website.
 
-## Contributing
-
-As this is an educational project, contributions are not expected. However, if you have suggestions or improvements, feel free to open an issue or submit a pull request.
-
 ## License
 
 This project is for educational purposes only and is not intended for commercial use. All content and code are created by me, inspired by the design of the original website at [rekhchandsahu.com](https://rekhchandsahu.com/).
@@ -71,6 +48,3 @@ This project is for educational purposes only and is not intended for commercial
 ## Acknowledgements
 
 - Thanks to [Rekh Chand Sahu](https://rekhchandsahu.com/) for the inspiration and the design of the original website.
-- The React community for providing valuable resources and support.
-
-Happy coding!

@@ -383,7 +383,7 @@ interface HomeProps {
 
 function Home({ toggleDarkTheme }: HomeProps) {
   const containerRef = useRef(null);
-  const [isActive, setIsActive] = useState(toggleDarkTheme);
+  //const [isActive, setIsActive] = useState(toggleDarkTheme);
   const [coverLoad, setCoverLoad] = useState(Boolean);
   const [coverMenu, setCoverMenu] = useState(Boolean);
   const { language, translations } = useContext(LanguageContext);
@@ -631,7 +631,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     classNameTag="toAppear"
                     title={translations.home.works[3].title}
                     description={translations.home.works[3].description}
-                    imgSrc={"/pokedex.webp"}
+                    imgSrc={"/Pokedex.webp"}
                     urlTo="https://th3-rocha.github.io/PokedexSimulator-Page/"
                   />
                   {/* -------end of projects ---------- */}
