@@ -37,7 +37,7 @@ import Footer from "../components/Footer";
 //components
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
- 
+
   h1 {
     font-size: 6rem;
   }
@@ -340,7 +340,21 @@ const PivotSpanWrapper = styled.div`
     display: none;
   }
 `;
+const H2SimpleText = styled.h2`
+  font-optical-sizing: auto;
+  letter-spacing: -2px;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  margin-top: 1rem;
+  word-break: keep-all;
+  font-family: "Inter", sans-serif;
+  vertical-align: baseline;
 
+  letter-spacing: -0.05rem;
+  font-weight: 400;
+  line-height: 1.5;
+`;
 const RightTextBellowProjects = styled.div`
   margin-right: 0;
   margin-left: auto;
@@ -523,7 +537,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
   }, []);
 
   return (
-    <Wrapper >
+    <Wrapper>
       <MainContainer data-scroll-section>
         <Header
           homeText={translations.header.navigation.homeName}
@@ -554,10 +568,15 @@ function Home({ toggleDarkTheme }: HomeProps) {
           watch={[]}
           containerRef={containerRef}
         >
-          <main data-scroll-container ref={containerRef}>
-            <LayoutContainer >
+          <main
+            data-scroll-container
+            ref={containerRef}
+          >
+            <LayoutContainer>
               <Sidebar>
-                <LeftArrow>    <ArrowCirclePointer shouldAbout={false} />
+                <LeftArrow>
+                  {" "}
+                  <ArrowCirclePointer shouldAbout={false} />
                 </LeftArrow>
                 <TitleSection>
                   <LeftSpanText
@@ -566,7 +585,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
                   />
                 </TitleSection>
               </Sidebar>
-              <ContentArea >
+              <ContentArea>
                 <IntroSection data-scroll>
                   <IntroTextWrapper className="intro-texts">
                     <H1TextSpan
@@ -578,7 +597,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
                       Text={translations.home.nameDescription}
                       TextHighlight={translations.home.nameDescriptionHighlight}
                     />
-                  </IntroTextWrapper >
+                  </IntroTextWrapper>
                   <IntroIconsWrapper className="intro-Icons">
                     <IconButtonLink
                       url="https://github.com/th3-Rocha"
@@ -597,15 +616,15 @@ function Home({ toggleDarkTheme }: HomeProps) {
                       children2={<SunLight />}
                       onClick={toggleDarkTheme}
                     />
-                  </IntroIconsWrapper >
-                  <ArrowRight >
+                  </IntroIconsWrapper>
+                  <ArrowRight>
                     <ArrowCirclePointer shouldAbout={false} />
-                  </ArrowRight >
-                </IntroSection >
+                  </ArrowRight>
+                </IntroSection>
 
                 <Divider />
 
-                <ProjectsWrapper >
+                <ProjectsWrapper>
                   <SubProjComponent
                     classNameTag="toAppear"
                     title={translations.home.works[1].title}
@@ -636,19 +655,19 @@ function Home({ toggleDarkTheme }: HomeProps) {
                   />
                   {/* -------end of projects ---------- */}
 
-                  <AfterProjects >
-                    <SecondTitleSection >
+                  <AfterProjects>
+                    <SecondTitleSection>
                       <LeftSpanText
                         Text={translations.home.detailTitle[1].title}
                         shouldRotate={false}
                       />
-                    </SecondTitleSection >
+                    </SecondTitleSection>
                     <ProjectHeader>
-                      <PivotSpanWrapper >
-                        <AbRotatedSpan >
+                      <PivotSpanWrapper>
+                        <AbRotatedSpan>
                           {translations.home.detailTitle[1].title}
-                        </AbRotatedSpan >
-                      </PivotSpanWrapper >
+                        </AbRotatedSpan>
+                      </PivotSpanWrapper>
                       <OuterClipPath>
                         <H2TextSpan
                           classNameTag="toAppearH2"
@@ -672,30 +691,37 @@ function Home({ toggleDarkTheme }: HomeProps) {
                         ]}
                       />
                     </ProjectHeader>
-                  </AfterProjects >
+                  </AfterProjects>
                   <RightTextBellowProjects>
                     <AboutSectionClipPath>
-                      <H2TextSpan
-                        Text={translations.home.SparkMensage}
-                      />
+                      <H2SimpleText>
+                        {translations.home.SparkMensage}
+                      </H2SimpleText>
                     </AboutSectionClipPath>
                     <div onClick={() => handleClickHomeItens(1)}>
                       <ArrowCirclePointer shouldAbout={true} />
                     </div>
                   </RightTextBellowProjects>
-                </ProjectsWrapper >
-              </ContentArea >
-            </LayoutContainer >
+                </ProjectsWrapper>
+              </ContentArea>
+            </LayoutContainer>
             <BottomLine></BottomLine>
 
             <BottomContainer>
               <CourosselContainer>
-                {showCarousel && <ImageCarousel urls={urls} images={images} />}
+                {showCarousel && (
+                  <ImageCarousel
+                    urls={urls}
+                    images={images}
+                  />
+                )}
               </CourosselContainer>
               <Footers>
                 <div onClick={() => handleClickHomeItens(2)}>
-                  <PreFooter ContactText={translations.footer.ContactText}
-                    WantText={translations.footer.WantText} />
+                  <PreFooter
+                    ContactText={translations.footer.ContactText}
+                    WantText={translations.footer.WantText}
+                  />
                 </div>
 
                 <Footer
@@ -709,8 +735,8 @@ function Home({ toggleDarkTheme }: HomeProps) {
             </BottomContainer>
           </main>
         </LocomotiveScrollProvider>
-      </MainContainer >
-    </Wrapper >
+      </MainContainer>
+    </Wrapper>
   );
 }
 

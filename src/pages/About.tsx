@@ -27,13 +27,13 @@ import RevealComponent from "../components/revealPage";
 //components
 import PreFooter from "../components/PreFooter";
 import H2TextSpan from "../components/h2Text";
-import SubProjComponent from "../components/SubProject";
 import H1TextSpan from "../components/h1Text";
 import ArrowCirclePointer from "../components/ArrowCirclePointer";
 import LeftSpanText from "../components/leftSpanText";
-import OpenBoxH2 from "../components/openBoxH2";
-import ImageCarousel from "../components/Carousel";
+import SpanText from "../components/SpanText";
+import CarouselText from "../components/SpanTextCarousel";
 import Footer from "../components/Footer";
+import ImageAbout from "../components/aboutImageContainer";
 //components
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
@@ -65,7 +65,7 @@ const Wrapper = styled.div`
     }
     h2 {
       font-size: 1.76rem;
-'      span {d
+      span {
         font-size: 2.112rem;
       }
     }
@@ -85,6 +85,9 @@ const Divider = styled.div`
     z-index: -1;
   }
 `;
+const AfterImage = styled.div`
+  margin-left: 1rem;
+`;
 const MainContainer = styled.div`
   //container de tudo
   display: flex;
@@ -97,7 +100,32 @@ const MainContainer = styled.div`
   @media (max-width: 1100px) {
   }
 `;
+const AboutSectionClipPath = styled.div`
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  max-width: 45rem;
+  margin-left: 1rem;
 
+  h2 {
+    font-size: 1.2rem;
+  }
+  margin-bottom: 3rem;
+`;
+
+const H2SimpleText = styled.h2`
+  font-optical-sizing: auto;
+  letter-spacing: -2px;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  margin-top: 1rem;
+  word-break: keep-all;
+  font-family: "Inter", sans-serif;
+  vertical-align: baseline;
+
+  letter-spacing: -0.05rem;
+  font-weight: 400;
+  line-height: 1.5;
+`;
 const LayoutContainer = styled.div`
   display: grid;
   grid-template-rows: 1;
@@ -137,7 +165,16 @@ const IntroSection = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
+const SecondTitleSection = styled.section`
+  align-items: flex-start;
+  margin-left: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  display: none;
+  @media (max-width: 1100px) {
+    display: inline-block;
+  }
+`;
 const TitleSection = styled.section`
   align-items: flex-start;
   display: flex;
@@ -149,64 +186,28 @@ const TitleSection = styled.section`
   }
 `;
 
-const SecondTitleSection = styled.section`
-  align-items: flex-start;
-  margin-left: 1rem;
-  margin-top: 5rem;
-  margin-bottom: 1rem;
-  display: none;
-  @media (max-width: 1100px) {
-    display: inline-block;
-  }
-`;
-const images = [
-  "/pokedexMini.webp",
-  "/portMini.webp",
-  "/pyphoneMine.webp",
-  "/quamtumspheremini.webp",
-  "/bookioMini.webp",
-  "/artMini.webp",
-  "/pokedexMini.webp",
-  "/portMini.webp",
-  "/pyphoneMine.webp",
-  "/quamtumspheremini.webp",
-  "/bookioMini.webp",
-  "/artMini.webp",
-];
-
-const urls = [
-  "https://th3-rocha.github.io/PokedexSimulator-Page/",
-  "https://murilorocha.netlify.app/",
-  "https://th3-rocha.github.io/Landing-Page/",
-  "https://th3-rocha.github.io/Bloch-sphere-with-React-Three-Fiber/",
-  "https://th3-rocha.github.io/Bookio-Page/",
-  "https://th3-rocha.github.io/GaleryOfArtAI-Page/",
-  "https://th3-rocha.github.io/PokedexSimulator-Page/",
-  "https://murilorocha.netlify.app/",
-  "https://th3-rocha.github.io/Landing-Page/",
-  "https://th3-rocha.github.io/Bloch-sphere-with-React-Three-Fiber/",
-  "https://th3-rocha.github.io/Bookio-Page/",
-  "https://th3-rocha.github.io/GaleryOfArtAI-Page/",
-];
+const images = "aboutImg.webp";
 const IntroTextWrapper = styled.div`
-  margin-left: 1.2rem;
+  margin-left: 1rem;
   margin-top: 9rem;
+  margin-bottom: 5rem;
+  max-width: 90rem;
   h1 {
     height: 8rem;
     margin-bottom: -2rem;
-    font-size: 5rem;
+    font-size: calc(5rem + 0.5vw);
   }
   h2 {
-    font-size: 5rem;
+    font-size: calc(5rem + 0.5vw);
     height: 8rem;
 
     span {
-      font-size: 5rem;
+      font-size: calc(5rem + 0.5vw);
     }
   }
 
   div {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 180%, 0% 180%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 250%, 0% 250%);
   }
   @media (max-width: 1100px) {
     margin-left: 0.5rem;
@@ -230,15 +231,6 @@ const IntroTextWrapper = styled.div`
       height: 8rem;
     }
   }
-`;
-
-const ProjectsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 18rem;
-  width: 100%;
-  height: 100px;
-  height: max-content;
 `;
 const LeftArrow = styled.div`
   margin-top: 26rem;
@@ -297,48 +289,6 @@ const OuterClipPath = styled.div`
   }
 `;
 
-const AboutSectionClipPath = styled.div`
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-  h2 {
-    font-size: 1.3rem;
-    letter-spacing: -0.05rem;
-    font-weight: 400;
-    line-height: 1.3rem;
-  }
-  margin-bottom: 3rem;
-`;
-const AbRotatedSpan = styled.span`
-  display: inline-block;
-  text-align: center;
-  width: 10rem;
-  height: 1rem;
-  white-space: nowrap;
-  font-size: 1rem;
-  font-weight: 400;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  font-family: "Inter", sans-serif;
-`;
-
-const PivotSpanWrapper = styled.div`
-  display: inline-block;
-  transform: rotate(-90deg)
-    translate(calc(-100% - 0.5rem), calc(-100% - 2.8rem));
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  @media (max-width: 1100px) {
-    display: none;
-  }
-`;
-
-const RightTextBellowProjects = styled.div`
-  margin-right: 0;
-  margin-left: auto;
-  margin-top: 5rem;
-  width: 80%;
-  max-width: 27rem;
-  margin-bottom: 10rem;
-`;
-
 const BottomLine = styled.div`
   height: 1px;
   background-color: ${({ theme }) => theme.colors.primary};
@@ -354,11 +304,10 @@ const BottomContainer = styled.div`
   width: 100%;
   height: auto;
 `;
-const CourosselContainer = styled.div`
+const TextCourosselContainer = styled.div`
   width: 400%;
+  height: 16rem;
   div {
-    margin-top: 8rem;
-    margin-bottom: 8rem;
   }
 `;
 
@@ -372,14 +321,12 @@ interface AboutProps {
 
 function About({ toggleDarkTheme }: AboutProps) {
   const containerRef = useRef(null);
-  //const [isActive, setIsActive] = useState(toggleDarkTheme);
   const [coverLoad, setCoverLoad] = useState(Boolean);
   const [coverMenu, setCoverMenu] = useState(Boolean);
   const { language, translations } = useContext(LanguageContext);
   const { scroll } = useLocomotiveScroll();
 
   const routes = ["/", "/about", "/contact"];
-
   const [showCarousel, setShowCarousel] = useState(false);
 
   useEffect(() => {
@@ -543,7 +490,10 @@ function About({ toggleDarkTheme }: AboutProps) {
           watch={[]}
           containerRef={containerRef}
         >
-          <main data-scroll-container ref={containerRef}>
+          <main
+            data-scroll-container
+            ref={containerRef}
+          >
             <LayoutContainer>
               <Sidebar>
                 <LeftArrow>
@@ -566,15 +516,51 @@ function About({ toggleDarkTheme }: AboutProps) {
                       TextHighlight={translations.about.introHighlight}
                     />
                   </IntroTextWrapper>
+                  {/*fim do texto inicial*/}
+
                   <ArrowRight>
                     <ArrowCirclePointer shouldAbout={false} />
                   </ArrowRight>
                 </IntroSection>
+                <ImageAbout
+                  imageUrlOverlay={"/overlaynature.png"}
+                  imageUrlBackground={"/back1natuertest.png"}
+                />
+                {/* botar second title */}
+                <AfterImage>
+                  <H2TextSpan
+                    classNameTag="h2-text-span-tittle"
+                    Text={translations.about.intro}
+                    TextHighlight={translations.about.introHighlight}
+                  />
+                </AfterImage>
 
+                <AboutSectionClipPath>
+                  <H2SimpleText>
+                    I am a Mechanical Engg graduate, and curiosity dragged me to
+                    learn HTML & CSS. Then, I learned UX/UI design, Reactjs and
+                    Webflow, among many other things. Currently, I’m exploring
+                    music and audio effects on websites.
+                  </H2SimpleText>
+                </AboutSectionClipPath>
+
+                <AboutSectionClipPath>
+                  <H2SimpleText>
+                    I love typography & colours and consider myself a UI design
+                    generalist. Depending on the project requirement, I try to
+                    opt for a suitable design style—Minimalistic, colourful,
+                    typographic, tech, elegant, etc.—while sticking to the core
+                    design principles.
+                  </H2SimpleText>
+                </AboutSectionClipPath>
               </ContentArea>
             </LayoutContainer>
             <BottomLine></BottomLine>
-
+            {/* text courossel */}
+            <TextCourosselContainer>
+              <CarouselText></CarouselText>
+            </TextCourosselContainer>
+            <BottomLine></BottomLine>
             <BottomContainer>
               <Footers>
                 <div onClick={() => handleClickHomeItens(3)}>
