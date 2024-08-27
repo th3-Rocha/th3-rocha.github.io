@@ -1,14 +1,12 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import SpanText from "./SpanText"; // Assuming SpanText is in the same directory
-
-// Keyframes for seamless scrolling
+import SpanText from "./SpanText"; 
 const scrollText = keyframes`
   0% {
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-50%); /* Move by half the length to create the loop */
+    transform: translateX(-50%); 
   }
 `;
 
@@ -17,30 +15,29 @@ const CarouselTextContainer = styled.div`
   white-space: nowrap;
   display: flex;
   align-items: center;
-  width: 100%; /* Ensure the container takes up the full width */
-  height: 100%; /* Adjust the height to suit your design */
+  width: 100%; 
+  height: 100%;
   position: relative;
 `;
 
 const ScrollingText = styled.div`
   display: inline-block;
-  animation: ${scrollText} 20s linear infinite; /* Control the speed of the scroll */
+  animation: ${scrollText} 20s linear infinite;
   white-space: nowrap;
-  font-size: 6rem;
+  font-size: calc(1rem + 6vw);
 `;
 
 const WordWrapper = styled.span`
   display: inline-block;
-  margin-right: 2rem; /* Space between words */
+  margin-right: 2rem;
 `;
 
 const CarouselText = () => {
-  const words = [" - First", " - Second", " - Third", " - Fourth", " - Fifth"];
+  const words = [" – C#", " – Next.js", " – React", " – Node.js", " – Unity", " – Three.js"];
 
   return (
     <CarouselTextContainer>
       <ScrollingText>
-        {/* Duplicate words to create the seamless effect */}
         {words.concat(words).map((word, index) => (
           <WordWrapper key={index}>
             <SpanText Text={word} />

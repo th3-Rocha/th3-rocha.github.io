@@ -10,6 +10,7 @@ import {
   SunLight,
 } from "iconoir-react";
 import H2TextSpan from "./h2Text";
+
 const ExtContainer = styled.div`
   height: 25rem;
   display: grid;
@@ -37,48 +38,57 @@ const FooterRight = styled.div`
   border-left: 1px solid ${({ theme }) => theme.colors.footerLine};
   display: flex;
   justify-content: center;
+  vertical-align: middle;
   flex-direction: column;
-  width: calc(100% - 6rem);
   pointer-events: auto;
 
-  div{
+  div {
     margin-left: 1rem;
-    max-width: 23rem;
-    span{
+    span {
       cursor: pointer;
       text-decoration: underline;
     }
   }
-
-
 `;
+
 const FooterLeft = styled.div`
+  margin-bottom: 0;
   pointer-events: none;
 `;
-const TextRight = styled.div`
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  margin-left: 1rem;
-  margin-top: 2rem;
-  a{
-    color: inherit;
-    text-decoration: none;
+
+const TextAboveContact = styled.div`
+  margin-bottom: 0;
+`;
+
+const TextContact = styled.div`
+  h2 {
+  
+    text-underline-offset: 1rem;
   }
 `;
 
 interface FooterProps {
   WantText: string;
   ContactText: string;
+  onContactClick: () => void;
 }
-const PreFooter: React.FC<FooterProps> = ({ WantText, ContactText}) => {
+
+const PreFooter: React.FC<FooterProps> = ({
+  WantText,
+  ContactText,
+  onContactClick,
+}) => {
   return (
     <ExtContainer2>
       <ExtContainer>
-        <FooterLeft>
-        </FooterLeft>
+        <FooterLeft></FooterLeft>
         <FooterRight>
-          <H2TextSpan Text={WantText} TextHighlight={ContactText} />
+          <TextAboveContact>
+            <H2TextSpan Text={WantText} />
+          </TextAboveContact>
+          <TextContact onClick={onContactClick}>
+            <H2TextSpan TextHighlight={ContactText} />
+          </TextContact>
         </FooterRight>
       </ExtContainer>
       <BottomLine />

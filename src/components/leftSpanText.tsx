@@ -1,20 +1,30 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const Wrapper = styled.div`
+  position: relative;
+  display: inline-block; /* To make sure the wrapper takes up space */
+`;
 
 const TextStyle = styled.span<{ shouldRotate: boolean }>`
   display: inline-block;
-  transform: ${({ shouldRotate }) => shouldRotate ? 'rotate(-90deg) translate(-100%, -100%)' : 'none'};
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  white-space: nowrap;
-  font-size: 1rem;
-  font-weight: 400;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  font-family: "Inter", sans-serif;
-
+  ${props => props.shouldRotate && css`
+    position: absolute;
+    top: 50%;
+    left: -12.3rem;
+    transform: rotate(-90deg) translateY(-50%);
+    transform-origin: middle middle;
+    width: 8rem;
+  `}
 `;
 
 const LeftSpanText = ({ Text, shouldRotate, classNameTag }: { Text: string, shouldRotate: boolean, classNameTag?: string }) => {
-  return <TextStyle shouldRotate={shouldRotate} className={classNameTag}>{Text}</TextStyle>;
+  return (
+    <Wrapper>
+      <TextStyle shouldRotate={shouldRotate} className={classNameTag}>
+        {Text}
+      </TextStyle>
+    </Wrapper>
+  );
 };
 
 export default LeftSpanText;

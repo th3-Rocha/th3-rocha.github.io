@@ -309,7 +309,7 @@ const OuterClipPath = styled.div`
 `;
 
 const AboutSectionClipPath = styled.div`
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 110%, 0% 110%);
   h2 {
     font-size: 1.3rem;
     letter-spacing: -0.05rem;
@@ -363,7 +363,17 @@ const RightTextBellowProjects = styled.div`
   max-width: 27rem;
   margin-bottom: 10rem;
 `;
+const ArrowCircleAboutMe = styled.div`
+  @media (max-width: 600px) {
+    width: 100%;
+    margin: 0;
+    margin-left: 100%;
+    margin-right: 2rem;
+    margin-left: auto;
 
+    width: fit-content;
+  }
+`;
 const BottomLine = styled.div`
   height: 1px;
   background-color: ${({ theme }) => theme.colors.primary};
@@ -382,8 +392,8 @@ const BottomContainer = styled.div`
 const CourosselContainer = styled.div`
   width: 400%;
   div {
-    margin-top: 8rem;
-    margin-bottom: 8rem;
+    margin-top: calc(2rem + 4vw);
+    margin-bottom: calc(2rem + 4vw);
   }
 `;
 
@@ -410,7 +420,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowCarousel(true);
-    }, 1000);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, []);
@@ -617,9 +627,12 @@ function Home({ toggleDarkTheme }: HomeProps) {
                       onClick={toggleDarkTheme}
                     />
                   </IntroIconsWrapper>
-                  <ArrowRight>
-                    <ArrowCirclePointer shouldAbout={false} />
-                  </ArrowRight>
+
+                  {showCarousel && (
+                    <ArrowRight>
+                      <ArrowCirclePointer shouldAbout={false} />
+                    </ArrowRight>
+                  )}
                 </IntroSection>
 
                 <Divider />
@@ -699,7 +712,9 @@ function Home({ toggleDarkTheme }: HomeProps) {
                       </H2SimpleText>
                     </AboutSectionClipPath>
                     <div onClick={() => handleClickHomeItens(1)}>
-                      <ArrowCirclePointer shouldAbout={true} />
+                      <ArrowCircleAboutMe>
+                        <ArrowCirclePointer shouldAbout={true} />
+                      </ArrowCircleAboutMe>
                     </div>
                   </RightTextBellowProjects>
                 </ProjectsWrapper>
@@ -717,8 +732,9 @@ function Home({ toggleDarkTheme }: HomeProps) {
                 )}
               </CourosselContainer>
               <Footers>
-                <div onClick={() => handleClickHomeItens(2)}>
+                <div>
                   <PreFooter
+                    onContactClick={() => handleClickHomeItens(2)}
                     ContactText={translations.footer.ContactText}
                     WantText={translations.footer.WantText}
                   />

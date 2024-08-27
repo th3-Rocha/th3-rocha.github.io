@@ -13,20 +13,11 @@ const Wrapper = styled.div`
   overflow: hidden;
 `;
 
-const TEST = styled.div`
-  height: 800px;
-  width: 800px;
-`;
-
-interface BoxProps {
-  totalBoxes: number;
-  url: string;
-}
-
-const Box = styled.div<BoxProps>`
+const Box = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   img {
     max-width: calc(20rem + 20vw);
     object-fit: fill;
@@ -41,23 +32,26 @@ interface ImageCarouselProps {
 
 const CarouselComp: React.FC<ImageCarouselProps> = ({ images, urls }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const totalBoxes = images.length * 2;
 
   useEffect(() => {
-    const boxes = wrapperRef.current?.children;
+    const wrapper = wrapperRef.current;
+    const boxes = wrapper?.children;
+    const totalWidth = wrapper?.offsetWidth || 0;
+
     if (boxes) {
       gsap.to(boxes, {
-        xPercent: -100 * 12,
+        xPercent: -100 * images.length,
         ease: "none",
-        duration: 12 * 4,
+        duration: images.length * 5,
         repeat: -1,
         modifiers: {
-          xPercent: gsap.utils.unitize(
-            (xPercent) => parseFloat(xPercent) % (100 * boxes.length)
-          ),
+          xPercent: gsap.utils.unitize((xPercent) => {
+            return parseFloat(xPercent) % (100 * images.length);
+          }),
         },
       });
 
-      // Add tilt animation with unique random delay and direction for each box
       Array.from(boxes).forEach((box) => {
         const randomRotation =
           Math.random() * 10 * (Math.random() < 0.5 ? -1 : 1);
@@ -79,9 +73,9 @@ const CarouselComp: React.FC<ImageCarouselProps> = ({ images, urls }) => {
 
   return (
     <Wrapper ref={wrapperRef}>
-      {images.map((image, index) => (
-        <Box key={index} totalBoxes={images.length} url={urls[index]}>
-          <a href={urls[index]} target="_blank" rel="noopener noreferrer">
+      {images.concat(images).map((image, index) => (
+        <Box key={index}>
+          <a href={urls[index % images.length]} target="_blank" rel="noopener noreferrer">
             <img src={image} alt="" />
           </a>
         </Box>

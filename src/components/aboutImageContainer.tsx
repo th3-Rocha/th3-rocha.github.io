@@ -4,7 +4,7 @@ import "locomotive-scroll/dist/locomotive-scroll.css";
 
 const Container = styled.div`
   width: 100%;
-  max-height: 33rem;
+  max-height: 50vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +12,16 @@ const Container = styled.div`
   position: relative;
   margin-top: 5rem;
   margin-bottom: 10rem;
+  @media (max-width: 1100px) {
+    margin-top: 0rem; margin-bottom: 10rem;
+    max-height: 70vw;
+    margin-bottom: 0rem;
+  }
+  @media (max-width: 600px) {
+    margin-bottom: 0rem;
+    max-height: 60vw;
+  
+  }
 `;
 
 const ImageBackground = styled.img`
@@ -28,9 +38,10 @@ const ImageOverlayBackground = styled.img`
   min-width: 100%;
   height: auto;
   z-index: 2;
-  position: relative;
-  transform: translateY(0);
   will-change: transform;
+  @media (max-width: 600px) {
+    
+  }
 `;
 
 interface ImageAboutProps {
@@ -51,7 +62,7 @@ const ImageAbout: React.FC<ImageAboutProps> = ({
       <Container >
         <ImageBackground src={imageUrlBackground} alt="Background Image"
           data-scroll
-          data-scroll-speed="-0.5"  />
+          data-scroll-speed="-0.4"  />
         <ImageOverlayBackground
           src={imageUrlOverlay}
           alt="Overlay Image"

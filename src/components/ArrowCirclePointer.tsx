@@ -11,8 +11,9 @@ const ArrowCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.background};;
   transition: none;
+  z-index: 4;
   svg {
     height: 60px;
     transition: transform 0.1s;
