@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.23687cea.css",
-    "main.js": "/static/js/main.6f576ada.js",
+    "main.css": "/static/css/main.33fe6701.css",
+    "main.js": "/static/js/main.7389909a.js",
     "static/media/shzapfrenaisantlight-ita.otf": "/static/media/shzapfrenaisantlight-ita.7c3744f4b20efa240eed.otf",
     "index.html": "/index.html",
-    "main.23687cea.css.map": "/static/css/main.23687cea.css.map",
-    "main.6f576ada.js.map": "/static/js/main.6f576ada.js.map"
+    "main.33fe6701.css.map": "/static/css/main.33fe6701.css.map",
+    "main.7389909a.js.map": "/static/js/main.7389909a.js.map"
   },
   "entrypoints": [
-    "static/css/main.23687cea.css",
-    "static/js/main.6f576ada.js"
+    "static/css/main.33fe6701.css",
+    "static/js/main.7389909a.js"
   ]
 }
