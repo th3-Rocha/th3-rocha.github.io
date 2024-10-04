@@ -383,12 +383,11 @@ const LeftAspasInside = styled.div`
 
 const ArrowRight = styled.div`
   margin-left: 900rem;
-  display: none;
   margin-right: 3rem;
   margin-left: auto;
   width: fit-content;
   transform: translateY(50%);
-  z-index: 14;
+  z-index: 10;
   @media (max-width: 1100px) {
     display: block;
     position: relative;
@@ -406,7 +405,7 @@ const ArrowRightAboveImage = styled.div`
   margin-top: 0;
   width: fit-content;
   transform: translateY(-50%);
-  z-index: 14;
+  z-index: 5;
   @media (max-width: 600px) {
     display: block;
     position: relative;
@@ -533,10 +532,7 @@ function About({ toggleDarkTheme }: AboutProps) {
           watch={[]}
           containerRef={containerRef}
         >
-          <main
-            data-scroll-container
-            ref={containerRef}
-          >
+          <main data-scroll-container ref={containerRef}>
             <LayoutContainer>
               <Sidebar>
                 <LeftArrow>
@@ -544,10 +540,7 @@ function About({ toggleDarkTheme }: AboutProps) {
                   <ArrowCirclePointer shouldAbout={false} />
                 </LeftArrow>
                 <TitleSection>
-                  <LeftSpanText
-                    Text={"Who I am"}
-                    shouldRotate={true}
-                  />
+                  <LeftSpanText Text={"Who I am"} shouldRotate={true} />
                 </TitleSection>
               </Sidebar>
               <ContentArea>
@@ -561,26 +554,23 @@ function About({ toggleDarkTheme }: AboutProps) {
                   </IntroTextWrapper>
                   {/*fim do texto inicial*/}
                 </IntroSection>
-
-                <ArrowRight>
-                  {" "}
-                  <ArrowCirclePointer shouldAbout={false} />
-                </ArrowRight>
+                {showCarousel && (
+                  <ArrowRight>
+                    {" "}
+                    <ArrowCirclePointer shouldAbout={false} />
+                  </ArrowRight>
+                )}
                 <ImageAbout
                   imageUrlOverlay={"/front.webp"}
                   imageUrlBackground={"/back.webp"}
                 />
-
                 {showCarousel && (
                   <ArrowRightAboveImage>
                     <ArrowCirclePointer shouldAbout={false} />
                   </ArrowRightAboveImage>
                 )}
                 <SecondTitleSection>
-                  <LeftSpanText
-                    Text={"Who I am"}
-                    shouldRotate={false}
-                  />
+                  <LeftSpanText Text={"Who I am"} shouldRotate={false} />
                 </SecondTitleSection>
                 <AfterImage>
                   <H2SimpleText>{translations.about.aboutMe}</H2SimpleText>

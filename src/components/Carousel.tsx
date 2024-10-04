@@ -22,6 +22,12 @@ const Box = styled.div`
     max-width: calc(20rem + 20vw);
     object-fit: fill;
     cursor: pointer;
+    filter: sepia(20%); 
+    transition: filter 0.3s ease; /* Optional: smooth transition for hover effect */
+    
+    &:hover {
+      filter: sepia(0); /* Remove sepia effect on hover */
+    }
   }
 `;
 

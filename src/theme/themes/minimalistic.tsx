@@ -2,9 +2,9 @@ import { Theme } from './theme';
 
 const minimalistic: Theme = {
   colors: {
-    primary: "#704214", // Dark sepia tone for primary elements
-    secondary: "#a67c52", // Lighter sepia tone for secondary elements
-    background: "#f4ecd8", // Light sepia for background
+    primary: "#644536", // Dark sepia tone for primary elements
+    secondary: "#d4aa7d", // Lighter sepia tone for secondary elements
+    background: "#ffe0b5", // Light sepia for background
     text: "#5b4636", // Darker brown for text to contrast well with the background
     icon: "#8b6b52", // A softer brown for icons
     footerLine: "#a67c5266", // Lighter sepia for footer lines with transparency

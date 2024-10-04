@@ -20,6 +20,7 @@ const ImgContainer = styled.img`
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  filter: sepia(20%); 
 `;
 
 const TextContainer = styled.div`

@@ -43,7 +43,7 @@ const Navigation = styled.nav`
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.background};
 
   gap: 0.9rem;
   font-weight: 400;
@@ -119,7 +119,7 @@ const Rectangle = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.primary};
   pointer-events: none;
 `;
 const GridDiv = styled.div`

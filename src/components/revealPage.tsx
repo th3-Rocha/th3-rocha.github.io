@@ -19,9 +19,8 @@ const Rectangle = styled.div`
   width: 33.333333333333%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.primary};
-  border-right: 1px solid #F5F5F5;
   z-index: 98;
-  box-shadow: 0px -1px 1px #F5F5F5, 0px 1px 1px #F5F5F5;;
+  box-shadow: 0px -1px 1px ${({ theme }) => theme.colors.background}, 0px 1px 1px ${({ theme }) => theme.colors.background};
 `;
 
 const RevealComponent = () => {
