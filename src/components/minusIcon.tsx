@@ -8,11 +8,10 @@ const MinusSvgIcon = () => (
     viewBox="0 -5 25 25"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    color="#000000"
+    color={"#000000"}
   >
     <path
       d="M1 12H17"
-      stroke="#000000"
       strokeWidth="2"
       strokeLinecap="square"
     ></path>

@@ -33,12 +33,12 @@ function App() {
   return (
     <Router>
       <LanguageProvider>
-        <ThemeProvider darkMode={isDark}>
+        <ThemeProvider darkMode={!isDark}>
           <div>
             <Routes>
               <Route path="/" element={<Home toggleDarkTheme={toggleTheme} />} />
               <Route path="/about" element={<About toggleDarkTheme={toggleTheme} />} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/contact" element={<Contact toggleDarkTheme={toggleTheme} />} />
             </Routes>
           </div>
         </ThemeProvider>

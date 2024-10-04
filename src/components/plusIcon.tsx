@@ -12,13 +12,11 @@ const PlusSvgIcon = () => (
   >
     <path
       d="M1 12H17"
-      stroke="#000000"
       strokeWidth="2"
       strokeLinecap="square"
     ></path>
     <path
       d="M9 4V20"
-      stroke="#000000"
       strokeWidth="2"
       strokeLinecap="square"
     ></path>

@@ -641,7 +641,7 @@ function About({ toggleDarkTheme }: AboutProps) {
                   </div>
                   <div className="lastText">
                     <H2SimpleText>
-                      {translations.about.anotherInspirationsText}1
+                      {translations.about.anotherInspirationsText}
                     </H2SimpleText>
                   </div>
                 </LastContainer>

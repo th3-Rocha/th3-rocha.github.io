@@ -2,7 +2,11 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 
-const ArrowCircle = styled.div`
+interface ArrowCircleProps {
+  shouldAbout: boolean;
+}
+
+const ArrowCircle = styled.div<ArrowCircleProps>`
   position: relative;
   width: 160px;
   height: 160px;
@@ -11,7 +15,7 @@ const ArrowCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.background};;
+  background-color: ${({ theme }) => theme.colors.background};
   transition: none;
   z-index: 4;
   svg {
@@ -22,7 +26,7 @@ const ArrowCircle = styled.div`
     }
   }
   &:hover {
-    cursor: pointer;
+    cursor: ${({ shouldAbout }) => (shouldAbout ? "pointer" : "default")};
   }
 `;
 
@@ -33,7 +37,6 @@ const ArrowCirclePointer = ({ shouldAbout }: { shouldAbout: boolean }) => {
     if (!shouldAbout) return;
     const arrow = arrowRef.current as unknown as SVGElement;
     if (arrow) {
-      // Smooth transition for rotation
       gsap.to(arrow, {
         rotation: -120,
         transformOrigin: "center",
@@ -45,6 +48,7 @@ const ArrowCirclePointer = ({ shouldAbout }: { shouldAbout: boolean }) => {
   }, [shouldAbout]);
 
   const handleMouseEnter = () => {
+    if (!shouldAbout) return;
     const arrow = arrowRef.current as unknown as SVGElement;
     if (arrow) {
       gsap.to(arrow, {
@@ -60,6 +64,7 @@ const ArrowCirclePointer = ({ shouldAbout }: { shouldAbout: boolean }) => {
   };
 
   const handleMouseLeave = () => {
+    if (!shouldAbout) return;
     const arrow = arrowRef.current as unknown as SVGElement;
     if (arrow) {
       gsap.to(arrow, {
@@ -71,15 +76,18 @@ const ArrowCirclePointer = ({ shouldAbout }: { shouldAbout: boolean }) => {
       });
     }
   };
+
   const handleClick = () => {
     console.log("clicked");
   };
+
   return (
     <ArrowCircle
+      shouldAbout={shouldAbout}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
     >
-      {shouldAbout}
       <div>
         <svg
           ref={arrowRef}

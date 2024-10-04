@@ -18,17 +18,17 @@ const ExtContainer = styled.div`
   color: ${({ theme }) => theme.colors.background};
   font-family: ${({ theme }) => theme.fonts.main};
   font-family: "Inter", sans-serif;
-
+  @media (max-width: 1100px) {
+    grid-template-columns: 0fr 3fr;
+  }
 `;
-
-
 
 const FooterLeft = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 3rem;
   margin-top: 2rem;
-  a{
+  a {
     &:visited {
       color: inherit;
     }
@@ -36,34 +36,37 @@ const FooterLeft = styled.div`
   span {
     text-decoration: underline;
   }
-  @media  (max-width: 600px) {
-    
-    span{
-      display:none;
+  @media (max-width: 1100px) {
+    display: none;
+    span {
     }
   }
 `;
 
 const FooterRight = styled.div`
   border-left: 1px solid ${({ theme }) => theme.colors.footerLine};
+  margin-left: 0rem;
   display: flex;
   flex-direction: row;
+  width: 100%;
   justify-content: space-between;
+  @media (max-width: 1100px) {
+    width: calc(100vw - 4rem);
+    margin-left: 2rem;
+  }
 `;
 const TextRight = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 1rem;
   margin-top: 2rem;
-  a{
+  a {
     color: inherit;
     text-decoration: none;
   }
 `;
 const TextRightSpanEmail = styled.span`
-
   text-decoration: underline;
- 
 `;
 
 const Icons = styled.div`
@@ -74,7 +77,7 @@ const Icons = styled.div`
   margin-right: 1rem;
   a {
     margin-right: 1rem;
-    svg{
+    svg {
       height: 2rem;
       width: 2rem;
     }
@@ -87,12 +90,12 @@ const Icons = styled.div`
   }
   @media (max-width: 600px) {
     a {
-    margin-right: 1rem;
-    svg{
-      display: none;
+      svg {
+        display: none;
+      }
     }
   }
-
+  @media (max-width: 1300px) {
   }
 `;
 
@@ -104,11 +107,21 @@ interface FooterProps {
   ReachText: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ mailUrl, instagramUrl, githubUrl, Disclaim, ReachText }) => {
+const Footer: React.FC<FooterProps> = ({
+  mailUrl,
+  instagramUrl,
+  githubUrl,
+  Disclaim,
+  ReachText,
+}) => {
   return (
     <ExtContainer>
       <FooterLeft>
-        <a href="https://github.com/th3-Rocha/th3-rocha.github.io" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/th3-Rocha/th3-rocha.github.io"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span>{Disclaim}</span>
         </a>
       </FooterLeft>
@@ -116,13 +129,21 @@ const Footer: React.FC<FooterProps> = ({ mailUrl, instagramUrl, githubUrl, Discl
         <TextRight>
           <span>{ReachText}</span>
 
-          <a href={"mailto:" + mailUrl} target="_blank" rel="noopener noreferrer">
-            <TextRightSpanEmail > {mailUrl}</TextRightSpanEmail>
+          <a
+            href={"mailto:" + mailUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <TextRightSpanEmail> {mailUrl}</TextRightSpanEmail>
           </a>
         </TextRight>
 
         <Icons>
-          <a href="https://mail.google.com/mail/?view=cm&to=murilorocha537@gmail.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://mail.google.com/mail/?view=cm&to=murilorocha537@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Mail />
           </a>
           <a href={instagramUrl} target="_blank" rel="noopener noreferrer">

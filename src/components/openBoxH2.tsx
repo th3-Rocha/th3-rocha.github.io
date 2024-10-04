@@ -60,6 +60,7 @@ const UpContainer = styled.div`
   div {
     
     svg {
+      stroke: ${({ theme }) => theme.colors.primary};
       margin-top: -0.5rem;
       transform: translatex(-1rem);
     }

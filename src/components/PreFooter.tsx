@@ -18,6 +18,10 @@ const ExtContainer = styled.div`
   color: ${({ theme }) => theme.colors.background};
   font-family: ${({ theme }) => theme.fonts.main};
   pointer-events: none;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 0fr 4fr;
+  }
 `;
 
 const ExtContainer2 = styled.div`
@@ -30,8 +34,14 @@ const BottomLine = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.footerLineHard};
   margin-left: 3rem;
   margin-right: 3rem;
-  width: calc(100% - 6rem);
+  width: calc(100% - 5rem);
   pointer-events: none;
+  @media (max-width: 1100px) {
+    margin-left: 2rem;
+  }
+  @media (max-width: 600px) {
+    width: calc(100% - 4rem);
+  }
 `;
 
 const FooterRight = styled.div`
@@ -41,18 +51,23 @@ const FooterRight = styled.div`
   vertical-align: middle;
   flex-direction: column;
   pointer-events: auto;
+  margin-left: 0rem;
 
   div {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     span {
       cursor: pointer;
       text-decoration: underline;
     }
   }
+  @media (max-width: 1100px) {
+    margin-left: 2rem;
+  }
 `;
 
 const FooterLeft = styled.div`
   margin-bottom: 0;
+
   pointer-events: none;
 `;
 
@@ -62,7 +77,6 @@ const TextAboveContact = styled.div`
 
 const TextContact = styled.div`
   h2 {
-  
     text-underline-offset: 1rem;
   }
 `;
