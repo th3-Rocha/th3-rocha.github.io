@@ -25,7 +25,7 @@ import { Theme } from "../theme/themes/theme";
 import CoverComponent from "../components/coverPage";
 import RevealComponent from "../components/revealPage";
 //components
-import PreFooter from "../components/PreFooter";
+import ContactPreFooter from "../components/contactPreFooter";
 import H2TextSpan from "../components/h2Text";
 import H1TextSpan from "../components/h1Text";
 import ArrowCirclePointer from "../components/ArrowCirclePointer";
@@ -476,7 +476,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
             <BottomContainer>
               <Footers>
                 <div>
-                  <PreFooter
+                  <ContactPreFooter
                     onContactClick={() => handleClickHomeItens(2)}
                     ContactText={translations.footer.ContactText}
                     WantText={translations.footer.WantText}

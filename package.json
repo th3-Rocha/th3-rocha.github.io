@@ -54,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@playwright/test": "^1.47.2",
     "gh-pages": "^5.0.0"
   }
 }

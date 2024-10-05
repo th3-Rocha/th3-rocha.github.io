@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
   ::selection {
-    background: #ffd000;
+    background: #CF8325;
   }
 }
 @font-face {
