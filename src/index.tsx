@@ -8,10 +8,7 @@ import { LanguageProvider } from "./translations/LanguageContext";
 import { ThemeProvider } from "./theme/ThemeProvider";
 import { createRoot } from "react-dom/client";
 
-//require("dotenv").config();
-//console.log(process.env);
-//console.log(process.env.API_KEY);
-console.log("cabou o primeir .env");
+
 
 function App() {
   // Check localStorage for the theme preference on initial load

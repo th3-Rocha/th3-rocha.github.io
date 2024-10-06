@@ -42,6 +42,9 @@ import OphanimMeme from "../components/OphanimMeme";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+console.log("akejalkjsfkey:");
+console.log(process.env.API_KEY);
+
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
