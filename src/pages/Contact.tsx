@@ -35,7 +35,14 @@ import CarouselText from "../components/SpanTextCarousel";
 import Footer from "../components/Footer";
 import ImageAbout from "../components/aboutImageContainer";
 import ArrowAspas from "../components/ArrowAspas";
+import OphanimMeme from "../components/OphanimMeme";
 //components
+
+//ia
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
 
@@ -259,6 +266,13 @@ const LeftArrow = styled.div`
     display: none;
   }
 `;
+const ArtContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 10rem;
+  height: 10rem;
+  border-left: 1px solid ${({ theme }) => theme.colors.footerLine};
+`;
 const LeftAspas = styled.div`
   width: min-content;
   display: block;
@@ -387,11 +401,23 @@ function Contact({ toggleDarkTheme }: AboutProps) {
   const containerRef = useRef(null);
   const [coverLoad, setCoverLoad] = useState(Boolean);
   const [coverMenu, setCoverMenu] = useState(Boolean);
+  const [opharaimText, setOpharaimText] = useState(String);
   const { language, translations } = useContext(LanguageContext);
   const { scroll } = useLocomotiveScroll();
-
   const routes = ["/", "/about", "/contact"];
   const [showCarousel, setShowCarousel] = useState(false);
+  console.log(process.env.API_KEY);
+  const fetchData = async () => {
+    try {
+      const prompt = "finjar ser opraim(anjo) e fale algo";
+      const result = await model.generateContent([prompt]);
+      setOpharaimText(result.response.text());
+      console.log(result.response.text());
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  fetchData();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -464,12 +490,14 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                     />
                   </IntroTextWrapper>
                   <AboutSectionClipPath>
-                    <H2SimpleText> {translations.contact.subTitle}</H2SimpleText>
+                    <H2SimpleText>
+                      {" "}
+                      {translations.contact.subTitle}
+                    </H2SimpleText>
                   </AboutSectionClipPath>
                   {/*fim do texto inicial*/}
                 </IntroSection>
               </ContentArea>
-
               <Sidebar></Sidebar>
               <ContentArea></ContentArea>
             </LayoutContainer>
@@ -479,7 +507,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                   <ContactPreFooter
                     onContactClick={() => handleClickHomeItens(2)}
                     ContactText={translations.footer.ContactText}
-                    WantText={translations.footer.WantText}
+                    WantText={opharaimText}
                   />
                 </div>
 
