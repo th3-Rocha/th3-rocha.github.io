@@ -16,9 +16,9 @@ const minimalisticDark: Theme = {
     secondary: "Montserrat, sans-serif",
   },
   screen:{
-    mobile: 600,
-    tablet: 1100,
-    desktop: 2000,
+    mobile: "600px",
+    tablet: "1100px",
+    desktop: "2000px",
   }
 };
 export default minimalisticDark;

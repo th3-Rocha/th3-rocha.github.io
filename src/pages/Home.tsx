@@ -290,6 +290,16 @@ const CourosselContainer = styled.div`
   }
 `;
 
+
+
+
+
+
+
+
+
+
+
 interface HomeProps {
   toggleDarkTheme: () => void;
 }

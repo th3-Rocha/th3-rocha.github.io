@@ -123,7 +123,7 @@ const Rectangle = styled.div`
   pointer-events: none;
 `;
 const GridDiv = styled.div`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.background};
   pointer-events: auto;
   z-index: 2;
   width: 100%;
@@ -139,7 +139,7 @@ const MidGridDiv = styled.div`
   grid-template-rows: 1fr 1fr 1fr;
 `;
 const MidSectionDiv = styled.div`
-  border: 1px solid #ffffff33;
+  border: 1px solid ${({ theme }) => theme.colors.footerLine};
   border-top: 0px;
   display: flex;
   flex-direction: row;
@@ -162,7 +162,7 @@ const MidSectionDiv = styled.div`
       div {
         span {
           margin-left: 0.5rem;
-          color: #ffffff71;
+          color: ${({ theme }) => theme.colors.primary};
         }
       }
     }
@@ -174,7 +174,7 @@ const RightGridDiv = styled.div`
   grid-template-rows: 1fr 13fr;
 `;
 const RightSectionDiv = styled.div`
-  border-top: 1px solid #ffffff33;
+  border-top: 1px solid ${({ theme }) => theme.colors.footerLine};
   display: flex;
   flex-direction: column;
   gap: 20%;
@@ -186,13 +186,13 @@ const RightSectionDiv = styled.div`
       height: 110%;
       width: 110%;
       div {
-        border: 1px solid #ffffff7a;
+        border: 1px solid ${({ theme }) => theme.colors.background};
         height: 1.8rem;
         width: 1.8rem;
         * {
           height: 1.8rem;
           width: 1.8rem;
-          color: #ffffff;
+          color:  ${({ theme }) => theme.colors.background};
         }
       }
     }
@@ -207,7 +207,7 @@ const CloseDiv = styled.div`
   cursor: pointer;
   span {
     cursor: pointer;
-    color: #f5f5f5;
+    color: ${({ theme }) => theme.colors.background};
   }
 `;
 

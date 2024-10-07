@@ -14,8 +14,8 @@ export interface Theme {
     secondary: string;
   };
   screen:{
-    mobile: number;
-    tablet: number;
-    desktop: number;
+    mobile: string;
+    tablet: string;
+    desktop: string;
   };
 }
