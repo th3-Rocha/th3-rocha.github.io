@@ -1,30 +1,19 @@
-import styled from "styled-components";
-import { Iconoir } from "iconoir-react";
-import {
-  Mail,
-  Instagram,
-  HalfMoon,
-  GithubCircle,
-  SunLight,
-} from "iconoir-react";
-
-import IconButtonTheme from "../components/iconButtonTheme";
-import Header from "../components/header";
-
 import React, { useContext, useEffect, useState, useRef } from "react";
-import { LanguageContext } from "../translations/LanguageContext";
+//third
+import styled from "styled-components";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import TextPlugin from "gsap/TextPlugin";
-
-import "./locomotive-scroll.css";
 import gsap from "gsap";
-import IconButtonLink from "../components/iconButtonLink";
+//third
+//components
+import { LanguageContext } from "../translations/LanguageContext";
 import { Theme } from "../theme/themes/theme";
-
+import IconButtonTheme from "../components/iconButtonTheme";
+import Header from "../components/header";
+import IconButtonLink from "../components/iconButtonLink";
 import CoverComponent from "../components/coverPage";
 import RevealComponent from "../components/revealPage";
-//components
 import PreFooter from "../components/PreFooter";
 import H2TextSpan from "../components/h2Text";
 import SubProjComponent from "../components/SubProject";
@@ -34,7 +23,6 @@ import LeftSpanText from "../components/leftSpanText";
 import OpenBoxH2 from "../components/openBoxH2";
 import ImageCarousel from "../components/Carousel";
 import Footer from "../components/Footer";
-//
 import Sidebar from "../components/sidebar";
 import Wrapper from "../components/wrapper";
 import Divider from "../components/divider";
@@ -47,9 +35,20 @@ import ContentArea from "../components/contentArea";
 import TitleSection from "../components/tittleSection";
 //components
 
+//UI
+import { Iconoir } from "iconoir-react";
+import {
+  Mail,
+  Instagram,
+  HalfMoon,
+  GithubCircle,
+  SunLight,
+} from "iconoir-react";
+//UI
 
+import "./locomotive-scroll.css"; // Import CSS files
 
-
+//Styled Components
 const IntroSection = styled.div`
   height: 494px;
   position: relative;
@@ -63,7 +62,7 @@ const SecondTitleSection = styled.section`
   margin-top: 5rem;
   margin-bottom: 1rem;
   display: none;
-  @media (max-width: 1100px) {
+  @media (max-width: ${({ theme }) => theme.screen.tablet}) {
     display: inline-block;
   }
 `;
@@ -108,7 +107,7 @@ const IntroTextWrapper = styled.div`
   div {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
-  @media (max-width: 1100px) {
+  @media (max-width: ${({ theme }) => theme.screen.tablet}) {
     margin-left: 0.5rem;
     h1 {
       height: 7.5rem;
@@ -117,7 +116,7 @@ const IntroTextWrapper = styled.div`
       height: 8rem;
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.screen.mobile}) {
     div {
       clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 85%);
     }
@@ -138,10 +137,10 @@ const IntroIconsWrapper = styled.div`
   margin-left: 1.2rem;
   margin-top: -1rem;
 
-  @media (max-width: 1100px) {
+  @media (max-width: ${({ theme }) => theme.screen.tablet}) {
     margin-left: 0.5rem;
   }
-  @media (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.screen.mobile}) {
     margin-left: 0.5rem;
     margin-top: 2rem;
     * {
@@ -163,7 +162,7 @@ const LeftArrow = styled.div`
   margin-top: 26rem;
   margin-left: 3rem;
 
-  @media (max-width: 1100px) {
+  @media (max-width: ${({ theme }) => theme.screen.tablet}) {
     display: none;
   }
 `;
@@ -173,10 +172,10 @@ const ArrowRight = styled.div`
   margin-right: 0rem;
   display: none;
   margin-top: 0rem;
-  @media (max-width: 1100px) {
+  @media (max-width: ${({ theme }) => theme.screen.tablet}) {
     display: block;
   }
-  @media (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.screen.mobile}) {
     margin-top: 0.6rem;
   }
 
@@ -244,7 +243,7 @@ const PivotSpanWrapper = styled.div`
     translate(calc(-100% - 0.5rem), calc(-100% - 2.8rem));
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
-  @media (max-width: 1100px) {
+  @media (max-width: ${({ theme }) => theme.screen.tablet}) {
     display: none;
   }
 `;
@@ -272,7 +271,7 @@ const RightTextBellowProjects = styled.div`
   margin-bottom: 10rem;
 `;
 const ArrowCircleAboutMe = styled.div`
-  @media (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.screen.mobile}) {
     width: 100%;
     margin: 0;
     margin-left: 100%;
@@ -290,7 +289,6 @@ const CourosselContainer = styled.div`
     margin-bottom: calc(2rem + 4vw);
   }
 `;
-
 
 interface HomeProps {
   toggleDarkTheme: () => void;
@@ -469,10 +467,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
           watch={[]}
           containerRef={containerRef}
         >
-          <main
-            data-scroll-container
-            ref={containerRef}
-          >
+          <main data-scroll-container ref={containerRef}>
             <LayoutContainer>
               <Sidebar>
                 <LeftArrow>
@@ -615,12 +610,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
 
             <BottomContainer>
               <CourosselContainer>
-                {showCarousel && (
-                  <ImageCarousel
-                    urls={urls}
-                    images={images}
-                  />
-                )}
+                {showCarousel && <ImageCarousel urls={urls} images={images} />}
               </CourosselContainer>
               <Footers>
                 <div>
