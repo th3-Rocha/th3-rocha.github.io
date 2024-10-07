@@ -35,43 +35,16 @@ import CarouselText from "../components/SpanTextCarousel";
 import Footer from "../components/Footer";
 import ImageAbout from "../components/aboutImageContainer";
 import ArrowAspas from "../components/ArrowAspas";
+import Sidebar from "../components/sidebar";
+import Wrapper from "../components/wrapper";
+import MainContainer from "../components/mainContainer";
+import LayoutContainer from "../components/layoutContainer";
+import BottomContainer from "../components/bottomContainer";
+import BottomLine from "../components/bottomLine";
+import Footers from "../components/footers";
+import ContentArea from "../components/contentArea";
+import TitleSection from "../components/tittleSection";
 //components
-const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.background};
-
-  h1 {
-    font-size: 6rem;
-  }
-  h2 {
-    font-size: 3rem;
-    span {
-      font-size: 3.6rem;
-    }
-  }
-
-  @media (max-width: 1100px) {
-    h1 {
-      font-size: 5.2rem;
-    }
-    h2 {
-      font-size: 2.6rem;
-      span {
-        font-size: 3.12rem;
-      }
-    }
-  }
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 3.52rem;
-    }
-    h2 {
-      font-size: 1.76rem;
-      span {
-        font-size: 2.112rem;
-      }
-    }
-  }
-`;
 const AspasContainer = styled.div`
   width: 100%;
   height: 26rem;
@@ -158,18 +131,6 @@ const AfterImage = styled.div`
     font-weight: 300;
   }
 `;
-const MainContainer = styled.div`
-  //container de tudo
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  color: ${({ theme }) => theme.colors.text};
-  font-family: ${({ theme }) => theme.fonts.primary};
-  transition: 0.3s ease;
-
-  @media (max-width: 1100px) {
-  }
-`;
 const AboutSectionClipPath = styled.div`
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   max-width: 45rem;
@@ -196,38 +157,7 @@ const H2SimpleText = styled.h2`
   font-weight: 400;
   line-height: 1.5;
 `;
-const LayoutContainer = styled.div`
-  display: grid;
-  grid-template-rows: 1;
-  grid-template-columns: 1fr 3fr;
-  width: 100%;
-  @media (max-width: 1100px) {
-    grid-template-columns: 32px 14fr;
-  }
-  @media (max-width: 600px) {
-  }
-`;
-const Sidebar = styled.div`
-  border-right: 1px solid ${({ theme }) => theme.colors.secondary};
-  height: 100%;
-  min-width: 19rem;
-  @media (max-width: 1100px) {
-    min-width: 1rem;
-  }
-  grid-template-columns: 32px 14fr;
-  @media (max-width: 600px) {
-    border-right: 0px;
-    margin-left: 0px;
-  }
-`;
 
-const ContentArea = styled.div`
-  max-width: calc(100% - 3vw - 1rem); //100% do tamanho menos o gap da esquerda
-  min-width: 0;
-  @media (max-width: 1100px) {
-    min-width: 0;
-  }
-`;
 
 const IntroSection = styled.div`
   position: relative;
@@ -246,16 +176,6 @@ const SecondTitleSection = styled.section`
   @media (max-width: 600px) {
     display: inline-block;
     margin-top: 0rem;
-  }
-`;
-const TitleSection = styled.section`
-  align-items: flex-start;
-  display: flex;
-  justify-content: flex-end;
-  margin-right: -6.5rem;
-  margin-top: 55rem;
-  @media (max-width: 1100px) {
-    display: none;
   }
 `;
 
@@ -439,21 +359,6 @@ const ArrowRightAboveImage = styled.div`
   }
 `;
 
-const BottomLine = styled.div`
-  height: 1px;
-  background-color: ${({ theme }) => theme.colors.primary};
-  margin-left: 3rem;
-  margin-right: 3rem;
-  width: calc(100% - 6rem);
-  @media (max-width: 1100px) {
-    width: 100%;
-    margin: 0;
-  }
-`;
-const BottomContainer = styled.div`
-  width: 100%;
-  height: auto;
-`;
 const TextCourosselContainer = styled.div`
   width: 400%;
   height: calc(8rem + 9vw);
@@ -461,9 +366,6 @@ const TextCourosselContainer = styled.div`
   }
 `;
 
-const Footers = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary};
-`;
 
 interface AboutProps {
   toggleDarkTheme: () => void;

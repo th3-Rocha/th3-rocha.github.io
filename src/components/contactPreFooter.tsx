@@ -1,27 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import OphanimMeme from "./OphanimMeme";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import H1TextSpan from "./h1Text";
 
 const ExtContainer = styled.div`
   display: grid;
@@ -58,6 +38,7 @@ const BottomLine = styled.div`
 const ArtContainer = styled.div`
   display: flex;
   justify-content: space-around;
+
   width: 100%;
   height: 100%;
   border-left: 1px solid ${({ theme }) => theme.colors.footerLine};
@@ -66,6 +47,23 @@ const ArtContainer = styled.div`
 const TextContainer = styled.div`
   width: 100%;
   height: 100%;
+  display: flex; /* Enable Flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Ensure text is centered */
+
+  h1 {
+    margin: 0;
+  }
+  @media (max-width: 700px) {
+    display: none;
+  }
+  @media (max-width: 1200px) {
+    
+    h1{
+      font-size: 3rem;
+    }
+  }
 `;
 
 const FooterLeft = styled.div`
@@ -86,16 +84,17 @@ const ContactPreFooter: React.FC<FooterProps> = ({
 }) => {
   const apiRef = useRef<any>(null);
 
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <ExtContainer2>
       <ExtContainer>
         <FooterLeft></FooterLeft>
-        <ArtContainer>
+        <ArtContainer onClick={onContactClick}>
           <OphanimMeme />
-          <TextContainer>{/* Removed H1TextSpan */}</TextContainer>
+          <TextContainer>
+            <H1TextSpan Text={WantText} />
+          </TextContainer>
         </ArtContainer>
       </ExtContainer>
       <BottomLine />

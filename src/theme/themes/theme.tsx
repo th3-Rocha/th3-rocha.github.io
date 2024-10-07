@@ -12,4 +12,9 @@ export interface Theme {
     primary: string;
     secondary: string;
   };
+  screen:{
+    mobile: number;
+    tablet: number;
+    desktop: number;
+  };
 }
