@@ -32,14 +32,14 @@ const ImageBackground = styled.img`
   position: absolute;
   top: 0;
   left: 0;
-  filter: sepia(20%); 
+  filter: sepia(${({ theme }) => theme.colors.filterForce}); 
 `;
 
 const ImageOverlayBackground = styled.img`
   min-width: 100%;
   height: auto;
   z-index: 2;
-  filter: sepia(20%); 
+  filter: sepia(${({ theme }) => theme.colors.filterForce}); 
   will-change: transform;
   @media (max-width: 600px) {
     

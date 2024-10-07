@@ -7,6 +7,7 @@ export interface Theme {
     icon: string;
     footerLine: string;
     footerLineHard: string;
+    filterForce: number;
   };
   fonts: {
     primary: string;

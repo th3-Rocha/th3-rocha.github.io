@@ -9,6 +9,7 @@ const minimalisticDark: Theme = {
     icon: "#8b6b52", // A softer brown for icons
     footerLine: "#a67c5266", // Lighter sepia for footer lines with transparency
     footerLineHard: "#8b6b52", // A stronger sepia for harder lines in the footer
+    filterForce: 1
   },
   fonts: {
     primary: "Montserrat, sans-serif",
