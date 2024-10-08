@@ -413,44 +413,33 @@ function Contact({ toggleDarkTheme }: AboutProps) {
               <ContactFormDiv>
                 <FormContainer>
                   <form name="contact" method="POST" data-netlify="true">
-                    <input type="hidden" name="form-name" value="contact" />
-                    <input
-                      type="hidden"
-                      name="subject"
-                      value="Contact Form from Portfolio"
-                    />
-                    <H1TextSpan Text="Email" />
-                    <input
-                      name="email"
-                      id="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                    <H1TextSpan Text="Name" />
-                    <input
-                      name="name"
-                      id="name"
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required
-                    />
-                    <MensaggeHeader>
-                      <H1TextSpan Text="Menssage" />
-                      <button type="button" onClick={handleFillAiClick}>
-                        I.A Fullfil
-                      </button>
-                    </MensaggeHeader>
-                    <textarea
-                      name="message"
-                      id="message"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      required
-                    />
-                    <button type="submit">Send Message</button>
+                    <p>
+                      <label>
+                        Your Name: <input type="text" name="name" />
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        Your Email: <input type="email" name="email" />
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        Your Role:{" "}
+                        <select name="role[]" multiple>
+                          <option value="leader">Leader</option>
+                          <option value="follower">Follower</option>
+                        </select>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        Message: <textarea name="message"></textarea>
+                      </label>
+                    </p>
+                    <p>
+                      <button type="submit">Send</button>
+                    </p>
                   </form>
                 </FormContainer>
               </ContactFormDiv>
