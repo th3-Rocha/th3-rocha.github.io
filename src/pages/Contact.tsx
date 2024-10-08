@@ -317,7 +317,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
     fetchData();
   };
   //
-
+  /*
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email || !name || !message) {
@@ -334,7 +334,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
       .then(() => navigate("/thank-you/"))
       .catch((error) => alert(error));
   };
-
+  */
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowCarousel(true);
