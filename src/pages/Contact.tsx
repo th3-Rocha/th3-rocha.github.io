@@ -400,8 +400,18 @@ function Contact({ toggleDarkTheme }: AboutProps) {
               <Sidebar></Sidebar>
               <ContactFormDiv>
                 <FormContainer>
-                  <form name="contact"  method="POST" data-netlify="true">
-                  <input type="hidden" name="subject" value="Contact Form from Portfolio" />
+                  <form
+                    name="contact"
+                    method="POST"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field" // Honeypot field to prevent spam
+                    
+                  >
+                    {/* Honeypot hidden field */}
+                    <input type="hidden" name="form-name" value="contact" />
+                    <input type="hidden" name="bot-field" />
+
+                    {/* Form Fields */}
                     <H1TextSpan Text="Email" />
                     <input
                       name="email"
@@ -414,19 +424,21 @@ function Contact({ toggleDarkTheme }: AboutProps) {
 
                     <H1TextSpan Text="Name" />
                     <input
-                      name="name" 
+                      name="name"
                       id="name"
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
                     />
+
                     <MensaggeHeader>
-                      <H1TextSpan Text="Menssage" />
+                      <H1TextSpan Text="Message" />
                       <button type="button" onClick={handleFillAiClick}>
                         I.A Fullfil
                       </button>
                     </MensaggeHeader>
+
                     <textarea
                       name="message"
                       id="message"
@@ -435,6 +447,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       required
                     />
 
+                    {/* Submit Button */}
                     <button type="submit">Send Message</button>
                   </form>
                 </FormContainer>
