@@ -21,6 +21,7 @@ import "./locomotive-scroll.css";
 import gsap from "gsap";
 import IconButtonLink from "../components/iconButtonLink";
 import { Theme } from "../theme/themes/theme";
+import { useNavigate } from "react-router-dom"; // Importe useNavigate
 
 import CoverComponent from "../components/coverPage";
 import RevealComponent from "../components/revealPage";
@@ -265,6 +266,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
   const routes = ["/", "/about", "/contact"];
   const [showCarousel, setShowCarousel] = useState(false);
   //contactForm
+  const navigate = useNavigate();
   const [email, setEmail] = useState(String);
   const [name, setName] = useState(String);
   const [message, setMessage] = useState(String);
@@ -316,13 +318,23 @@ function Contact({ toggleDarkTheme }: AboutProps) {
   };
   //
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email || !name || !message) {
       alert("Please fill in all fields.");
       return;
     }
+    const myForm = e.target as HTMLFormElement;
+    const formData = new FormData(myForm);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString(),
+    })
+      .then(() => console.log("deu bom"))
+      .catch((error) => alert(error));
   };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowCarousel(true);
@@ -402,16 +414,15 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                 <FormContainer>
                   <form
                     name="contact"
-                    method="POST"
+                    method="post"
                     data-netlify="true"
-                    netlify-honeypot="bot-field" // Honeypot field to prevent spam
-                    
+                    onSubmit={handleSubmit}
                   >
-                    {/* Honeypot hidden field */}
-                    <input type="hidden" name="form-name" value="contact" />
-                    <input type="hidden" name="bot-field" />
-
-                    {/* Form Fields */}
+                    <input
+                      type="hidden"
+                      name="subject"
+                      value="Contact Form from Portfolio"
+                    />
                     <H1TextSpan Text="Email" />
                     <input
                       name="email"
@@ -431,14 +442,12 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       onChange={(e) => setName(e.target.value)}
                       required
                     />
-
                     <MensaggeHeader>
-                      <H1TextSpan Text="Message" />
+                      <H1TextSpan Text="Menssage" />
                       <button type="button" onClick={handleFillAiClick}>
                         I.A Fullfil
                       </button>
                     </MensaggeHeader>
-
                     <textarea
                       name="message"
                       id="message"
@@ -447,7 +456,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       required
                     />
 
-                    {/* Submit Button */}
                     <button type="submit">Send Message</button>
                   </form>
                 </FormContainer>
