@@ -331,7 +331,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData as any).toString(),
     })
-      .then(() => console.log("deu bom"))
+      .then(() => navigate("/thank-you/"))
       .catch((error) => alert(error));
   };
 
