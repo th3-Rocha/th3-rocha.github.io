@@ -412,12 +412,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
               <Sidebar></Sidebar>
               <ContactFormDiv>
                 <FormContainer>
-                  <form
-                    name="contact"
-                    method="post"
-                    data-netlify="true"
-                    onSubmit={handleSubmit}
-                  >
+                  <form name="contact" method="POST" data-netlify="true">
                     <input type="hidden" name="form-name" value="contact" />
                     <input
                       type="hidden"
@@ -433,7 +428,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       onChange={(e) => setEmail(e.target.value)}
                       required
                     />
-
                     <H1TextSpan Text="Name" />
                     <input
                       name="name"
@@ -456,7 +450,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       onChange={(e) => setMessage(e.target.value)}
                       required
                     />
-
                     <button type="submit">Send Message</button>
                   </form>
                 </FormContainer>
