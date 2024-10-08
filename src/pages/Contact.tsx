@@ -400,7 +400,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
               <Sidebar></Sidebar>
               <ContactFormDiv>
                 <FormContainer>
-                  <form onSubmit={handleSubmit} name="contact"  method="POST" data-netlify="true">
+                  <form name="contact"  method="POST" data-netlify="true">
                   <input type="hidden" name="subject" value="Contact Form from Portfolio" />
                     <H1TextSpan Text="Email" />
                     <input
