@@ -431,6 +431,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       </button>
                     </MensaggeHeader>
                     <textarea
+                      name="message"
                       id="message"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
