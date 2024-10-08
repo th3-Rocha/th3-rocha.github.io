@@ -418,6 +418,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                     data-netlify="true"
                     onSubmit={handleSubmit}
                   >
+                    <input type="hidden" name="form-name" value="contact" />
                     <input
                       type="hidden"
                       name="subject"
