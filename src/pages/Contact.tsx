@@ -322,9 +322,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
       alert("Please fill in all fields.");
       return;
     }
-    setEmail("");
-    setName("");
-    setMessage("");
   };
   useEffect(() => {
     const timer = setTimeout(() => {
