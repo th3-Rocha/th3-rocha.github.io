@@ -38,21 +38,26 @@ const OphanimMeme = () => {
       if (!containerAscii) {
         return;
       }
-
-      let anguloA = 1;
-      let anguloB = 2;
-      let anguloA2 = 1;
-      let anguloB2 = 2;
-      let anguloA3 = 1;
-      let anguloB3 = 2;
+      
+      function getRandomBetween(min: number, max: number): number {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      let randomA = getRandomBetween(0, 2);
+      let randomB = getRandomBetween(0, 2);
+      let anguloA = randomA;
+      let anguloB = randomB;
+      let anguloA2 = randomA;
+      let anguloB2 = randomB;
+      let anguloA3 = randomA;
+      let anguloB3 = randomB;
       const constanteK2 = 5.5;
       const constanteK3 = 60;
       const constanteK4 = 40;
       const raioR1 = 0.3;
-      const raioR2 = 2.8; 
+      const raioR2 = 2.8;
       const raioR1_2 = 0.4;
       const raioR2_2 = 2.2;
-      const raioR1_3 = 0.35; 
+      const raioR1_3 = 0.35;
       const raioR2_3 = 1.5;
 
       const caracteresLuminancia = ".,-~:;=!*#R@";

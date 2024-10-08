@@ -31,7 +31,6 @@ import ArrowCirclePointer from "../components/ArrowCirclePointer";
 import Footer from "../components/Footer";
 import { env } from "process";
 
-
 import Sidebar from "../components/sidebar";
 import Wrapper from "../components/wrapper";
 import MainContainer from "../components/mainContainer";
@@ -39,13 +38,14 @@ import LayoutContainer from "../components/layoutContainer";
 import BottomContainer from "../components/bottomContainer";
 import Footers from "../components/footers";
 import ContentArea from "../components/contentArea";
+import Divider from "../components/divider";
+import H1TextSpan from "../components/h1Text";
 //components
 
 //ia
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
 
 const AboutSectionClipPath = styled.div`
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -74,11 +74,14 @@ const H2SimpleText = styled.h2`
   line-height: 1.5;
 `;
 
-
 const IntroSection = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+`;
+
+const ContactFormDiv = styled.div`
+  margin-left: 0px;
 `;
 
 const IntroTextWrapper = styled.div`
@@ -172,7 +175,79 @@ const TextCourosselContainer = styled.div`
   div {
   }
 `;
+//contact form
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 80%;
+  margin: 2rem auto;
+  margin-left: 1rem;
+  h1 {
+    margin: 0;
+    font-size: 3rem;
+  }
+  input,
+  textarea {
+    font-family: "Inter", sans-serif;
+    width: 100%;
+    font-weight: 500;
+    padding: 0.5rem;
+    border: 1px solid ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.background};
+    border-radius: 0px;
+    font-size: 1.1rem;
+  }
+  input:focus,
+  textarea:focus {
+    outline: none;
+    color: ${({ theme }) => theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.colors.primary};
+  }
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px ${({ theme }) => theme.colors.secondary}
+      inset !important;
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.primary} !important;
 
+    font-family: "Inter", sans-serif !important;
+  }
+  textarea {
+    height: 30rem;
+    resize: none;
+  }
+
+  button {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.background};
+    cursor: pointer;
+    border: 2px;
+    border-color: ${({ theme }) => theme.colors.primary};
+    border-style: solid;
+    border-radius: 0px;
+    font-size: 1rem;
+    transition: 0.3s;
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.background};
+      color: ${({ theme }) => theme.colors.primary};
+      border: 2px;
+      border-color: ${({ theme }) => theme.colors.primary};
+      border-style: dashed;
+    }
+  }
+`;
+
+const MensaggeHeader = styled.div`
+  display: flex;
+  margin: 0rem;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 0.5rem;
+`;
+//contatct form
 interface AboutProps {
   toggleDarkTheme: () => void;
 }
@@ -182,13 +257,18 @@ function Contact({ toggleDarkTheme }: AboutProps) {
   const [coverLoad, setCoverLoad] = useState(Boolean);
   const [coverMenu, setCoverMenu] = useState(Boolean);
   const [opharaimText, setOpharaimText] = useState("...");
+  const [AiFillText, setAiFillText] = useState("");
   const [opharimClicked, setOpharimClicked] = useState(false);
+  const [fillAIClicked, setfillAIClicked] = useState(false);
   const { language, translations } = useContext(LanguageContext);
   const { scroll } = useLocomotiveScroll();
   const routes = ["/", "/about", "/contact"];
   const [showCarousel, setShowCarousel] = useState(false);
-
-
+  //contactForm
+  const [email, setEmail] = useState(String);
+  const [name, setName] = useState(String);
+  const [message, setMessage] = useState(String);
+  //contactForm
   useEffect(() => {
     if (opharimClicked) {
       const fetchData = async () => {
@@ -213,7 +293,39 @@ function Contact({ toggleDarkTheme }: AboutProps) {
       setOpharimClicked(false);
     }
   };
+  //
 
+  const handleFillAiClick = () => {
+    if (!email || !name) {
+      alert("Please fill in all fields.");
+      return;
+    }
+    const fetchData = async () => {
+      try {
+        const prompt = `Escreva um e-mail educado para Murilo da Rocha dizendo que você quer contratá-lo após ver seu portfólio. Meu nome é ${name}. Não inclua o assunto, evite exageros nos elogios e não quebre linhas.`;
+
+        const result = await model.generateContent([prompt]);
+        setAiFillText(result.response.text());
+        setMessage(result.response.text());
+        console.log(result.response.text());
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  };
+  //
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !name || !message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+    setEmail("");
+    setName("");
+    setMessage("");
+  };
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowCarousel(true);
@@ -269,12 +381,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
         >
           <main data-scroll-container ref={containerRef}>
             <LayoutContainer>
-              <Sidebar>
-                <LeftArrow>
-                  {" "}
-                  <ArrowCirclePointer shouldAbout={false} />
-                </LeftArrow>
-              </Sidebar>
+              <Sidebar></Sidebar>
               <ContentArea>
                 <IntroSection data-scroll>
                   <IntroTextWrapper>
@@ -291,9 +398,48 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                     </H2SimpleText>
                   </AboutSectionClipPath>
                 </IntroSection>
+                <Divider />
               </ContentArea>
               <Sidebar></Sidebar>
-              <ContentArea></ContentArea>
+              <ContactFormDiv>
+                <FormContainer>
+                  <form onSubmit={handleSubmit} name="contact">
+                    <H1TextSpan Text="Email" />
+                    <input
+                      name="email"
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+
+                    <H1TextSpan Text="Name" />
+                    <input
+                      name="name" 
+                      id="name"
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                    <MensaggeHeader>
+                      <H1TextSpan Text="Menssage" />
+                      <button type="button" onClick={handleFillAiClick}>
+                        I.A Fullfil
+                      </button>
+                    </MensaggeHeader>
+                    <textarea
+                      id="message"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      required
+                    />
+
+                    <button type="submit">Send Message</button>
+                  </form>
+                </FormContainer>
+              </ContactFormDiv>
             </LayoutContainer>
             <BottomContainer>
               <Footers>
@@ -322,7 +468,3 @@ function Contact({ toggleDarkTheme }: AboutProps) {
 }
 
 export default Contact;
-function cycleText(): void {
-  throw new Error("Function not implemented.");
-}
-
