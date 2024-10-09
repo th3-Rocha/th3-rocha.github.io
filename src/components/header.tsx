@@ -162,7 +162,7 @@ const MidSectionDiv = styled.div`
       div {
         span {
           margin-left: 0.5rem;
-          color: ${({ theme }) => theme.colors.primary};
+          color: ${({ theme }) => theme.colors.footerLine};
         }
       }
     }

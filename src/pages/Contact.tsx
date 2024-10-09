@@ -52,7 +52,7 @@ const AboutSectionClipPath = styled.div`
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   max-width: 45rem;
   margin-left: 1rem;
-
+  height: 10rem;
   h2 {
     font-size: 1.2rem;
   }
