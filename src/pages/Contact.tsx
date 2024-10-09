@@ -393,7 +393,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
               <Sidebar></Sidebar>
               <ContactFormDiv>
                 <FormContainer>
-                  <form name="contact" action="/success" method="POST">
+                  <form name="contact" action="/sucess" method="POST">
                     <input type="hidden" name="form-name" value="contact2" />
                     <input
                       type="hidden"
