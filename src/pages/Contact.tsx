@@ -189,20 +189,6 @@ const FormContainer = styled.div`
     margin: 0;
     font-size: 3rem;
   }
-  label {
-    margin: 0;
-    margin-left: 3px;
-    font-style: italic;
-    position: relative;
-    overflow: hidden;
-    width: 100;
-    margin-top: 7.4rem;
-    font-weight: 400;
-    font-family: "shzapfrenaisantlight-ita";
-    overflow: hidden;
-    margin-bottom: 0px;
-    font-size: 2rem;
-  }
   input,
   textarea {
     font-family: "Inter", sans-serif;
@@ -425,50 +411,17 @@ function Contact({ toggleDarkTheme }: AboutProps) {
               </ContentArea>
               <Sidebar></Sidebar>
               <ContactFormDiv>
-                <FormContainer>
+                <FormContainer>     
                   <form name="contact" method="POST">
-                    <input type="hidden" name="form-name" value="contact" />
-                    <div className="input">
-                      <label htmlFor="name">Name</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                      />
-                    </div>
-                    <div className="input">
-                      <label htmlFor="email">Email</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                    </div>
-                    <div className="input">
-                      <label form="message">Message</label>
-                      <textarea
-                        name="message"
-                        id="message"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                      ></textarea>
-                    </div>
-                    <button type="submit">Send contact</button>
-                  </form>
-                  ///
-                  <form name="contact2" method="POST">
                     <input type="hidden" name="form-name" value="contact2" />
                     <input
                       type="hidden"
                       name="subject"
                       value="Contact Form from Portfolio"
                     />
+                    <H1TextSpan Text="Email" />
                     <div className="input">
-                      <label htmlFor="email">Email</label>
+                      <label htmlFor="email"></label>
                       <input
                         name="email"
                         id="email"
@@ -478,8 +431,9 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                         required
                       />
                     </div>
+                    <H1TextSpan Text="Name" />
                     <div className="input">
-                      <label htmlFor="name">Name</label>
+                      <label htmlFor="name"></label>
                       <input
                         name="name"
                         id="name"
@@ -495,7 +449,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                         I.A Fullfil
                       </button>
                     </MensaggeHeader>
-                    <div className="input">
+                    <div>
                       <label form="message"></label>
                       <textarea
                         name="message"
