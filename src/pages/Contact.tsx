@@ -189,6 +189,20 @@ const FormContainer = styled.div`
     margin: 0;
     font-size: 3rem;
   }
+  label {
+    margin: 0;
+    margin-left: 3px;
+    font-style: italic;
+    position: relative;
+    overflow: hidden;
+    width: 100;
+    margin-top: 7.4rem;
+    font-weight: 400;
+    font-family: "shzapfrenaisantlight-ita";
+    overflow: hidden;
+    margin-bottom: 0px;
+    font-size: 2rem;
+  }
   input,
   textarea {
     font-family: "Inter", sans-serif;
@@ -420,7 +434,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                         type="text"
                         id="name"
                         name="name"
-                        placeholder="your name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                       />
@@ -431,7 +444,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                         type="email"
                         id="email"
                         name="email"
-                        placeholder="your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                       />
@@ -441,12 +453,11 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       <textarea
                         name="message"
                         id="message"
-                        placeholder="your message"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                       ></textarea>
                     </div>
-                    <button type="submit">ssubit</button>
+                    <button type="submit">Send contact</button>
                   </form>
                   ///
                   <form name="contact2" method="POST">
