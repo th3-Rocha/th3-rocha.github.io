@@ -411,8 +411,8 @@ function Contact({ toggleDarkTheme }: AboutProps) {
               </ContentArea>
               <Sidebar></Sidebar>
               <ContactFormDiv>
-                <FormContainer>     
-                  <form name="contact" method="POST">
+                <FormContainer>
+                  <form name="contact" action="/pages/success" method="POST">
                     <input type="hidden" name="form-name" value="contact2" />
                     <input
                       type="hidden"

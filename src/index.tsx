@@ -4,11 +4,10 @@ import "./index.css";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Sucess from "./pages/Sucess";
 import { LanguageProvider } from "./translations/LanguageContext";
 import { ThemeProvider } from "./theme/ThemeProvider";
 import { createRoot } from "react-dom/client";
-
-
 
 function App() {
   // Check localStorage for the theme preference on initial load
@@ -44,6 +43,10 @@ function App() {
               <Route
                 path="/contact"
                 element={<Contact toggleDarkTheme={toggleTheme} />}
+              />
+              <Route
+                path="/sucess"
+                element={<Sucess toggleDarkTheme={toggleTheme} />}
               />
             </Routes>
           </div>
