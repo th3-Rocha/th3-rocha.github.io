@@ -437,6 +437,11 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                     </div>
                     <button type="submit">ssubit</button>
                   </form>
+
+
+
+
+
                   ///
                   <form name="contact2" method="POST">
                     <input type="hidden" name="form-name" value="contact2" />
@@ -446,39 +451,45 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       value="Contact Form from Portfolio"
                     />
                     <H1TextSpan Text="Email" />
-                    <label htmlFor="email"></label>
-                    <input
-                      name="email"
-                      id="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
+                    <div className="input">
+                      <label htmlFor="email"></label>
+                      <input
+                        name="email"
+                        id="email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                    </div>
                     <H1TextSpan Text="Name" />
-                    <label htmlFor="name"></label>
-                    <input
-                      name="name"
-                      id="name"
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required
-                    />
+                    <div className="input">
+                      <label htmlFor="name"></label>
+                      <input
+                        name="name"
+                        id="name"
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                      />
+                    </div>
                     <MensaggeHeader>
                       <H1TextSpan Text="Menssage" />
                       <button type="button" onClick={handleFillAiClick}>
                         I.A Fullfil
                       </button>
                     </MensaggeHeader>
-                    <label form="message"></label>
-                    <textarea
-                      name="message"
-                      id="message"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      required
-                    />
+                    <div className="input">
+                      <label form="message"></label>
+                      <textarea
+                        name="message"
+                        id="message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        required
+                      />
+                    </div>
                     <button type="submit">Send Message</button>
                   </form>
                 </FormContainer>
