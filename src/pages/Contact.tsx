@@ -450,9 +450,8 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       name="subject"
                       value="Contact Form from Portfolio"
                     />
-                    <H1TextSpan Text="Email" />
                     <div className="input">
-                      <label htmlFor="email"></label>
+                      <label htmlFor="email">Email</label>
                       <input
                         name="email"
                         id="email"
@@ -462,7 +461,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                         required
                       />
                     </div>
-                    <H1TextSpan Text="Name" />
                     <div className="input">
                       <label htmlFor="name"></label>
                       <input
