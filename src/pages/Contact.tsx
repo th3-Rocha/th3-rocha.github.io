@@ -426,6 +426,17 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       />
                     </div>
                     <div className="input">
+                      <label htmlFor="email">Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                    <div className="input">
                       <label form="message">Message</label>
                       <textarea
                         name="message"
