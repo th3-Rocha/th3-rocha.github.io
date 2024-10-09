@@ -437,11 +437,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                     </div>
                     <button type="submit">ssubit</button>
                   </form>
-
-
-
-
-
                   ///
                   <form name="contact2" method="POST">
                     <input type="hidden" name="form-name" value="contact2" />
@@ -462,7 +457,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       />
                     </div>
                     <div className="input">
-                      <label htmlFor="name"></label>
+                      <label htmlFor="name">Name</label>
                       <input
                         name="name"
                         id="name"
