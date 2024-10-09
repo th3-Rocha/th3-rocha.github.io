@@ -446,6 +446,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       value="Contact Form from Portfolio"
                     />
                     <H1TextSpan Text="Email" />
+                    <label htmlFor="email"></label>
                     <input
                       name="email"
                       id="email"
@@ -455,6 +456,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       required
                     />
                     <H1TextSpan Text="Name" />
+                    <label htmlFor="name"></label>
                     <input
                       name="name"
                       id="name"
@@ -469,6 +471,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                         I.A Fullfil
                       </button>
                     </MensaggeHeader>
+                    <label form="message"></label>
                     <textarea
                       name="message"
                       id="message"
