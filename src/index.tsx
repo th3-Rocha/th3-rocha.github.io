@@ -45,7 +45,7 @@ function App() {
                 element={<Contact toggleDarkTheme={toggleTheme} />}
               />
               <Route
-                path="/sucess"
+                path="/pages/sucess"
                 element={<Sucess toggleDarkTheme={toggleTheme} />}
               />
             </Routes>
