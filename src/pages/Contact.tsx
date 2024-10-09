@@ -316,25 +316,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
     };
     fetchData();
   };
-  //
-  /*
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!email || !name || !message) {
-      alert("Please fill in all fields.");
-      return;
-    }
-    const myForm = e.target as HTMLFormElement;
-    const formData = new FormData(myForm);
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString(),
-    })
-      .then(() => navigate("/thank-you/"))
-      .catch((error) => alert(error));
-  };
-  */
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowCarousel(true);
@@ -412,7 +393,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
               <Sidebar></Sidebar>
               <ContactFormDiv>
                 <FormContainer>
-                  <form name="contact" action="/pages/success" method="POST">
+                  <form name="contact" action="/success" method="POST">
                     <input type="hidden" name="form-name" value="contact2" />
                     <input
                       type="hidden"
