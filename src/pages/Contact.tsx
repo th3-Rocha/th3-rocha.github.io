@@ -412,25 +412,30 @@ function Contact({ toggleDarkTheme }: AboutProps) {
               <Sidebar></Sidebar>
               <ContactFormDiv>
                 <FormContainer>
-                  <form name="contact" method="POST" data-netlify="true">
-                    <p>
-                      <label>
-                        Your Name: <input type="text" name="name" />
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        Your Email: <input type="email" name="email" />
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        Message: <textarea id="message" name="message"></textarea>
-                      </label>
-                    </p>
-                    <p>
-                      <button type="submit">Send</button>
-                    </p>
+                  <form name="contact" method="POST">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <div className="input">
+                      <label htmlFor="name">Name</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="your name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+                    <div className="input">
+                      <label form="message">Message</label>
+                      <textarea
+                        name="messsage"
+                        id="message"
+                        placeholder="your message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                      ></textarea>
+                    </div>
+                    <button type="submit">ssubit</button>
                   </form>
                 </FormContainer>
               </ContactFormDiv>
