@@ -69,10 +69,10 @@
     "intro": "Weaving Seamless Experiences Across",
     "introHighlight": " Interfaces and Infrastructure",
     "aboutMe": "I’m a Brazilian front-end developer with a passion for solving problems and building innovative digital experiences. With expertise in Node.js, Next.js.",
-    "history": "I like to make games in Unity and now I am learning Godot",
-    "history2": "Now I am learning React and Next Js.",
-    "anotherInspirationsTitle": "My development stack is focused on performance & accessibility with delightful interactions.",
-    "anotherInspirationsText": "Apart from my main domain, I also like branding, icon design and minimal illustrations. I am an enthusiast of digital art, motion design & WebGL."
+    "history": "I enjoy playing guitar, listening to music, and playing video games. I also like to run, spend time at the beach, and practice meditation to disconnect from the internet and technology, focusing on mindfulness and relaxation.",
+    "history2": "I have a passion for learning a bit of everything, from Arduino automation and machining to studying new languages like Italian.",
+    "anotherInspirationsTitle": "My development stack is focused on front-end technologies like React, Next.js, and other modern tools to create responsive and dynamic user experiences.",
+    "anotherInspirationsText": "Although my expertise lies in front-end development, I also work with back-end technologies such as Node.js and C#. While I'm not advanced in back-end development yet, I'm continually learning and improving my skills in this area."
   },
   "contact": {
     "title": "Contact",

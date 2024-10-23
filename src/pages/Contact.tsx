@@ -52,11 +52,11 @@ const AboutSectionClipPath = styled.div`
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   max-width: 45rem;
   margin-left: 1rem;
-  height: 10rem;
+  height: fit-content;
   h2 {
     font-size: 1.2rem;
   }
-  margin-bottom: 3rem;
+  margin-bottom: 0rem;
 `;
 
 const H2SimpleText = styled.h2`
@@ -65,17 +65,17 @@ const H2SimpleText = styled.h2`
   font-weight: 300;
   font-style: normal;
   font-variation-settings: "slnt" 0;
-  margin-top: 1rem;
   word-break: keep-all;
   font-family: "Inter", sans-serif;
   vertical-align: baseline;
-
   letter-spacing: -0.05rem;
   font-weight: 400;
   line-height: 1.5;
+  max-width: 18rem;
 `;
 
 const IntroSection = styled.div`
+  height: fit-content;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -84,7 +84,12 @@ const IntroSection = styled.div`
 const ContactFormDiv = styled.div`
   margin-left: 0px;
 `;
-
+const DividerDiv = styled.div`
+  div {
+    width: 100%;
+    margin-top: 1rem;
+  }
+`;
 const IntroTextWrapper = styled.div`
   margin-left: 1rem;
   margin-top: 8rem;
@@ -168,6 +173,15 @@ const LeftArrow = styled.div`
 
   @media (max-width: 1100px) {
     display: none;
+  }
+`;
+const SubTittle = styled.div`
+  @media (max-width: 600px) {
+    h2 {
+      display: none;
+      
+    }
+    height: 5rem;
   }
 `;
 const TextCourosselContainer = styled.div`
@@ -373,7 +387,9 @@ function Contact({ toggleDarkTheme }: AboutProps) {
             <LayoutContainer>
               <Sidebar></Sidebar>
               <ContentArea>
-                <IntroSection data-scroll>
+                <IntroSection>
+                  {" "}
+                  {/* aqui err*/}
                   <IntroTextWrapper>
                     <H2TextSpan
                       classNameTag="h2-text-span-tittle"
@@ -382,13 +398,17 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                     />
                   </IntroTextWrapper>
                   <AboutSectionClipPath>
-                    <H2SimpleText>
-                      {" "}
-                      {translations.contact.subTitle}
-                    </H2SimpleText>
+                    <SubTittle>
+                      <H2SimpleText>
+                        {" "}
+                        {translations.contact.subTitle}
+                      </H2SimpleText>
+                    </SubTittle>
                   </AboutSectionClipPath>
                 </IntroSection>
-                <Divider />
+                <DividerDiv>
+                  <Divider />
+                </DividerDiv>
               </ContentArea>
               <Sidebar></Sidebar>
               <ContactFormDiv>

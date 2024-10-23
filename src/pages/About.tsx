@@ -47,7 +47,7 @@ import TitleSection from "../components/tittleSection";
 //components
 const AspasContainer = styled.div`
   width: 100%;
-  height: 26rem;
+  height: 22rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
   display: flex;
   flex-direction: column;
@@ -82,7 +82,7 @@ const AspasContainer = styled.div`
 
 const LastContainer = styled.div`
   width: 100%;
-  height: 20rem;
+  height: max-content;
   border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
   max-width: 80rem;
   margin-left: 1rem;
@@ -268,10 +268,9 @@ const LeftArrow = styled.div`
 `;
 const LeftAspas = styled.div`
   width: min-content;
-  display: block;
-  margin-left: 10rem;
-  margin-right: 2.5rem;
-  margin-left: auto;
+  display: inline;
+  margin-left: 3rem;
+
   margin-top: 10rem;
 
   @media (max-width: 1100px) {
@@ -287,8 +286,8 @@ const LeftAspasInside = styled.div`
   margin-right: auto;
   div {
     border-width: 2px;
-    width: 119.1168px;
-    height: 119.1168px;
+    width: 109.1168px;
+    height: 109.1168px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -308,6 +307,7 @@ const ArrowRight = styled.div`
   width: fit-content;
   transform: translateY(50%);
   z-index: 10;
+  display: none;
   @media (max-width: 1100px) {
     display: block;
     position: relative;
@@ -458,7 +458,6 @@ function About({ toggleDarkTheme }: AboutProps) {
                 </IntroSection>
                 {showCarousel && (
                   <ArrowRight>
-                    {" "}
                     <ArrowCirclePointer shouldAbout={false} />
                   </ArrowRight>
                 )}
@@ -511,15 +510,6 @@ function About({ toggleDarkTheme }: AboutProps) {
                       TextHighlight="Learning never exhausts the mind."
                       fontStyle="italic"
                     />
-                    <div className="linkText">
-                      <a
-                        href="https://example.com/video"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {/* <H2SimpleText></H2SimpleText> */}
-                      </a>
-                    </div>
                   </div>
                   <div className="mention">
                     <H2SimpleText>- Leonardo da Vinci</H2SimpleText>
