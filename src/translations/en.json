@@ -77,7 +77,7 @@
   "contact": {
     "title": "Contact",
     "subTitle": "Interested in work together? Submit an email for me",
-    "promtForGem": "Pretend to be an enlightened being and write only a poetic phrase between quotation marks",
+    "promptForGem": "Speak something enigmatic, encapsulated in quotation marks.",
     "form": {
       "name": "Name",
       "email": "Email",
