@@ -179,7 +179,6 @@ const SubTittle = styled.div`
   @media (max-width: 600px) {
     h2 {
       display: none;
-      
     }
     height: 5rem;
   }
@@ -445,7 +444,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                       />
                     </div>
                     <MensaggeHeader>
-                      <H1TextSpan Text="Menssage" />
+                      <H1TextSpan Text="Message" />
                       <button type="button" onClick={handleFillAiClick}>
                         I.A Fullfil
                       </button>
