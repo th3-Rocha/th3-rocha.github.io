@@ -54,6 +54,12 @@ const FooterRight = styled.div`
     width: calc(100vw - 4rem);
     margin-left: 2rem;
   }
+  a {
+    span {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
 `;
 const TextRight = styled.div`
   display: flex;

@@ -68,31 +68,26 @@ const SecondTitleSection = styled.section`
 `;
 const images = [
   "/pokedexMini.webp",
-  "/portMini.webp",
-  "/pyphoneMine.webp",
+  "/portfolioMini.webp",
   "/quamtumspheremini.webp",
-  "/bookioMini.webp",
+  "/olhaOzapMini.webp",
   "/artMini.webp",
   "/pokedexMini.webp",
-  "/portMini.webp",
-  "/pyphoneMine.webp",
+  "/portfolioMini.webp",
   "/quamtumspheremini.webp",
-  "/bookioMini.webp",
   "/artMini.webp",
+  "/olhaOzapMini.webp",
 ];
 
 const urls = [
   "https://th3-rocha.github.io/PokedexSimulator-Page/",
   "https://murilorocha.netlify.app/",
-  "https://th3-rocha.github.io/Landing-Page/",
   "https://th3-rocha.github.io/Bloch-sphere-with-React-Three-Fiber/",
-  "https://th3-rocha.github.io/Bookio-Page/",
   "https://th3-rocha.github.io/GaleryOfArtAI-Page/",
+  "https://olhaozap.ai/",
   "https://th3-rocha.github.io/PokedexSimulator-Page/",
   "https://murilorocha.netlify.app/",
-  "https://th3-rocha.github.io/Landing-Page/",
   "https://th3-rocha.github.io/Bloch-sphere-with-React-Three-Fiber/",
-  "https://th3-rocha.github.io/Bookio-Page/",
   "https://th3-rocha.github.io/GaleryOfArtAI-Page/",
 ];
 const IntroTextWrapper = styled.div`
@@ -289,16 +284,6 @@ const CourosselContainer = styled.div`
     margin-bottom: calc(2rem + 4vw);
   }
 `;
-
-
-
-
-
-
-
-
-
-
 
 interface HomeProps {
   toggleDarkTheme: () => void;
