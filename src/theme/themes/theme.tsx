@@ -12,8 +12,9 @@ export interface Theme {
   fonts: {
     primary: string;
     secondary: string;
+    main?: string;
   };
-  screen:{
+  screen: {
     mobile: string;
     tablet: string;
     desktop: string;

@@ -8,6 +8,7 @@ import {
   HalfMoon,
   GithubCircle,
   SunLight,
+  Linkedin,
 } from "iconoir-react";
 
 const ExtContainer = styled.div`
@@ -122,15 +123,7 @@ const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <ExtContainer>
-      <FooterLeft>
-        <a
-          href="https://github.com/th3-Rocha/th3-rocha.github.io"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>{Disclaim}</span>
-        </a>
-      </FooterLeft>
+      <FooterLeft></FooterLeft>
       <FooterRight>
         <TextRight>
           <span>{ReachText}</span>
@@ -152,8 +145,12 @@ const Footer: React.FC<FooterProps> = ({
           >
             <Mail />
           </a>
-          <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
-            <Instagram />
+          <a
+            href={"https://www.linkedin.com/in/drcha/"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Linkedin />
           </a>
           <a href={githubUrl} target="_blank" rel="noopener noreferrer">
             <GithubCircle />

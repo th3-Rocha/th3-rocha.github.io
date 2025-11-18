@@ -7,17 +7,27 @@ const Wrapper = styled.div`
 
 const TextStyle = styled.span<{ shouldRotate: boolean }>`
   display: inline-block;
-  ${props => props.shouldRotate && css`
-    position: absolute;
-    top: 50%;
-    left: -12.3rem;
-    transform: rotate(-90deg) translateY(-50%);
-    transform-origin: middle middle;
-    width: 8rem;
-  `}
+  ${({ shouldRotate }: { shouldRotate: boolean }) =>
+    shouldRotate &&
+    css`
+      position: absolute;
+      top: 50%;
+      left: -12.3rem;
+      transform: rotate(-90deg) translateY(-50%);
+      transform-origin: middle middle;
+      width: 8rem;
+    `}
 `;
 
-const LeftSpanText = ({ Text, shouldRotate, classNameTag }: { Text: string, shouldRotate: boolean, classNameTag?: string }) => {
+const LeftSpanText = ({
+  Text,
+  shouldRotate,
+  classNameTag,
+}: {
+  Text: string;
+  shouldRotate: boolean;
+  classNameTag?: string;
+}) => {
   return (
     <Wrapper>
       <TextStyle shouldRotate={shouldRotate} className={classNameTag}>

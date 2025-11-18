@@ -1,4 +1,4 @@
-import { Theme } from './theme';
+import { Theme } from "./theme";
 
 const minimalistic: Theme = {
   colors: {
@@ -9,19 +9,18 @@ const minimalistic: Theme = {
     icon: "#8b6b52", // A softer brown for icons
     footerLine: "#a67c5266", // Lighter sepia for footer lines with transparency
     footerLineHard: "#8b6b52", // A stronger sepia for harder lines in the footer
-    filterForce: 0.5
+    filterForce: 0.5,
   },
   fonts: {
     primary: "Montserrat, sans-serif",
     secondary: "Montserrat, sans-serif",
+    main: "Inter, sans-serif",
   },
-  screen:{
+  screen: {
     mobile: "600px",
     tablet: "1100px",
     desktop: "2000px",
-  }
+  },
 };
 
 export default minimalistic;
-
-

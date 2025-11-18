@@ -3,17 +3,13 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
-import TextPlugin from "gsap/TextPlugin";
 import gsap from "gsap";
 //third
 //components
 import { LanguageContext } from "../translations/LanguageContext";
-import { Theme } from "../theme/themes/theme";
 import IconButtonTheme from "../components/iconButtonTheme";
 import Header from "../components/header";
 import IconButtonLink from "../components/iconButtonLink";
-import CoverComponent from "../components/coverPage";
-import RevealComponent from "../components/revealPage";
 import PreFooter from "../components/PreFooter";
 import H2TextSpan from "../components/h2Text";
 import SubProjComponent from "../components/SubProject";
@@ -21,7 +17,6 @@ import H1TextSpan from "../components/h1Text";
 import ArrowCirclePointer from "../components/ArrowCirclePointer";
 import LeftSpanText from "../components/leftSpanText";
 import OpenBoxH2 from "../components/openBoxH2";
-import ImageCarousel from "../components/Carousel";
 import Footer from "../components/Footer";
 import Sidebar from "../components/sidebar";
 import Wrapper from "../components/wrapper";
@@ -36,19 +31,18 @@ import TitleSection from "../components/tittleSection";
 //components
 
 //UI
-import { Iconoir } from "iconoir-react";
 import {
   Mail,
-  Instagram,
   HalfMoon,
   GithubCircle,
   SunLight,
+  Linkedin,
 } from "iconoir-react";
-//UI
 
-import "./locomotive-scroll.css"; // Import CSS files
+import "./locomotive-scroll.css";
+import CarouselText from "../components/SpanTextCarousel";
+import SubProjectLink from "../components/SubProjectLink";
 
-//Styled Components
 const IntroSection = styled.div`
   height: 494px;
   position: relative;
@@ -66,30 +60,6 @@ const SecondTitleSection = styled.section`
     display: inline-block;
   }
 `;
-const images = [
-  "/pokedexMini.webp",
-  "/portfolioMini.webp",
-  "/quamtumspheremini.webp",
-  "/olhaOzapMini.webp",
-  "/artMini.webp",
-  "/pokedexMini.webp",
-  "/portfolioMini.webp",
-  "/quamtumspheremini.webp",
-  "/artMini.webp",
-  "/olhaOzapMini.webp",
-];
-
-const urls = [
-  "https://th3-rocha.github.io/PokedexSimulator-Page/",
-  "https://murilorocha.netlify.app/",
-  "https://th3-rocha.github.io/Bloch-sphere-with-React-Three-Fiber/",
-  "https://th3-rocha.github.io/GaleryOfArtAI-Page/",
-  "https://olhaozap.ai/",
-  "https://th3-rocha.github.io/PokedexSimulator-Page/",
-  "https://murilorocha.netlify.app/",
-  "https://th3-rocha.github.io/Bloch-sphere-with-React-Three-Fiber/",
-  "https://th3-rocha.github.io/GaleryOfArtAI-Page/",
-];
 const IntroTextWrapper = styled.div`
   margin-left: 1.2rem;
   h1 {
@@ -499,8 +469,8 @@ function Home({ toggleDarkTheme }: HomeProps) {
                       children={<Mail />}
                     />
                     <IconButtonLink
-                      url="https://instagram.com.br"
-                      children={<Instagram />}
+                      url="https://www.linkedin.com/in/drcha/"
+                      children={<Linkedin />}
                     />
                     <IconButtonTheme
                       children1={<HalfMoon />}
@@ -521,31 +491,38 @@ function Home({ toggleDarkTheme }: HomeProps) {
                 <ProjectsWrapper>
                   <SubProjComponent
                     classNameTag="toAppear"
-                    title={translations.home.works[1].title}
-                    description={translations.home.works[1].description}
-                    imgSrc={"/blockSphere.webp"}
-                    urlTo="https://github.com/th3-Rocha/Bloch-sphere-with-React-Three-Fiber"
+                    title={translations.home.works[0].title}
+                    description={translations.home.works[0].description}
+                    imgSrc={"/smv.webp"}
+                    urlTo="https://smvzap.com/"
                   />
                   <SubProjComponent
                     classNameTag="toAppear"
-                    title={translations.home.works[0].title}
-                    description={translations.home.works[0].description}
-                    imgSrc={"/PortFolioMobile.webp"}
+                    title={translations.home.works[1].title}
+                    description={translations.home.works[1].description}
+                    imgSrc={"/bloch.webp"}
+                    urlTo="https://th3-rocha.github.io/Bloch-sphere-with-React-Three-Fiber"
                   />
 
                   <SubProjComponent
                     classNameTag="toAppear"
                     title={translations.home.works[2].title}
                     description={translations.home.works[2].description}
-                    imgSrc={"/galeryIA.webp"}
-                    urlTo="https://th3-rocha.github.io/GaleryOfArtAI-Page/"
+                    imgSrc={"/ProjeOlha.webp"}
+                    urlTo="https://olhaozap.ai"
                   />
                   <SubProjComponent
                     classNameTag="toAppear"
                     title={translations.home.works[3].title}
                     description={translations.home.works[3].description}
-                    imgSrc={"/Pokedex.webp"}
-                    urlTo="https://th3-rocha.github.io/PokedexSimulator-Page/"
+                    imgSrc={"/wombo.webp"}
+                    urlTo="https://elrocha.itch.io/wcr"
+                  />
+                  <SubProjectLink
+                    classNameTag="toAppear"
+                    title={translations.home.works[3].title}
+                    description={translations.home.works[3].description}
+                    urlTo="https://elrocha.itch.io/wcr"
                   />
                   {/* -------end of projects ---------- */}
 
@@ -605,7 +582,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
 
             <BottomContainer>
               <CourosselContainer>
-                {showCarousel && <ImageCarousel urls={urls} images={images} />}
+                <CarouselText></CarouselText>
               </CourosselContainer>
               <Footers>
                 <div>

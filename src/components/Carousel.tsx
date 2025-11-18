@@ -3,85 +3,124 @@ import styled from "styled-components";
 import gsap from "gsap";
 
 const Wrapper = styled.div`
-  height: 20%;
   width: 100%;
-  margin-top: 0;
-  margin-bottom: 0;
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
+  padding: 0.5rem 0;
 `;
 
-const Box = styled.div`
+const Track = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  will-change: transform;
+`;
+
+const Item = styled.span`
   flex-shrink: 0;
-  img {
-    max-width: calc(20rem + 20vw);
-    object-fit: fill;
-    cursor: pointer;
-    filter: sepia(${({ theme }) => theme.colors.filterForce}); 
-    transition: filter 0.3s ease; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 1.25rem;
+  margin: 0 0.25rem;
+  border-radius: 9999px;
+  border: 1px solid ${({ theme }) => theme.colors.footerLine};
+  color: ${({ theme }) => theme.colors.text};
+  background: ${({ theme }) => theme.colors.background};
+  font-family: ${({ theme }) => theme.fonts.primary};
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: default;
+  user-select: none;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  transition: transform 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+    color: ${({ theme }) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.primary};
+    outline: none;
   }
 `;
 
-interface ImageCarouselProps {
-  images: string[];
-  urls: string[];
-}
+const STACKS = [
+  "React",
+  "Next.js",
+  "NestJS",
+  "TypeScript",
+  "JavaScript",
+  "Tailwind CSS",
+  "Styled-Components",
+  "CSS",
+  "HTML5",
+  "Node.js",
+  "Express",
+  "Prisma",
+  "PostgreSQL",
+  "MongoDB",
+  "Python",
+  "FastAPI",
+  "Django",
+  "C++",
+  "C",
+  "Docker",
+  "Kubernetes",
+  "AWS",
+  "GSAP",
+];
 
-const CarouselComp: React.FC<ImageCarouselProps> = ({ images, urls }) => {
+const CarouselComp: React.FC = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const totalBoxes = images.length * 2;
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const wrapper = wrapperRef.current;
-    const boxes = wrapper?.children;
-    const totalWidth = wrapper?.offsetWidth || 0;
+    const track = trackRef.current;
+    if (!track) return;
 
-    if (boxes) {
-      gsap.to(boxes, {
-        xPercent: -100 * images.length,
-        ease: "none",
-        duration: images.length * 5,
+    const items = Array.from(track.children);
+
+    // Animação de rolagem infinita horizontal
+    const total = STACKS.length; // base para xPercent
+    const tween = gsap.to(track, {
+      xPercent: -100 * total,
+      ease: "none",
+      duration: total * 4,
+      repeat: -1,
+      modifiers: {
+        xPercent: gsap.utils.unitize((val) => {
+          const n = parseFloat(String(val));
+          return n % (100 * total);
+        }),
+      },
+    });
+
+    // Pequena animação orgânica em cada item (sutil)
+    items.forEach((el) => {
+      const y = (Math.random() - 0.5) * 4;
+      gsap.to(el, {
+        y,
+        yoyo: true,
         repeat: -1,
-        modifiers: {
-          xPercent: gsap.utils.unitize((xPercent) => {
-            return parseFloat(xPercent) % (100 * images.length);
-          }),
-        },
+        duration: 2 + Math.random() * 2,
+        ease: "power1.inOut",
+        delay: Math.random() * 1.5,
       });
+    });
 
-      Array.from(boxes).forEach((box) => {
-        const randomRotation =
-          Math.random() * 10 * (Math.random() < 0.5 ? -1 : 1);
-        gsap.fromTo(
-          box,
-          { rotation: randomRotation },
-          {
-            rotation: -randomRotation,
-            yoyo: true,
-            repeat: -1,
-            duration: 5,
-            ease: "power1.inOut",
-            delay: Math.random() * 2,
-          }
-        );
-      });
-    }
-  }, [images]);
+    return () => {
+      tween.kill();
+    };
+  }, []);
 
   return (
-    <Wrapper ref={wrapperRef}>
-      {images.concat(images).map((image, index) => (
-        <Box key={index}>
-          <a href={urls[index % images.length]} target="_blank" rel="noopener noreferrer">
-            <img src={image} alt="" />
-          </a>
-        </Box>
-      ))}
+    <Wrapper ref={wrapperRef} aria-label="Carrossel de stacks e tecnologias">
+      <Track ref={trackRef}>
+        {[...STACKS, ...STACKS].map((label, idx) => (
+          <Item key={`${label}-${idx}`}>{label}</Item>
+        ))}
+      </Track>
     </Wrapper>
   );
 };

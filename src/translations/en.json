@@ -22,20 +22,25 @@
     "nameDescriptionHighlight": "React & Next JS",
     "works": [
       {
-        "title": "Portfolio",
-        "description": "Web development"
+        "title": "SMV Zap",
+        "description": "Landing page built with Next.js for a WhatsApp extension featuring a CRM and message broadcasting system. Both the extension (developed in React with Tailwind CSS and Shadcn) and the backend (built with Node.js) were projects I worked on within the same company."
       },
       {
         "title": "Bloch Sphere",
-        "description": "Web development & math as a tool"
+        "description": "Interactive 3D Bloch Sphere built with React and React Three Fiber for a college project, running in the browser. Users can manipulate qubit state parameters and instantly visualize the corresponding quantum-state formula and its computed results."
       },
       {
-        "title": "Galery of AI",
-        "description": "Web development & AI"
+        "title": "Olhaozap.AI",
+        "description": "Website that shortens WhatsApp links for free, built with Next.js and Next Server Actions."
+      },
+
+      {
+        "title": "Wombo Combo Rush",
+        "description": "A fully self-made game developed for a college game jam, built with C# and the Unity engine, and playable directly in the web browser."
       },
       {
-        "title": "PokeDex",
-        "description": "Web development & API consumption"
+        "title": "Wombo Combo Rush",
+        "description": "A fully self-made game developed for a college game jam, built with C# and the Unity engine, and playable directly in the web browser."
       }
     ],
     "detailTitle": [

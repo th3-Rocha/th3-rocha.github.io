@@ -270,12 +270,10 @@ function Contact({ toggleDarkTheme }: AboutProps) {
   const containerRef = useRef(null);
   const [coverLoad, setCoverLoad] = useState(Boolean);
   const [coverMenu, setCoverMenu] = useState(Boolean);
-  const [opharaimText, setOpharaimText] = useState("...");
+  const [opharaimText, setOpharaimText] = useState("Don't be afraid");
   const [AiFillText, setAiFillText] = useState("");
   const [opharimClicked, setOpharimClicked] = useState(false);
-  const [fillAIClicked, setfillAIClicked] = useState(false);
   const { language, translations } = useContext(LanguageContext);
-  const { scroll } = useLocomotiveScroll();
   const routes = ["/", "/about", "/contact"];
   const [showCarousel, setShowCarousel] = useState(false);
   //contactForm
@@ -388,7 +386,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
               <ContentArea>
                 <IntroSection>
                   {" "}
-                  {/* aqui err*/}
                   <IntroTextWrapper>
                     <H2TextSpan
                       classNameTag="h2-text-span-tittle"
@@ -445,9 +442,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
                     </div>
                     <MensaggeHeader>
                       <H1TextSpan Text="Message" />
-                      <button type="button" onClick={handleFillAiClick}>
-                        I.A Fullfil
-                      </button>
                     </MensaggeHeader>
                     <div>
                       <label form="message"></label>

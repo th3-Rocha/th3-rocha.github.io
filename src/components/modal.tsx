@@ -44,18 +44,21 @@ const ModalText = styled.h2`
   margin-bottom: 1rem;
 `;
 
-const SucessModal: React.FC<{ toggleModal?: () => void }> = ({ toggleModal }) => {
+const SucessModal: React.FC<{ toggleModal?: () => void }> = ({
+  toggleModal,
+}) => {
   const navigate = useNavigate();
 
   // Route to the /contact page when the button is clicked
   const handleNavigate = () => {
-   
     navigate("/contact"); // Navigate to the contact page
   };
 
   return (
     <ModalOverlay onClick={toggleModal}>
-      <ModalContent onClick={(e) => e.stopPropagation()}>
+      <ModalContent
+        onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
+      >
         <ModalText>Success</ModalText>
         <ModalButton onClick={handleNavigate}>Go to Contact</ModalButton>
       </ModalContent>

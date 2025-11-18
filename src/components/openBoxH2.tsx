@@ -58,7 +58,6 @@ const UpContainer = styled.div`
   margin-left: 0rem;
   opacity: 0;
   div {
-    
     svg {
       stroke: ${({ theme }) => theme.colors.primary};
       margin-top: -0.5rem;
@@ -73,29 +72,26 @@ const UnitContainer = styled.div`
   width: 100%;
   cursor: pointer;
   margin-bottom: 1.5rem;
-  
 `;
 
 const DownContainer = styled.div<DownContainerProps>`
   margin-left: 4.5rem;
   max-width: 29rem;
   align-self: flex-start;
-  
+
   font-family: "Inter", sans-serif;
 
   overflow: hidden;
-  max-height: ${({ isOpen }) => (isOpen ? "5rem" : "0")};
+  max-height: ${(p: DownContainerProps) => (p.isOpen ? "5rem" : "0")};
   transition: max-height 0.3s;
   span {
     text-align: justify;
     text-justify: inter-word;
   }
   @media (max-width: 600px) {
-  font-size: 0.9rem;
+    font-size: 0.9rem;
     font-weight: 300;
     line-height: 0.9;
-
-
   }
 `;
 
@@ -105,7 +101,7 @@ const IntraBorder = styled.div`
   width: 0;
   margin-left: 0;
   transform: translatex(-1rem);
-  transform-origin: left; 
+  transform-origin: left;
   transition: width 1s;
 `;
 
@@ -197,7 +193,11 @@ const OpenBoxH2: React.FC<OpenBoxH2Props> = ({ mainWords, mainTexts }) => {
         <React.Fragment key={index}>
           <UnitContainer onClick={() => toggleOpen(index)}>
             <ClipPathing>
-              <UpContainer ref={(el) => (upContainerRefs.current[index] = el)}>
+              <UpContainer
+                ref={(el: HTMLDivElement | null) =>
+                  (upContainerRefs.current[index] = el)
+                }
+              >
                 <div>
                   <H2TextSpan
                     TextHighlight={`0${index + 1}`}
@@ -215,7 +215,11 @@ const OpenBoxH2: React.FC<OpenBoxH2Props> = ({ mainWords, mainTexts }) => {
               <span>{mainTexts[index]}</span>
             </DownContainer>
           </UnitContainer>
-          <IntraBorder ref={(el) => (borderRefs.current[index] = el)} />
+          <IntraBorder
+            ref={(el: HTMLDivElement | null) =>
+              (borderRefs.current[index] = el)
+            }
+          />
         </React.Fragment>
       ))}
     </ExtContainer>

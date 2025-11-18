@@ -59,15 +59,16 @@ const NavLink = styled.a<NavLinkProps>`
   text-decoration: none;
   margin-left: 1rem;
   color: ${({ theme }) => theme.colors.text};
-  pointer-events: ${(props) => (props.isActive ? "none" : "auto")};
+  pointer-events: ${(props: NavLinkProps) =>
+    props.isActive ? "none" : "auto"};
   cursor: pointer;
   mix-blend-mode: difference;
   &:hover {
-    opacity: ${(props) => (props.isActive ? "1" : "0.6")};
+    opacity: ${(props: NavLinkProps) => (props.isActive ? "1" : "0.6")};
   }
   svg {
     margin-right: 2px;
-    opacity: ${(props) => (props.isActive ? "1" : "0.0")};
+    opacity: ${(props: NavLinkProps) => (props.isActive ? "1" : "0.0")};
     path {
       stroke: ${({ theme }) => theme.colors.text};
     }
@@ -192,7 +193,7 @@ const RightSectionDiv = styled.div`
         * {
           height: 1.8rem;
           width: 1.8rem;
-          color:  ${({ theme }) => theme.colors.background};
+          color: ${({ theme }) => theme.colors.background};
         }
       }
     }
@@ -256,13 +257,18 @@ const Header = ({
     setCoverLoad(true);
 
     setTimeout(() => {
-      window.location.href = routes[index];
+      const base = routes[index];
+      const search = window.location.search || "";
+      const nextUrl = search
+        ? base.includes("?")
+          ? `${base}&${search.slice(1)}`
+          : `${base}${search}`
+        : base;
+      window.location.href = nextUrl;
     }, 1700);
   };
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   ///////////////////////COVERMENU//////////////////
   const [trigger, setTrigger] = useState(false);
