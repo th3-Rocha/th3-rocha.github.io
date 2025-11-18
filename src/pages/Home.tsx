@@ -494,7 +494,8 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     title={translations.home.works[0].title}
                     description={translations.home.works[0].description}
                     imgSrc={"/smv.webp"}
-                    urlTo="https://smvzap.com/"
+                    urlTo="https://smvzap.com/
+                    "
                   />
                   <SubProjComponent
                     classNameTag="toAppear"
@@ -516,12 +517,24 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     title={translations.home.works[3].title}
                     description={translations.home.works[3].description}
                     imgSrc={"/wombo.webp"}
-                    urlTo="https://elrocha.itch.io/wcr"
+                    urlTo=""
                   />
                   <SubProjectLink
                     classNameTag="toAppear"
-                    title={translations.home.works[3].title}
-                    description={translations.home.works[3].description}
+                    title={translations.home.works[4].title}
+                    description={translations.home.works[4].description}
+                    urlTo="https://github.com/th3-Rocha/DeRot"
+                  />
+                  <SubProjectLink
+                    classNameTag="toAppear"
+                    title={translations.home.works[5].title}
+                    description={translations.home.works[5].description}
+                    urlTo="https://github.com/th3-Rocha/TAMJ---Procedural"
+                  />
+                  <SubProjectLink
+                    classNameTag="toAppear"
+                    title={translations.home.works[6].title}
+                    description={translations.home.works[6].description}
                     urlTo="https://elrocha.itch.io/wcr"
                   />
                   {/* -------end of projects ---------- */}
