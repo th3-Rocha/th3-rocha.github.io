@@ -17,6 +17,7 @@ The goal of this project is to:
 - **Minimal Theme:** The recreated website follows the minimalistic design theme of the original.
 - **Responsive Design:** The website is designed to be fully responsive, ensuring it works well on various screen sizes.
 - **Component-Based Architecture:** Leveraging the power of React, the website is built using reusable components.
+- **AI Message Assist:** The contact form includes a "Fill with AI" helper that can generate a message from scratch or continue the text you already typed.
 
 ## Getting Started
 
@@ -34,12 +35,22 @@ To start the development server, run:
 ```bash
 npm start
 ```
+
 or
+
 ```bash
 yarn start
 ```
 
 Open your browser and navigate to `http://localhost:3000` to see the website.
+
+### AI in Contact Form
+
+The Contact page can use Google Generative AI (Gemini) to help write or complete your message:
+
+- Set an environment variable `REACT_APP_GEMINI_API_KEY` with a valid Gemini API key.
+- If you have already written part of the message, clicking "Fill with AI" will continue and complete your draft instead of replacing it.
+- If the key is missing, the button will not work and a warning appears in the console.
 
 ## License
 

@@ -286,7 +286,14 @@ function Home({ toggleDarkTheme }: HomeProps) {
     setCoverLoad(true);
 
     setTimeout(() => {
-      window.location.href = routes[index];
+      const base = routes[index];
+      const search = window.location.search || "";
+      const nextUrl = search
+        ? base.includes("?")
+          ? `${base}&${search.slice(1)}`
+          : `${base}${search}`
+        : base;
+      window.location.href = nextUrl;
     }, 1700);
   };
 

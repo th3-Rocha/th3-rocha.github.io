@@ -85,6 +85,19 @@ export const LanguageProvider = ({ children }) => {
 
   useEffect(() => {
     try {
+
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const urlLang = params.get('lang');
+        if (urlLang) {
+          const norm = normalize(urlLang);
+          const saved = window.localStorage?.getItem(STORAGE_KEY);
+          if (saved !== norm) {
+            window.localStorage?.setItem(STORAGE_KEY, norm);
+          }
+        }
+      } catch (_) { }
+
       const navLang = typeof navigator !== 'undefined' ? (navigator.language || navigator.userLanguage) : undefined;
       const navLangs = typeof navigator !== 'undefined' ? navigator.languages : undefined;
       const saved = typeof window !== 'undefined' ? window.localStorage?.getItem(STORAGE_KEY) : undefined;
