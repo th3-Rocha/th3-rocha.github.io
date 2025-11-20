@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 //third
 import styled from "styled-components";
-import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import gsap from "gsap";
 //third
@@ -249,9 +248,13 @@ const ArrowCircleAboutMe = styled.div`
 
 const CourosselContainer = styled.div`
   width: 400%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   div {
-    margin-top: calc(2rem + 4vw);
-    margin-bottom: calc(2rem + 4vw);
+    margin-top: calc(2vw);
+    margin-bottom: calc(2vw);
   }
 `;
 
@@ -262,10 +265,9 @@ interface HomeProps {
 function Home({ toggleDarkTheme }: HomeProps) {
   const containerRef = useRef(null);
   //const [isActive, setIsActive] = useState(toggleDarkTheme);
-  const [coverLoad, setCoverLoad] = useState(Boolean);
-  const [coverMenu, setCoverMenu] = useState(Boolean);
-  const { language, translations } = useContext(LanguageContext);
-  const { scroll } = useLocomotiveScroll();
+  const [coverLoad, setCoverLoad] = useState(false);
+  const [coverMenu, setCoverMenu] = useState(false);
+  const { translations } = useContext(LanguageContext);
 
   const routes = ["/", "/about", "/contact"];
 
@@ -347,31 +349,19 @@ function Home({ toggleDarkTheme }: HomeProps) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            gsap.from(entry.target, {
-              opacity: 0,
-            });
-            gsap.to(entry.target, {
-              duration: 3,
-              opacity: 1,
-              ease: "expo.out",
-              stagger: 0,
-              delay: 0,
-              yPercent: -20,
-            });
+            gsap.fromTo(entry.target, 
+              { opacity: 0, yPercent: 20 },
+              { duration: 3, opacity: 1, ease: "expo.out", yPercent: 0 }
+            );
             observer.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0.85,
-      }
+      { threshold: 0.85, rootMargin: '0px 0px -10% 0px' }
     );
-    elements.forEach((el) => {
-      observer.observe(el);
-    });
-    return () => {
-      observer.disconnect();
-    };
+    
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -380,31 +370,19 @@ function Home({ toggleDarkTheme }: HomeProps) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            gsap.from(entry.target, {
-              duration: 1,
-              yPercent: 600,
-              ease: "power4",
-              opacity: 0,
-            });
-            gsap.to(entry.target, {
-              duration: 1,
-              opacity: 1,
-              yPercent: 0,
-            });
+            gsap.fromTo(entry.target,
+              { yPercent: 600, opacity: 0 },
+              { duration: 1, opacity: 1, yPercent: 0, ease: "power4" }
+            );
             observer2.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0.8,
-      }
+      { threshold: 0.8, rootMargin: '0px 0px -10% 0px' }
     );
-    elements2.forEach((el) => {
-      observer2.observe(el);
-    });
-    return () => {
-      observer2.disconnect();
-    };
+    
+    elements2.forEach((el) => observer2.observe(el));
+    return () => observer2.disconnect();
   }, []);
 
   return (

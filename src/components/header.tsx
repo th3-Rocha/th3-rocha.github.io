@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { LanguageContext } from "../translations/LanguageContext";
-import { ThemeContext } from "../theme/ThemeProvider";
 import CoverComponent from "./coverPage";
 import RevealComponent from "./revealPage";
 import H1TextSpan from "./h1Text";
@@ -10,9 +9,7 @@ import PlusSvgIcon from "./plusIcon";
 import {
   Mail,
   Instagram,
-  HalfMoon,
   GithubCircle,
-  SunLight,
 } from "iconoir-react";
 import IconButtonLink from "./iconButtonLink";
 import gsap from "gsap";
@@ -236,7 +233,7 @@ const Header = ({
   coverMenu: boolean;
   setCoverMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const { language, translations } = useContext(LanguageContext);
+  const { translations } = useContext(LanguageContext);
   const [navActive, setNavActive] = useState([false, false, false, false]);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {

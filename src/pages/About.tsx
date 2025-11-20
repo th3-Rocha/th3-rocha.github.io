@@ -1,36 +1,16 @@
 import styled from "styled-components";
-import { Iconoir } from "iconoir-react";
-import {
-  Mail,
-  Instagram,
-  HalfMoon,
-  GithubCircle,
-  SunLight,
-} from "iconoir-react";
-
-import IconButtonTheme from "../components/iconButtonTheme";
 import Header from "../components/header";
 
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { LanguageContext } from "../translations/LanguageContext";
-import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
-import TextPlugin from "gsap/TextPlugin";
 
 import "./locomotive-scroll.css";
-import gsap from "gsap";
-import IconButtonLink from "../components/iconButtonLink";
-import { Theme } from "../theme/themes/theme";
-
-import CoverComponent from "../components/coverPage";
-import RevealComponent from "../components/revealPage";
 //components
 import PreFooter from "../components/PreFooter";
 import H2TextSpan from "../components/h2Text";
-import H1TextSpan from "../components/h1Text";
 import ArrowCirclePointer from "../components/ArrowCirclePointer";
 import LeftSpanText from "../components/leftSpanText";
-import SpanText from "../components/SpanText";
 import CarouselText from "../components/SpanTextCarousel";
 import Footer from "../components/Footer";
 import ImageAbout from "../components/aboutImageContainer";
@@ -373,10 +353,9 @@ interface AboutProps {
 
 function About({ toggleDarkTheme }: AboutProps) {
   const containerRef = useRef(null);
-  const [coverLoad, setCoverLoad] = useState(Boolean);
-  const [coverMenu, setCoverMenu] = useState(Boolean);
-  const { language, translations } = useContext(LanguageContext);
-  const { scroll } = useLocomotiveScroll();
+  const [coverLoad, setCoverLoad] = useState(false);
+  const [coverMenu, setCoverMenu] = useState(false);
+  const { translations } = useContext(LanguageContext);
 
   const routes = ["/", "/about", "/contact"];
   const [showCarousel, setShowCarousel] = useState(false);
@@ -389,12 +368,7 @@ function About({ toggleDarkTheme }: AboutProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {}, [showCarousel]);
-
   const handleClickHomeItens = (index: number) => {
-    const updatedNavActive = Array(4).fill(false);
-    updatedNavActive[index] = true;
-
     setCoverLoad(true);
 
     setTimeout(() => {

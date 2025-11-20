@@ -1,13 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
-import { gsap } from "gsap";
-import { ThemeContext } from "../theme/ThemeProvider";
 import {
   Mail,
-  Instagram,
-  HalfMoon,
   GithubCircle,
-  SunLight,
   Linkedin,
 } from "iconoir-react";
 

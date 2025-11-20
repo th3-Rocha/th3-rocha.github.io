@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Theme } from "../theme/themes/theme";
 
 interface IconButtonProps {
   onClick: () => void;

@@ -79,10 +79,8 @@ const CarouselComp: React.FC = () => {
     const track = trackRef.current;
     if (!track) return;
 
-    const items = Array.from(track.children);
-
-    // Animação de rolagem infinita horizontal
-    const total = STACKS.length; // base para xPercent
+    // Optimized infinite scroll animation
+    const total = STACKS.length;
     const tween = gsap.to(track, {
       xPercent: -100 * total,
       ease: "none",
@@ -94,19 +92,6 @@ const CarouselComp: React.FC = () => {
           return n % (100 * total);
         }),
       },
-    });
-
-    // Pequena animação orgânica em cada item (sutil)
-    items.forEach((el) => {
-      const y = (Math.random() - 0.5) * 4;
-      gsap.to(el, {
-        y,
-        yoyo: true,
-        repeat: -1,
-        duration: 2 + Math.random() * 2,
-        ease: "power1.inOut",
-        delay: Math.random() * 1.5,
-      });
     });
 
     return () => {

@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 
-import { ThemeContext } from "../theme/ThemeProvider";
-
 const Wrapper = styled.div`
   position: fixed;
   top: 0;

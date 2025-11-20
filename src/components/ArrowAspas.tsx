@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
-import { gsap } from "gsap";
 
 const ArrowCircle = styled.div`
   position: relative;
@@ -24,7 +23,6 @@ const ArrowCircle = styled.div`
 `;
 
 const ArrowAspas = () => {
-  const arrowRef = useRef<SVGSVGElement | null>(null);
   return (
     <ArrowCircle>
       <div>

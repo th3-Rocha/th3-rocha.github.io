@@ -2,8 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 import PlusIcon from "./plusIcon";
-import { ThemeContext } from "../theme/ThemeProvider";
-import H1TextSpan from "./h1Text";
 import H2TextSpan from "./h2Text";
 import MinusSvgIcon from "./minusIcon";
 
@@ -172,18 +170,24 @@ const OpenBoxH2: React.FC<OpenBoxH2Props> = ({ mainWords, mainTexts }) => {
     });
 
     return () => {
-      borderRefs.current.forEach((border) => {
+      // Store current refs to avoid stale closure issues
+      const currentBorderRefs = borderRefs.current.slice();
+      const currentUpContainerRefs = upContainerRefs.current.slice();
+      
+      currentBorderRefs.forEach((border) => {
         if (border) {
           observer.unobserve(border);
         }
       });
 
-      upContainerRefs.current.forEach((upContainer) => {
-        // Unobeserve but its not necessary
+      currentUpContainerRefs.forEach((upContainer) => {
         if (upContainer) {
           observerText.unobserve(upContainer);
         }
       });
+      
+      observer.disconnect();
+      observerText.disconnect();
     };
   }, []);
 

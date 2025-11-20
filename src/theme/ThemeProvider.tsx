@@ -3,7 +3,7 @@ import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { Theme } from "./themes/theme";
 import minimalisticTheme from "./themes/minimalistic";
 import minimalisticDarkTheme from "./themes/minimalisticDark";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 
 interface ThemeContextProps {
   darkT: boolean;
@@ -22,10 +22,10 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, darkMode }) => {
   const [darkT, setDarkT] = useState<boolean>(darkMode);
-  let theme = darkT ? minimalisticDarkTheme : minimalisticTheme;
+
+  const theme = darkT ? minimalisticDarkTheme : minimalisticTheme;
 
   useEffect(() => {
-    theme = darkT ? minimalisticDarkTheme : minimalisticTheme;
     setDarkT(darkMode);
   }, [darkMode]);
 

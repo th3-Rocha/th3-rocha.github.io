@@ -240,22 +240,18 @@ interface AboutProps {
 
 function Contact({ toggleDarkTheme }: AboutProps) {
   const containerRef = useRef(null);
-  const [coverLoad, setCoverLoad] = useState(Boolean);
-  const [coverMenu, setCoverMenu] = useState(Boolean);
+  const [coverLoad, setCoverLoad] = useState(false);
+  const [coverMenu, setCoverMenu] = useState(false);
   const [opharaimText, setOpharaimText] = useState("Don't be afraid");
-  // removed unused AI fill state
   const [opharimClicked, setOpharimClicked] = useState(false);
   const { translations } = useContext(LanguageContext);
   const [showCarousel, setShowCarousel] = useState(false);
   //contactForm
-  // const navigate = useNavigate();
-  const [email, setEmail] = useState(String);
-  const [name, setName] = useState(String);
-  const [message, setMessage] = useState(String);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
-  const [btnState, setBtnState] = useState<"idle" | "sending" | "success">(
-    "idle"
-  );
+  const [btnState, setBtnState] = useState<"idle" | "sending" | "success">("idle");
   const [sendError, setSendError] = useState<string | null>(null);
   const [aiGenerating, setAiGenerating] = useState(false);
   const [aiError, setAiError] = useState<string | null>(null);
@@ -294,7 +290,6 @@ function Contact({ toggleDarkTheme }: AboutProps) {
     try {
       const form = e.currentTarget as HTMLFormElement;
       const data = new FormData(form);
-      // Web3Forms required/optional fields
       if (!data.get("access_key")) {
         data.append("access_key", "f45243ef-b883-47ea-8b61-b42882c11d5b");
       }
