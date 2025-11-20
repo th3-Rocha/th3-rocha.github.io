@@ -156,7 +156,6 @@ const IntroTextWrapper = styled.div`
 const SubTittle = styled.div`
   @media (max-width: 600px) {
     h2 {
-      display: none;
     }
     height: 5rem;
   }
@@ -167,8 +166,8 @@ const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 100%;
-  max-width: 80%;
+  width: 86%;
+  max-width: 1000px;
   margin: 2rem auto;
   margin-left: 1rem;
   h1 {
@@ -201,7 +200,7 @@ const FormContainer = styled.div`
     font-family: "Inter", sans-serif !important;
   }
   textarea {
-    height: 30rem;
+    height: 220px;
     resize: none;
   }
 
@@ -515,7 +514,7 @@ PARTIAL MESSAGE END`
                       name="botcheck"
                       style={{ display: "none" }}
                     />
-                    <H1TextSpan Text="Email" />
+                    <H1TextSpan Text={translations.contact.form.email} />
                     <div className="input">
                       <label htmlFor="email"></label>
                       <input
@@ -527,7 +526,7 @@ PARTIAL MESSAGE END`
                         required
                       />
                     </div>
-                    <H1TextSpan Text="Name" />
+                    <H1TextSpan Text={translations.contact.form.name} />
                     <div className="input">
                       <label htmlFor="name"></label>
                       <input
@@ -540,7 +539,7 @@ PARTIAL MESSAGE END`
                       />
                     </div>
                     <MensaggeHeader>
-                      <H1TextSpan Text="Message" />
+                      <H1TextSpan Text={translations.contact.form.message} />
                       <button
                         type="button"
                         onClick={handleFillAiClick}
@@ -575,9 +574,9 @@ PARTIAL MESSAGE END`
                       style={{
                         backgroundColor:
                           btnState === "sending"
-                            ? "#facc15" // amarelo
+                            ? "#facc15"
                             : btnState === "success"
-                            ? "#22c55e" // verde
+                            ? "#22c55e"
                             : undefined,
                         borderColor:
                           btnState === "sending"
