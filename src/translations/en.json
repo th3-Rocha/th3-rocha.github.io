@@ -18,8 +18,9 @@
   },
   "home": {
     "name": "Murilo Rocha",
-    "nameDescription": "Frontend & Backend Developer Specializing in ",
-    "nameDescriptionHighlight": "React & Next JS",
+    "nameDescription": "Fullstack Developer building end-to-end solutions using ",
+    "nameDescriptionHighlight": "Next.js, Node.js & TypeScript",
+
     "works": [
       {
         "title": "SMV Zap",
@@ -60,48 +61,56 @@
     ],
     "Habilities": [
       {
-        "MainWord": "Design",
-        "MainText": "A strong foundation is essential for any project. I deliver beautiful and intuitive designs that align with your brand's essence. I believe usability and aesthetics go hand-in-hand to make better products."
+        "MainWord": "Architecture",
+        "MainText": "I focus on creating solid application structures, designing scalable and reliable systems that support long-term growth and clean development practices."
       },
       {
-        "MainWord": "Development",
-        "MainText": "Using the latest web dev techs, I build pixel-perfect, fast and accessible websites. I specialise in creative interactions and transitions."
+        "MainWord": "Backend Development",
+        "MainText": "Using modern technologies like Node.js, NestJS and Go, I build efficient APIs, secure infrastructures and maintainable server-side logic."
       },
       {
-        "MainWord": "Design & dev",
-        "MainText": "This is my most preferred service as it allows the entire website creation—from concept to final site—to be seamless and ultra-fast."
+        "MainWord": "Frontend Development",
+        "MainText": "I develop responsive and high-performance interfaces using React, Next.js and modern tooling, ensuring smooth interactions and consistent user experiences."
       }
     ],
-    "SparkMensage": "I enjoy designing meaningful experiences for brands & businesses to help them serve their target users.",
-    "WhatIdoPart1": "Delivering ",
-    "WhatIdoPart2": "modern, cohesive & intuitive",
-    "WhatIdoPart3": " web solutions."
+
+    "SparkMensage": "I work with agile practices like Scrum and sprint planning to keep projects organized and moving efficiently.",
+    "WhatIdoPart1": "Building",
+    "WhatIdoPart2": " efficient, scalable & maintainable ",
+    "WhatIdoPart3": "software solutions."
   },
   "about": {
     "intro": "Weaving Seamless Experiences Across",
     "introHighlight": " Interfaces and Infrastructure",
-    "aboutMe": "I’m a Brazilian front-end developer with a passion for solving problems and building innovative digital experiences. With expertise in Node.js, Next.js.",
-    "history": "I enjoy playing guitar, listening to music, and playing video games. I also like to run, spend time at the beach, and practice meditation to disconnect from the internet and technology, focusing on mindfulness and relaxation.",
+    "aboutMe": "I’m a Brazilian programmer who has worked with a wide range of technologies, from Arduino and prototyping to web development. I enjoy creating games as a hobby and currently work as a full-stack developer.",
+    "history": "I love to stay busy with my hobbies. I enjoy playing the guitar and listening to music, and I'm also a big fan of video games. To unwind and disconnect from the digital world, I like to run, spend time at the beach, and practice meditation for mindfulness and relaxation.",
     "history2": "I have a passion for learning a bit of everything, from Arduino automation and machining to studying new languages like Italian.",
-    "anotherInspirationsTitle": "My development stack is focused on front-end technologies like React, Next.js, and other modern tools to create responsive and dynamic user experiences.",
-    "anotherInspirationsText": "Apart from my main domain, I also like branding, icon design and minimal illustrations. I am an enthusiast of digital art, motion design & WebGL."
+    "anotherInspirationsTitle": "My stack is focused on a full-cycle development workflow, working with Node.js, NestJS, Next.js, and other modern technologies. I’m constantly learning new tools and approaches to keep up with the fast-changing tech landscape.",
+    "anotherInspirationsText": "Every time I start a new project, I try to apply what I learned from past mistakes so I don’t repeat them. I tend to be somewhat perfectionist, which can slow me down at times",
+    "leonardoQuato": "Learning never exhausts the mind."
   },
   "contact": {
     "title": "Contact",
-    "subTitle": "Interested in work together? Submit an email for me",
-    "promtForGem": "Pretend to be an enlightened being and write only a poetic phrase between quotation marks",
+    "subTitle": "Interested in working together? Send me a message.",
+    "promtForGem": "Take on the presence of an ancient sage and generate only one poetic line in quotation marks, renewing tone and symbolism with every output.",
+
     "form": {
       "name": "Name",
       "email": "Email",
       "message": "Message",
       "submit": "Submit"
-    }
+    },
+    "AIButton": "A.I Fulfill",
+    "AIButtonGen": "Generating...",
+    "SendButton": "Send Message",
+    "SendButtonSending": "Sending...",
+    "SendButtonSended": "Sended!!!"
   },
   "footer": {
-    "WantText": "Interested in working together?",
+    "WantText": "Looking for a developer?",
     "ContactText": "Contact Me",
     "Disclaim": "Disclaim",
-    "ReachText": "Reach out for collaboration or say hi at",
+    "ReachText": "Feel free to get in touch at",
     "email": "murilorocha537@gmail.com",
     "instagram": "https://instagram.com.br",
     "github": "https://github.com/th3-Rocha"

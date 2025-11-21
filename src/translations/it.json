@@ -8,34 +8,47 @@
     "title": "Portfolio di Murilo Rocha",
     "navigation": {
       "home": "Rocha",
-      "about": "Su di me",
+      "about": "Chi sono",
       "contact": "Contattami",
       "theme": "Tema",
-      "youAre": "sta qui",
-      "homeName": "Principale",
-      "close": "Esci"
+      "youAre": "sei qui",
+      "homeName": "Home",
+      "close": "Chiudi"
     }
   },
   "home": {
     "name": "Murilo Rocha",
-    "nameDescription": "Sviluppatore Frontend & Backend Specializzato in ",
-    "nameDescriptionHighlight": "React & Next JS",
+    "nameDescription": "Sviluppatore Fullstack che realizza soluzioni end-to-end utilizzando ",
+    "nameDescriptionHighlight": "Next.js, Node.js & TypeScript",
+
     "works": [
       {
-        "title": "Portfolio",
-        "description": "Sviluppo web"
+        "title": "SMV Zap",
+        "description": "Landing page costruita con Next.js per un'estensione WhatsApp che include un CRM e un sistema di trasmissione messaggi. Sia l'estensione (sviluppata in React con Tailwind CSS e Shadcn) che il backend (costruito con Node.js) sono progetti su cui ho lavorato all'interno della stessa azienda."
       },
       {
-        "title": "Sfera di Bloch",
-        "description": "Sviluppo web & matematica come strumento"
+        "title": "Bloch Sphere",
+        "description": "Sfera di Bloch 3D interattiva costruita con React e React Three Fiber per un progetto universitario, eseguita nel browser. Gli utenti possono manipolare i parametri di stato dei qubit e visualizzare istantaneamente la formula dello stato quantistico corrispondente e i suoi risultati calcolati."
       },
       {
-        "title": "Galleria di AI",
-        "description": "Sviluppo web & AI"
+        "title": "Olhaozap.AI",
+        "description": "Sito web che accorcia i link di WhatsApp gratuitamente, costruito con Next.js e Next Server Actions."
       },
       {
-        "title": "PokeDex",
-        "description": "Sviluppo web & consumo di API"
+        "title": "Wombo Combo Rush",
+        "description": "Un gioco interamente creato da me per una game jam universitaria, sviluppato con C# e il motore Unity, e giocabile direttamente nel browser."
+      },
+      {
+        "title": "DeRot",
+        "description": "Estensione Chrome costruita con React, TypeScript, Vite, Tailwind CSS. Ricorda agli utenti quando stanno scorrendo all'infinito video verticali sulle piattaforme social, mostrando una piccola interruzione captcha basata sulla matematica."
+      },
+      {
+        "title": "TAMJ — Procedural",
+        "description": "Questo progetto è un simulatore di generazione procedurale di terreni infiniti costruito in Unity usando C#. Presenta una generazione di chunk asincrona alimentata da automi cellulari e rumore Perlin multi-ottava."
+      },
+      {
+        "title": "In Lavorazione",
+        "description": "In Lavorazione"
       }
     ],
     "detailTitle": [
@@ -48,40 +61,56 @@
     ],
     "Habilities": [
       {
-        "MainWord": "Design",
-        "MainText": "Una base solida è essenziale per qualsiasi progetto. Offro design belli e intuitivi che si allineano con l'essenza del tuo brand. Credo che l'usabilità e l'estetica vadano di pari passo per creare prodotti migliori."
+        "MainWord": "Architettura",
+        "MainText": "Mi concentro sulla creazione di strutture applicative solide, progettando sistemi scalabili e affidabili che supportano la crescita a lungo termine e pratiche di sviluppo pulite."
       },
       {
-        "MainWord": "Sviluppo",
-        "MainText": "Utilizzando le più recenti tecnologie di sviluppo web, realizzo siti web pixel-perfect, veloci e accessibili. Sono specializzato in interazioni creative e transizioni."
+        "MainWord": "Sviluppo Backend",
+        "MainText": "Utilizzando tecnologie moderne come Node.js, NestJS e Go, costruisco API efficienti, infrastrutture sicure e logica lato server manutenibile."
       },
       {
-        "MainWord": "Design & sviluppo",
-        "MainText": "Questo è il mio servizio preferito in quanto permette la creazione completa del sito web, dal concetto al sito finale, in modo rapido e senza interruzioni."
+        "MainWord": "Sviluppo Frontend",
+        "MainText": "Sviluppo interfacce responsive e ad alte prestazioni utilizzando React, Next.js e strumenti moderni, garantendo interazioni fluide ed esperienze utente coerenti."
       }
     ],
-    "SparkMensage": "Mi piace progettare esperienze significative per brand e aziende per aiutarli a servire i loro utenti target.",
-    "WhatIdoPart1": "Fornire Soluzioni Web",
-    "WhatIdoPart2": " moderne, coerenti & intuitive",
+
+    "SparkMensage": "Lavoro con pratiche agili come Scrum e sprint planning per mantenere i progetti organizzati e in movimento in modo efficiente.",
+    "WhatIdoPart1": "Costruendo",
+    "WhatIdoPart2": " soluzioni software efficienti, scalabili e manutenibili ",
     "WhatIdoPart3": "."
   },
   "about": {
-    "intro": "Intrecciando Esperienze Senza Soluzione di Continuità tra Interfacce e Infrastruttura"
+    "intro": "Tessendo Esperienze Fluide Tra",
+    "introHighlight": " Interfacce e Infrastrutture",
+    "aboutMe": "Sono un programmatore brasiliano che ha lavorato con una vasta gamma di tecnologie, da Arduino e prototipazione allo sviluppo web. Mi piace creare giochi come hobby e attualmente lavoro come sviluppatore full-stack.",
+    "history": "Amo tenermi occupato con i miei hobby. Mi piace suonare la chitarra e ascoltare musica, e sono anche un grande fan dei videogiochi. Per rilassarmi e disconnettermi dal mondo digitale, mi piace correre, passare del tempo in spiaggia e praticare la meditazione per la consapevolezza e il relax.",
+    "history2": "Ho la passione di imparare un po' di tutto, dall'automazione con Arduino e la lavorazione meccanica allo studio di nuove lingue come l'italiano.",
+    "anotherInspirationsTitle": "Il mio stack è focalizzato su un flusso di lavoro di sviluppo a ciclo completo (full-cycle), lavorando con Node.js, NestJS, Next.js e altre tecnologie moderne. Sto costantemente imparando nuovi strumenti e approcci per stare al passo con il panorama tecnologico in rapida evoluzione.",
+    "anotherInspirationsText": "Ogni volta che inizio un nuovo progetto, cerco di applicare ciò che ho imparato dagli errori passati per non ripeterli. Tendo a essere un po' perfezionista, il che a volte può rallentarmi.",
+    "leonardoQuato": "L'apprendimento non esaurisce mai la mente."
   },
   "contact": {
-    "title": "Contattaci",
+    "title": "Contatti",
+    "subTitle": "Interessato a lavorare insieme? Mandami un messaggio.",
+    "promtForGem": "Assumi le sembianze di un antico saggio e genera solo una riga poetica tra virgolette, rinnovando tono e simbolismo a ogni output.",
+
     "form": {
       "name": "Nome",
       "email": "Email",
       "message": "Messaggio",
       "submit": "Invia"
-    }
+    },
+    "AIButton": "Compila con I.A.",
+    "AIButtonGen": "Generando...",
+    "SendButton": "Invia Messaggio",
+    "SendButtonSending": "Inviando...",
+    "SendButtonSended": "Inviato!!!"
   },
   "footer": {
-    "WantText": "Vuoi assumermi?",
+    "WantText": "Cerchi uno sviluppatore?",
     "ContactText": "Contattami",
     "Disclaim": "Disclaimer",
-    "ReachText": "Contattami per collaborazioni o semplicemente per un saluto a",
+    "ReachText": "Sentiti libero di contattarmi a",
     "email": "murilorocha537@gmail.com",
     "instagram": "https://instagram.com.br",
     "github": "https://github.com/th3-Rocha"

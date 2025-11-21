@@ -22,7 +22,10 @@ const Icon = styled.div`
     height: 1.8rem;
     width: 1.8rem;
   }
-  
+   &:hover {
+    background-color: ${({ theme }) => theme.colors.secondary};
+   
+  }
 `;
 
 const IconButtonTheme: React.FC<IconButtonProps> = ({

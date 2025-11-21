@@ -12,35 +12,48 @@
       "contact": "Contato",
       "theme": "Tema",
       "youAre": "você está aqui",
-      "homeName": "Home",
+      "homeName": "Início",
       "close": "Fechar"
     }
   },
   "home": {
     "name": "Murilo Rocha",
-    "nameDescription": "Desenvolvedor Frontend & Backend especializado em ",
-    "nameDescriptionHighlight": "React & Next.js",
+    "nameDescription": "Desenvolvedor Fullstack construindo soluções de ponta a ponta usando ",
+    "nameDescriptionHighlight": "Next.js, Node.js & TypeScript.",
+
     "works": [
       {
-        "title": "Portfólio",
-        "description": "Desenvolvimento web"
+        "title": "SMV Zap",
+        "description": "Landing page construída com Next.js para uma extensão de WhatsApp com CRM e sistema de transmissão de mensagens. Tanto a extensão (desenvolvida em React com Tailwind CSS e Shadcn) quanto o back-end (construído com Node.js) foram projetos nos quais trabalhei na mesma empresa."
       },
       {
-        "title": "Esfera de Bloch",
-        "description": "Desenvolvimento web & matemática aplicada"
+        "title": "Bloch Sphere",
+        "description": "Esfera de Bloch 3D interativa construída com React e React Three Fiber para um projeto da faculdade, rodando no navegador. O usuário pode manipular parâmetros de estado de qubit e visualizar instantaneamente a fórmula do estado quântico correspondente e seus resultados calculados."
       },
       {
-        "title": "Galeria de IA",
-        "description": "Desenvolvimento web & inteligência artificial"
+        "title": "Olhaozap.AI",
+        "description": "Site que encurta links de WhatsApp gratuitamente, construído com Next.js e Next Server Actions."
       },
       {
-        "title": "PokeDex",
-        "description": "Desenvolvimento web & consumo de API"
+        "title": "Wombo Combo Rush",
+        "description": "Um jogo totalmente autoral desenvolvido para uma game jam da faculdade, construído com C# e a engine Unity, jogável diretamente no navegador."
+      },
+      {
+        "title": "DeRot",
+        "description": "Extensão do Chrome construída com React, TypeScript, Vite e Tailwind CSS. Ela avisa os usuários quando estão rolando vídeos verticais infinitamente nas redes sociais, exibindo uma pequena interrupção de captcha matemático."
+      },
+      {
+        "title": "TAMJ — Procedural",
+        "description": "Este projeto é um simulador de geração de terreno infinito construído no Unity usando C#. Possui geração de chunks assíncrona alimentada por autômatos celulares e ruído Perlin multi-oitava."
+      },
+      {
+        "title": "Em Breve",
+        "description": "Em Breve"
       }
     ],
     "detailTitle": [
       {
-        "title": "Trabalhos selecionados"
+        "title": "Trabalhos "
       },
       {
         "title": "O que eu faço"
@@ -48,48 +61,56 @@
     ],
     "Habilities": [
       {
-        "MainWord": "Design",
-        "MainText": "Uma base sólida é essencial para qualquer projeto. Entrego interfaces bonitas, intuitivas e alinhadas à identidade da marca. Usabilidade e estética caminham juntas para criar melhores produtos."
+        "MainWord": "Arquitetura",
+        "MainText": "Foco na criação de estruturas de aplicação sólidas, projetando sistemas escaláveis e confiáveis que suportam crescimento a longo prazo e práticas de desenvolvimento limpas."
       },
       {
-        "MainWord": "Desenvolvimento",
-        "MainText": "Utilizando as tecnologias mais modernas da web, construo sites rápidos, acessíveis e precisos nos mínimos detalhes. Tenho foco especial em interações e transições criativas."
+        "MainWord": "Desenvolvimento Backend",
+        "MainText": "Usando tecnologias modernas como Node.js, NestJS e Go, construo APIs eficientes, infraestruturas seguras e lógica de servidor sustentável."
       },
       {
-        "MainWord": "Design & desenvolvimento",
-        "MainText": "Meu serviço preferido: criar o site completo do zero — da ideia ao produto final — garantindo um fluxo de produção coeso, rápido e eficaz."
+        "MainWord": "Desenvolvimento Frontend",
+        "MainText": "Desenvolvo interfaces responsivas e de alta performance usando React, Next.js e ferramentas modernas, garantindo interações fluidas e experiências de usuário consistentes."
       }
     ],
-    "SparkMensage": "Gosto de projetar experiências significativas que ajudam marcas e negócios a atenderem melhor seus usuários.",
-    "WhatIdoPart1": "Entregando ",
-    "WhatIdoPart2": "soluções web modernas, coesas e intuitivas",
+
+    "SparkMensage": "Trabalho com práticas ágeis como Scrum e planejamento de sprints para manter os projetos organizados e avançando com eficiência.",
+    "WhatIdoPart1": "Construindo soluções de software ",
+    "WhatIdoPart2": " eficientes, escaláveis e sustentáveis ",
     "WhatIdoPart3": "."
   },
   "about": {
-    "intro": "Conectando de forma fluida",
+    "intro": "Entrelaçando Experiências Fluidas Entre",
     "introHighlight": " Interfaces e Infraestrutura",
-    "aboutMe": "Sou um desenvolvedor focado em Web, com paixão por resolver problemas e construir experiências digitais inovadoras. Tenho experiência com Node.js, React, Next.js e outras tecnologias modernas que me permitem criar aplicações completas e eficientes.",
-    "history": "No tempo livre, gosto de tocar guitarra, ouvir música e jogar videogame. Também gosto de correr, ir à praia e praticar meditação para me desconectar da internet e focar em presença e bem-estar.",
-    "history2": "Tenho curiosidade por diversas áreas, desde automação com Arduino e mecânica até o estudo de novos idiomas como o italiano.",
-    "anotherInspirationsTitle": "Minha stack de desenvolvimento",
-    "anotherInspirationsText": "Minhas principais ferramentas incluem React, Next.js, Node.js, TypeScript, Tailwind CSS e Prisma. Também me interesso por branding, design de ícones, ilustrações minimalistas, arte digital, motion design e WebGL."
+    "aboutMe": "Sou um programador brasileiro que já trabalhou com uma vasta gama de tecnologias, desde Arduino e prototipagem até desenvolvimento web. Gosto de criar jogos como hobby e atualmente trabalho como desenvolvedor full-stack.",
+    "history": "Adoro me manter ocupado com meus hobbies. Gosto de tocar guitarra e ouvir música, e também sou um grande fã de videogames. Para relaxar e me desconectar do mundo digital, gosto de correr, passar tempo na praia e praticar meditação para mindfulness e relaxamento.",
+    "history2": "Tenho paixão por aprender um pouco de tudo, desde automação com Arduino e usinagem até estudar novos idiomas como italiano.",
+    "anotherInspirationsTitle": "Minha stack é focada em um fluxo de desenvolvimento full-cycle, trabalhando com Node.js, NestJS, Next.js e outras tecnologias modernas. Estou constantemente aprendendo novas ferramentas e abordagens para acompanhar o cenário tecnológico em rápida mudança.",
+    "anotherInspirationsText": "Sempre que inicio um novo projeto, tento aplicar o que aprendi com erros passados para não repeti-los. Tenho tendência a ser um pouco perfeccionista, o que às vezes pode me desacelerar.",
+    "leonardoQuato": "O aprendizado nunca exaure a mente."
   },
   "contact": {
-    "title": "Entre em contato",
-    "subTitle": "Interessado em trabalhar comigo? Envie-me uma mensagem",
-    "promtForGem": "Finja ser um ser iluminado e escreva apenas uma frase poética entre aspas",
+    "title": "Contato",
+    "subTitle": "Interessado em trabalharmos juntos? Mande uma mensagem.",
+    "promtForGem": "Assuma a presença de um antigo sábio e gere apenas uma linha poética entre aspas, renovando o tom e o simbolismo a cada saída.",
+
     "form": {
       "name": "Nome",
       "email": "Email",
       "message": "Mensagem",
       "submit": "Enviar"
-    }
+    },
+    "AIButton": "Preencher com I.A.",
+    "AIButtonGen": "Gerando...",
+    "SendButton": "Enviar Mensagem",
+    "SendButtonSending": "Enviando...",
+    "SendButtonSended": "Enviado!!!"
   },
   "footer": {
-    "WantText": "Quer me contratar?",
-    "ContactText": "Entre em contato",
-    "Disclaim": "Aviso legal",
-    "ReachText": "Entre em contato para colaboração ou para dizer olá em",
+    "WantText": "Procurando um desenvolvedor?",
+    "ContactText": "Fale Comigo",
+    "Disclaim": "Aviso Legal",
+    "ReachText": "Sinta-se à vontade para entrar em contato em",
     "email": "murilorocha537@gmail.com",
     "instagram": "https://instagram.com.br",
     "github": "https://github.com/th3-Rocha"

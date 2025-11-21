@@ -14,10 +14,16 @@ const Icon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
   * {
     color: ${({ theme }) => theme.colors.primary};
     height: 1.8rem;
     width: 1.8rem;
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.secondary};
+   
   }
 `;
 

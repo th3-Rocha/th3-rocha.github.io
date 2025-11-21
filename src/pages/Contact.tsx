@@ -242,7 +242,7 @@ function Contact({ toggleDarkTheme }: AboutProps) {
   const containerRef = useRef(null);
   const [coverLoad, setCoverLoad] = useState(false);
   const [coverMenu, setCoverMenu] = useState(false);
-  const [opharaimText, setOpharaimText] = useState("Don't be afraid");
+  const [opharaimText, setOpharaimText] = useState("...");
   const [opharimClicked, setOpharimClicked] = useState(false);
   const { translations } = useContext(LanguageContext);
   const [showCarousel, setShowCarousel] = useState(false);
@@ -545,7 +545,7 @@ PARTIAL MESSAGE END`
                           color: aiGenerating ? "#0b0b0b" : undefined,
                         }}
                       >
-                        {aiGenerating ? "Gerando..." : "Completar com IA"}
+                        {aiGenerating ? translations.contact.AIButtonGen : translations.contact.AIButton}
                       </button>
                     </MensaggeHeader>
                     <div>
@@ -586,10 +586,10 @@ PARTIAL MESSAGE END`
                       }}
                     >
                       {btnState === "sending"
-                        ? "Sending..."
+                        ? translations.contact.SendButtonSending
                         : btnState === "success"
-                        ? "Sended!!!"
-                        : "Send Message"}
+                        ? translations.contact.SendButtonSended
+                        : translations.contact.SendButton}
                     </button>
                     {sendError && (
                       <div role="alert" aria-live="assertive">

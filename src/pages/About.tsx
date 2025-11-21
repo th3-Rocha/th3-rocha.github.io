@@ -481,7 +481,7 @@ function About({ toggleDarkTheme }: AboutProps) {
                       <ArrowAspas></ArrowAspas>
                     </LeftAspasInside>
                     <H2TextSpan
-                      TextHighlight="Learning never exhausts the mind."
+                      TextHighlight={translations.about.leonardoQuato}
                       fontStyle="italic"
                     />
                   </div>
