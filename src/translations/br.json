@@ -23,8 +23,8 @@
 
     "works": [
       {
-        "title": "SMV Zap",
-        "description": "Landing page construída com Next.js para uma extensão de WhatsApp com CRM e sistema de transmissão de mensagens. Tanto a extensão (desenvolvida em React com Tailwind CSS e Shadcn) quanto o back-end (construído com Node.js) foram projetos nos quais trabalhei na mesma empresa."
+        "title": "Mercury Fleet",
+        "description": "Mercury Fleet é um painel administrativo em Next.js e TypeScript, focado em performance e boa UX. Usa TailwindCSS, shadcn/ui, React Query e Axios para garantir uma interface rápida e integrada. O backend da API é feito em PHP com Laravel."
       },
       {
         "title": "Bloch Sphere",
@@ -35,8 +35,8 @@
         "description": "Site que encurta links de WhatsApp gratuitamente, construído com Next.js e Next Server Actions."
       },
       {
-        "title": "Wombo Combo Rush",
-        "description": "Um jogo totalmente autoral desenvolvido para uma game jam da faculdade, construído com C# e a engine Unity, jogável diretamente no navegador."
+        "title": "SMV Zap",
+        "description": "Landing page construída com Next.js para uma extensão de WhatsApp com CRM e sistema de transmissão de mensagens. Tanto a extensão (desenvolvida em React com Tailwind CSS e Shadcn) quanto o back-end (construído com Node.js) foram projetos nos quais trabalhei na mesma empresa."
       },
       {
         "title": "DeRot",
@@ -47,8 +47,8 @@
         "description": "Este projeto é um simulador de geração de terreno infinito construído no Unity usando C#. Possui geração de chunks assíncrona alimentada por autômatos celulares e ruído Perlin multi-oitava."
       },
       {
-        "title": "Em Breve",
-        "description": "Em Breve"
+        "title": "Wombo Combo Rush",
+        "description": "Um jogo totalmente autoral desenvolvido para uma game jam da faculdade, construído com C# e a engine Unity, jogável diretamente no navegador."
       }
     ],
     "detailTitle": [

@@ -349,7 +349,8 @@ function Home({ toggleDarkTheme }: HomeProps) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            gsap.fromTo(entry.target, 
+            gsap.fromTo(
+              entry.target,
               { opacity: 0, yPercent: 20 },
               { duration: 3, opacity: 1, ease: "expo.out", yPercent: 0 }
             );
@@ -357,9 +358,9 @@ function Home({ toggleDarkTheme }: HomeProps) {
           }
         });
       },
-      { threshold: 0.85, rootMargin: '0px 0px -10% 0px' }
+      { threshold: 0.85, rootMargin: "0px 0px -10% 0px" }
     );
-    
+
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
@@ -370,7 +371,8 @@ function Home({ toggleDarkTheme }: HomeProps) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            gsap.fromTo(entry.target,
+            gsap.fromTo(
+              entry.target,
               { yPercent: 600, opacity: 0 },
               { duration: 1, opacity: 1, yPercent: 0, ease: "power4" }
             );
@@ -378,9 +380,9 @@ function Home({ toggleDarkTheme }: HomeProps) {
           }
         });
       },
-      { threshold: 0.8, rootMargin: '0px 0px -10% 0px' }
+      { threshold: 0.8, rootMargin: "0px 0px -10% 0px" }
     );
-    
+
     elements2.forEach((el) => observer2.observe(el));
     return () => observer2.disconnect();
   }, []);
@@ -478,8 +480,8 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     classNameTag="toAppear"
                     title={translations.home.works[0].title}
                     description={translations.home.works[0].description}
-                    imgSrc={"/smv.webp"}
-                    urlTo="https://smvzap.com/
+                    imgSrc={"/mercury.webp"}
+                    urlTo="https://mercury-fleet-bc1bp9unz-rochalees-projects.vercel.app/
                     "
                   />
                   <SubProjComponent
@@ -501,7 +503,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     classNameTag="toAppear"
                     title={translations.home.works[3].title}
                     description={translations.home.works[3].description}
-                    imgSrc={"/wombo.webp"}
+                    imgSrc={"/smv.webp"}
                     urlTo=""
                   />
                   <SubProjectLink

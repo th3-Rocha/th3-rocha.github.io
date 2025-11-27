@@ -23,8 +23,8 @@
 
     "works": [
       {
-        "title": "SMV Zap",
-        "description": "Landing page built with Next.js for a WhatsApp extension featuring a CRM and message broadcasting system. Both the extension (developed in React with Tailwind CSS and Shadcn) and the backend (built with Node.js) were projects I worked on within the same company."
+        "title": "Mercury Fleet",
+        "description": "Mercury Fleet is an administrative dashboard built with Next.js and TypeScript, focused on performance and UX. It uses TailwindCSS, shadcn/ui, React Query, and Axios to ensure a fast and seamless interface. The API backend is built with PHP and Laravel."
       },
       {
         "title": "Bloch Sphere",
@@ -35,8 +35,8 @@
         "description": "Website that shortens WhatsApp links for free, built with Next.js and Next Server Actions."
       },
       {
-        "title": "Wombo Combo Rush",
-        "description": "A fully self-made game developed for a college game jam, built with C# and the Unity engine, and playable directly in the web browser."
+        "title": "SMV Zap",
+        "description": "Landing page built with Next.js for a WhatsApp extension featuring a CRM and message broadcasting system. Both the extension (developed in React with Tailwind CSS and Shadcn) and the backend (built with Node.js) were projects I worked on within the same company."
       },
       {
         "title": "DeRot",
@@ -47,8 +47,8 @@
         "description": "This project is an infinite terrain generation simulator built in Unity using C#. It features asynchronous chunk generation powered by cellular automata and multi-octave Perlin noise."
       },
       {
-        "title": "W.I.P",
-        "description": "W.I.P"
+        "title": "Wombo Combo Rush",
+        "description": "A fully self-made game developed for a college game jam, built with C# and the Unity engine, and playable directly in the web browser."
       }
     ],
     "detailTitle": [

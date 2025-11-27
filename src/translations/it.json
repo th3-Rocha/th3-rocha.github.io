@@ -23,8 +23,8 @@
 
     "works": [
       {
-        "title": "SMV Zap",
-        "description": "Landing page costruita con Next.js per un'estensione WhatsApp che include un CRM e un sistema di trasmissione messaggi. Sia l'estensione (sviluppata in React con Tailwind CSS e Shadcn) che il backend (costruito con Node.js) sono progetti su cui ho lavorato all'interno della stessa azienda."
+        "title": "Mercury Fleet",
+        "description": "Mercury Fleet è un pannello amministrativo in Next.js e TypeScript, focalizzato sulle prestazioni e sulla UX. Utilizza TailwindCSS, shadcn/ui, React Query e Axios per garantire un'interfaccia rapida e integrata. Il backend dell'API è realizzato in PHP con Laravel."
       },
       {
         "title": "Bloch Sphere",
@@ -35,8 +35,8 @@
         "description": "Sito web che accorcia i link di WhatsApp gratuitamente, costruito con Next.js e Next Server Actions."
       },
       {
-        "title": "Wombo Combo Rush",
-        "description": "Un gioco interamente creato da me per una game jam universitaria, sviluppato con C# e il motore Unity, e giocabile direttamente nel browser."
+        "title": "SMV Zap",
+        "description": "Landing page costruita con Next.js per un'estensione WhatsApp che include un CRM e un sistema di trasmissione messaggi. Sia l'estensione (sviluppata in React con Tailwind CSS e Shadcn) che il backend (costruito con Node.js) sono progetti su cui ho lavorato all'interno della stessa azienda."
       },
       {
         "title": "DeRot",
@@ -47,8 +47,8 @@
         "description": "Questo progetto è un simulatore di generazione procedurale di terreni infiniti costruito in Unity usando C#. Presenta una generazione di chunk asincrona alimentata da automi cellulari e rumore Perlin multi-ottava."
       },
       {
-        "title": "In Lavorazione",
-        "description": "In Lavorazione"
+        "title": "Wombo Combo Rush",
+        "description": "Un gioco interamente creato da me per una game jam universitaria, sviluppato con C# e il motore Unity, e giocabile direttamente nel browser."
       }
     ],
     "detailTitle": [
