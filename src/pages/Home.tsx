@@ -489,7 +489,7 @@ function Home({ toggleDarkTheme }: HomeProps) {
                     title={translations.home.works[1].title}
                     description={translations.home.works[1].description}
                     imgSrc={"/bloch.webp"}
-                    urlTo="https://th3-rocha.github.io/Bloch-sphere-with-React-Three-Fiber"
+                    urlTo="https://bloch-sphere-mrocha.vercel.app/"
                   />
 
                   <SubProjComponent
