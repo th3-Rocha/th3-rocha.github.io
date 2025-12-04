@@ -1,4 +1,4 @@
-# Website Recreation Project Portfolio
+# Project Portfolio
 
 ## Overview
 
@@ -56,6 +56,3 @@ The Contact page can use Google Generative AI (Gemini) to help write or complete
 
 This project is for educational purposes only and is not intended for commercial use. All content and code are created by me, inspired by the design of the original website at [rekhchandsahu.com](https://rekhchandsahu.com/).
 
-## Acknowledgements
-
-- Thanks to [Rekh Chand Sahu](https://rekhchandsahu.com/) for the inspiration and the design of the original website.
