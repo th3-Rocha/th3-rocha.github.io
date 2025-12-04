@@ -38,7 +38,7 @@ const OphanimMeme = () => {
       if (!containerAscii) {
         return;
       }
-      
+
       function getRandomBetween(min: number, max: number): number {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
@@ -177,7 +177,7 @@ const OphanimMeme = () => {
       }
 
       function renderizarFrame() {
-        let tela = Array(constanteK3 * constanteK3).fill(" ");
+        let tela = Array(constanteK3 * constanteK3).fill("&nbsp;");
         let bufferZ = Array(constanteK3 * constanteK3).fill(0);
 
         renderizarTorus(anguloA, anguloB, raioR1, raioR2, tela, bufferZ); // First torus
@@ -191,14 +191,15 @@ const OphanimMeme = () => {
             return acumulador;
           }, "");
 
-          anguloA += 0.03; // Rotation of the first torus
-          anguloB += 0.02;
+          // Velocidades diferentes para cada anel (valores primos/irracionais para evitar ciclos)
+          anguloA += 0.037; // Anel externo
+          anguloB += 0.023;
 
-          anguloA2 += 0.04; // Rotation of the second torus
-          anguloB2 += 0.03;
+          anguloA2 += 0.051; // Anel do meio (direção oposta em um eixo)
+          anguloB2 -= 0.029; // Rotação reversa
 
-          anguloA3 += 0.05; // Rotation of the third torus
-          anguloB3 += 0.04;
+          anguloA3 += 0.043; // Anel interno
+          anguloB3 += 0.067;
           requestAnimationFrame(renderizarFrame);
         }
       }
